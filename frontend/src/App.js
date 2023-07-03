@@ -1,6 +1,6 @@
 import { Switch } from 'react-router-dom';
 import { AuthRoute } from './components/Routes/Routes';
-import { Route, Redirect } from 'react-router-dom';
+// import { Route, Redirect } from 'react-router-dom';
 
 import MainPage from './components/MainPage/MainPage';
 // import LoginForm from './components/SessionForms/LoginForm';
@@ -22,9 +22,9 @@ function App() {
         {/* <AuthRoute exact path="/login" component={LoginForm} /> */}
         <AuthRoute exact path="/" component={MainPage} />
 
-        <Route>
+        {/* <Route>
           <Redirect to="/" />
-        </Route>
+        </Route> */}
 
       </Switch>
       {/* <Footer /> */}
