@@ -4,8 +4,8 @@ import './SessionForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 
 function SignupForm () {
-    const [firstName, setfirstName] = useState('')
-    const [lastName, setlastName] = useState('')
+    const [fname, setFname] = useState('')
+    const [lname, setLname] = useState('')
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const errors = useSelector(state => state.errors.session);
@@ -21,11 +21,11 @@ function SignupForm () {
         let setState;
 
         switch (field) {
-        case 'firstName':
-            setState = setfirstName;
+        case 'fname':
+            setState = setFname;
             break;
-        case 'lastName':
-            setState = setlastName;
+        case 'lname':
+            setState = setLname;
             break;
         case 'username':
             setState = setUsername;
@@ -43,8 +43,8 @@ function SignupForm () {
     const handleSubmit = e => {
         e.preventDefault();
         const user = {
-        firstName,
-        lastName,
+        fname,
+        lname,
         username,
         password
         };
@@ -59,16 +59,16 @@ function SignupForm () {
         <label>
             <span>First Name</span>
             <input type="text"
-            value={firstName}
-            onChange={update('firstName')}
+            value={fname}
+            onChange={update('fname')}
             placeholder="First Name"
             />
         </label>
         <label>
             <span>Last Name</span>
             <input type="text"
-            value={lastName}
-            onChange={update('lastName')}
+            value={lname}
+            onChange={update('lname')}
             placeholder="Last Name"
             />
         </label>
@@ -93,7 +93,7 @@ function SignupForm () {
         <input
             type="submit"
             value="Sign Up"
-            disabled={!firstName || !lastName || !username || !password }
+            disabled={!fname || !lname || !username || !password }
         />
         </form>
     );
