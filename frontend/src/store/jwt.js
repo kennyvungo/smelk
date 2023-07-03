@@ -26,6 +26,4 @@ async function jwtFetch(url, options = {}) {
 }
 
 
-
-
 export default jwtFetch;
