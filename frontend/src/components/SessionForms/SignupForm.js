@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import './SessionForm.css';
+// import './SessionForm.css';
 import { signup, clearSessionErrors } from '../../store/session';
 
 function SignupForm () {
@@ -54,47 +54,47 @@ function SignupForm () {
 
     return (
         <form className="session-form" onSubmit={handleSubmit}>
-        <h2>Sign Up Form</h2>
-        <div className="errors">{errors?.email}</div>
-        <label>
-            <span>First Name</span>
-            <input type="text"
-            value={fname}
-            onChange={update('fname')}
-            placeholder="First Name"
+            <h2>Sign Up Form</h2>
+            <div className="errors">{errors?.email}</div>
+            <label>
+                <span>First Name</span>
+                <input type="text"
+                value={fname}
+                onChange={update('fname')}
+                placeholder="First Name"
+                />
+            </label>
+            <label>
+                <span>Last Name</span>
+                <input type="text"
+                value={lname}
+                onChange={update('lname')}
+                placeholder="Last Name"
+                />
+            </label>
+            <div className="errors">{errors?.username}</div>
+            <label>
+                <span>Username</span>
+                <input type="text"
+                value={username}
+                onChange={update('username')}
+                placeholder="Username"
+                />
+            </label>
+            <div className="errors">{errors?.password}</div>
+            <label>
+                <span>Password</span>
+                <input type="password"
+                value={password}
+                onChange={update('password')}
+                placeholder="Password"
+                />
+            </label>
+            <input
+                type="submit"
+                value="Sign Up"
+                disabled={!fname || !lname || !username || !password }
             />
-        </label>
-        <label>
-            <span>Last Name</span>
-            <input type="text"
-            value={lname}
-            onChange={update('lname')}
-            placeholder="Last Name"
-            />
-        </label>
-        <div className="errors">{errors?.username}</div>
-        <label>
-            <span>Username</span>
-            <input type="text"
-            value={username}
-            onChange={update('username')}
-            placeholder="Username"
-            />
-        </label>
-        <div className="errors">{errors?.password}</div>
-        <label>
-            <span>Password</span>
-            <input type="password"
-            value={password}
-            onChange={update('password')}
-            placeholder="Password"
-            />
-        </label>
-        <input
-            type="submit"
-            value="Sign Up"
-            disabled={!fname || !lname || !username || !password }
-        />
         </form>
     );
 }
