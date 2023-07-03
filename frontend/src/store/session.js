@@ -56,7 +56,7 @@ export const getCurrentUser = () => async dispatch => {
 
 const nullErrors = null;
 
-export const sessionErrorsReducer = (state = {}, action) => {
+export const sessionErrorsReducer = (state = nullErrors, action) => {
   switch(action.type) {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
