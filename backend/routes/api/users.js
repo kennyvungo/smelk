@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/register', async (req, res, next) => {
   const user = await User.findOne({
-    $or: [{ email: req.body.email }, { username: req.body.username }]
+    username: req.body.username 
   });
   if (user) {
     const err = new Error("Validation Error");
@@ -30,11 +30,16 @@ router.post('/register', async (req, res, next) => {
     fname: req.body.fname,
     lname: req.body.lname
   });
+  console.log("this is newUser:",newUser)
+  console.log("newUser",newUser.username)
+  console.log("kenny")
   bcrypt.genSalt(10, (err, salt) => {
+    console.log("kenneth")
     if (err) throw err;
     bcrypt.hash(req.body.password, salt, async (err, hashedPassword) => {
       if (err) throw err;
       try {
+        console.log("kennethy")
         newUser.hashedPassword = hashedPassword;
         const user = await newUser.save();
         return res.json({ user });
