@@ -11,13 +11,17 @@ const eventSchema = new Schema({
         required: true
     },
     dates: {
-        type: [Date]
-        },
+        type: [Date],
+        required: true
+
+    },
     dailyEventStartTime: {
-        type: Date
+        type: String,
+        required: true
     },
     dailyEventEndTime: {
-        type: Date
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
