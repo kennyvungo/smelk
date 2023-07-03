@@ -11,7 +11,6 @@ function LoginForm () {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(clearSessionErrors())
     return () => {
       dispatch(clearSessionErrors());
     };
