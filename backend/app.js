@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const { isProduction } = require('./config/keys');
 const csurf = require('csurf');
+const debug = require('debug');
 
 // Express Routers
 const usersRouter = require('./routes/api/users');
@@ -34,4 +35,20 @@ app.use(
 // attaching Express Routers
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
+app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err.statusCode = 404;
+    next(err);
+});
+const serverErrorLogger = debug('backend:error');
+app.use((err, req, res, next) => {
+    serverErrorLogger(err);
+    const statusCode = err.statusCode || 500;
+    res.status(statusCode);
+    res.json({
+        message: err.message,
+        statusCode,
+        errors: err.errors
+    })
+});
 module.exports = app;
