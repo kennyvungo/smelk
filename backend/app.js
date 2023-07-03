@@ -10,7 +10,7 @@ const debug = require('debug');
 // Express Routers
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
-
+const eventRouter = require('./routes/api/events')
 const app = express();
 
 app.use(logger('dev'));

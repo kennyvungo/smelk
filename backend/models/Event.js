@@ -12,7 +12,7 @@ const eventSchema = new Schema({
     },
     dates: {
         type: [Date]
-    },
+        },
     dailyEventStartTime: {
         type: Date
     },
