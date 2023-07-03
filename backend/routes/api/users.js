@@ -19,6 +19,7 @@ router.get('/current', restoreUser, (req, res) => {
   });
 });
 
+
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.json({
