@@ -8,7 +8,7 @@ const csurf = require('csurf');
 const debug = require('debug');
 
 // Express Routers
-const usersRouter = require('./routes/api/users');
+// const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 const eventRouter = require('./routes/api/events')
 const app = express();
@@ -33,6 +33,7 @@ app.use(
 );
 
 // attaching Express Routers
+app.use('/api/events', eventsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
 app.use((req, res, next) => {

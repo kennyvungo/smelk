@@ -8,7 +8,7 @@ const { requireUser } = require('../../config/passport');
 router.post('/', async (req, res, next) => {
     try {
         const newEvent = new Event({
-            owner: req.user._id,
+            // owner: req.user._id,
             name: req.body.name,
             dates: req.body.dates,
             dailyEventStartTime: req.body.startTime,
@@ -16,7 +16,7 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
-        event = await Event.populate('owner', '_id username');
+        // event = await Event.populate('owner', '_id username');
         return res.json(event);
     }
     catch(err) {
