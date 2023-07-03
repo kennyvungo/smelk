@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import './SessionForm.css';
+// import './SessionForm.css';
 
 import { login, clearSessionErrors } from '../../store/session';
 
@@ -11,6 +11,7 @@ function LoginForm () {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // dispatch(clearSessionErrors())
     return () => {
       dispatch(clearSessionErrors());
     };
