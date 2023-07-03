@@ -13,10 +13,10 @@ const eventSchema = new Schema({
     dates: {
         type: [Date]
     },
-    startTime: {
+    dailyEventStartTime: {
         type: Date
     },
-    endTime: {
+    dailyEventEndTime: {
         type: Date
     }
 }, {
