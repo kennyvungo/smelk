@@ -11,11 +11,11 @@ import { getCurrentUser } from './store/session';
 
 
 function App() {
-  // const [loaded, setLoaded] = useState(false);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getCurrentUser()).then(() => setLoaded(true));
-  // }, [dispatch]);
+  const [loaded, setLoaded] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCurrentUser()).then(() => setLoaded(true));
+  }, [dispatch]);
 
   return  (
     <>
