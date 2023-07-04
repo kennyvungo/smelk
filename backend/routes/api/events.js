@@ -44,6 +44,7 @@ router.patch('/:id', async (req, res, next) => {
         const id = req.params.id;
         const update = await Event.updateOne({_id: id},{$set: updatedEvent});
         const event = await Event.findById(req.params.id)
+        // if start or end times change, update schedule
         return res.json(event);
     }
     catch (err) {
