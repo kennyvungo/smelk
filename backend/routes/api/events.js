@@ -8,7 +8,7 @@ const Event = mongoose.model('Event');
 router.post('/', async (req, res, next) => {
     try {
         const newEvent = new Event({
-            owner: req.user._id,
+            owner: req.body.owner,
             name: req.body.name,
             dates: req.body.dates,
             dailyEventStartTime: req.body.startTime,
@@ -16,10 +16,8 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
-        let ownedEvents = User.findById(newEvent.owner).ownedEvents
-        ownedEvents.push(event._id)
-        const user = await User.updateOne({_id: req.user.id}, {$set: ownedEvents})
-        // event = await Event.populate('owner', '_id username');
+        console.log(event.ObjectId);
+        const user = await User.updateOne({_id: req.user.id}, {$push: {ownedEvents: event._id}})
         return res.json(event);
     }
     catch(err) {
@@ -55,6 +53,24 @@ router.patch('/:id', async (req, res, next) => {
         error.errors = { message: "No event found with that id" };
         return next(error);
     }
+})
+
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const event = await Event.findOneAndDelete({_id: req.params.id})
+        return res.send('Event deleted successfully')
+    }
+    catch (err) {
+        const error = new Error('Event not found');
+        error.statusCode = 404;
+        error.errors = { message: "No event found with that id" };
+        return next(error);
+    }
+})
+
+router.get('/', async (req, res) => {
+    const events = await Event.find()
+    return res.json(events)
 })
 
 module.exports = router;

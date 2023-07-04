@@ -19,6 +19,10 @@ router.get('/current', restoreUser, (req, res) => {
   });
 });
 
+router.get('/', async (req, res) => {
+  const users = await User.find()
+  return res.json(users)
+})
 
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
