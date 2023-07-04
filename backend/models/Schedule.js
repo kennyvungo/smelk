@@ -11,7 +11,7 @@ const scheduleSchema = new Schema({
         ref: 'Event'
     },
     dailySchedule: {
-        type: [Date],
+        type: mongoose.SchemaTypes.Mixed,
         required: true
     }
 }, {

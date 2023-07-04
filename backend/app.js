@@ -72,6 +72,7 @@ app.use((req, res, next) => {
     err.statusCode = 404;
     next(err);
 });
+
 const serverErrorLogger = debug('backend:error');
 app.use((err, req, res, next) => {
     serverErrorLogger(err);
