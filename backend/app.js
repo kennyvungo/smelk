@@ -7,6 +7,7 @@ const { isProduction } = require('./config/keys');
 const csurf = require('csurf');
 const debug = require('debug');
 require('./models/Event');
+require('./models/Schedule');
 require('./models/User');
 require('./config/passport');
 const passport = require('passport');
@@ -15,6 +16,7 @@ const passport = require('passport');
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 const eventsRouter = require('./routes/api/events')
+const schedulesRouter = require('./routes/api/schedules')
 const app = express();
 
 app.use(passport.initialize());
@@ -38,6 +40,7 @@ app.use(
 );
 
 // attaching Express Routers
+app.use('/api/schedules', schedulesRouter);
 app.use('/api/events', eventsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
