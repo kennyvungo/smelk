@@ -11,8 +11,8 @@ router.post('/', async (req, res, next) => {
             owner: req.body.owner,
             name: req.body.name,
             dates: req.body.dates,
-            dailyEventStartTime: req.body.startTime,
-            dailyEventEndTime: req.body.endTime
+            dailyEventStartTime: req.body.dailyEventStartTime,
+            dailyEventEndTime: req.body.dailyEventEndTime
         });
 
         let event = await newEvent.save();
