@@ -20,7 +20,7 @@ function EventsShow() {
                     <h2>{event.name}</h2>
                     <p>Start Time: {event.dailyEventStartTime}</p>
                     <p>End Time: {event.dailyEventEndTime}</p>
-                    <p>Dates: {event.dates.join(', ')}</p>
+                    <p>Dates: {event.dates.map(date => new Date(date).toLocaleDateString()).join(', ')}</p>
                 </div>
             )}
         </div>
