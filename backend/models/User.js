@@ -16,6 +16,10 @@ const userSchema = new Schema({
     hashedPassword: {
       type: String,
       required: true
+    },
+    ownedEvents: {
+      type: Array,
+      required: true
     }
   }, {
     timestamps: true

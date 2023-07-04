@@ -42,7 +42,6 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.patch('/:id', async (req, res, next) => {
-    console.log(req.body);
     try {
         const updatedEvent = req.body;
         const id = req.params.id;

@@ -44,7 +44,8 @@ router.post('/register', async (req, res, next) => {
   const newUser = new User({
     username: req.body.username,
     fname: req.body.fname,
-    lname: req.body.lname
+    lname: req.body.lname,
+    ownedEvents: []
   });
 
   bcrypt.genSalt(10, (err, salt) => {
