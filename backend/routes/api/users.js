@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Event = mongoose.model('Event');
 const passport = require('passport');
 const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
@@ -24,12 +25,19 @@ router.get('/', async (req, res) => {
   return res.json(users)
 })
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.json({
-//     message: "GET /api/users"
-//   });
-// });
+router.get('/:id', async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    const events = await Event.find({ owner: req.params.id })
+    return res.json({ user, events })
+  } 
+  catch (err) {
+    const error = new Error('User not found');
+    error.statusCode = 404;
+    error.errors = { message: "No user found with that id" };
+    return next(error);
+  }
+});
 
 router.post('/register', async (req, res, next) => {
   const user = await User.findOne({
