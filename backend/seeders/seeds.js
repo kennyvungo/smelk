@@ -3,7 +3,7 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Event = require('../models/Event');
 const bcrypt = require('bcryptjs');
-const { faker } = require('@faker-js/faker');
+// const { faker } = require('@faker-js/faker');
 
 const users = [];
 
@@ -32,3 +32,32 @@ const events = [
         dailyEventEndTime: "10:00 PM"
     })
 ]
+
+
+mongoose
+    .connect(db, { useNewUrlParser: true })
+    .then(() => {
+        console.log('Connected to MongoDB successfully');
+        insertSeeds();
+    })
+    .catch(err => {
+        console.error(err.stack);
+        process.exit(1);
+    });
+
+const insertSeeds = () => {
+    console.log("Resetting db and seeding users and tweets...")
+
+    User.collection.drop()
+        .then(() => Event.collection.drop())
+        .then(() => User.insertMany(users))
+        .then(() => Event.insertMany(events))
+        .then(() => {
+            console.log("Done!");
+            mongoose.disconnect();
+        })
+        .catch(err => {
+            console.error(err.stack);
+            process.exit(1);
+        });
+}

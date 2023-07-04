@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-// const User = mongoose.model('User');
+const User = mongoose.model('User');
 const Event = mongoose.model('Event');
-const { requireUser } = require('../../config/passport');
+// const { requireUser } = require('../../config/passport');
 
 router.post('/', async (req, res, next) => {
     try {
         const newEvent = new Event({
-            // owner: req.user._id,
+            owner: req.user._id,
             name: req.body.name,
             dates: req.body.dates,
             dailyEventStartTime: req.body.startTime,
@@ -16,6 +16,9 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
+        let ownedEvents = User.findById(newEvent.owner).
+        ownedEvents.push(event._id)
+        const user = await User.updateOne({_id: req.user.id}, {$set: ownedEvents})
         // event = await Event.populate('owner', '_id username');
         return res.json(event);
     }
@@ -26,6 +29,7 @@ router.post('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
+        console.log(req.params.id)
         const event = await Event.findById(req.params.id)
         return res.json(event);
     }
@@ -38,11 +42,12 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.patch('/:id', async (req, res, next) => {
+    console.log(req.body);
     try {
         const updatedEvent = req.body;
         const id = req.params.id;
-        let event = await newEvent.save();
-        event = await Event.updateOne({_id: isObjectIdOrHexString(id)},{$set: updatedEvent});
+        const update = await Event.updateOne({_id: id},{$set: updatedEvent});
+        const event = await Event.findById(req.params.id)
         return res.json(event);
     }
     catch (err) {

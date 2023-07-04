@@ -7,10 +7,11 @@ const { isProduction } = require('./config/keys');
 const csurf = require('csurf');
 const debug = require('debug');
 require('./models/User');
+require('./models/Event');
 // Express Routers
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
-const eventRouter = require('./routes/api/events')
+const eventsRouter = require('./routes/api/events')
 const app = express();
 
 app.use(logger('dev'));
@@ -36,6 +37,7 @@ app.use(
 app.use('/api/events', eventsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
+
 app.use((req, res, next) => {
     const err = new Error('Not Found');
     err.statusCode = 404;
