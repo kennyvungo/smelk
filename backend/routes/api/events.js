@@ -58,8 +58,10 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         const event = await Event.findOneAndDelete({_id: req.params.id})
-        // remove ownedEvent id from user
-        return res.send('Event deleted successfully')
+        console.log(event.owner);
+        let user = await User.updateOne({ _id: event.owner }, { $pull: { ownedEvents: event._id }})
+        user = await User.findById(event.owner)
+        return res.json(user)
     }
     catch (err) {
         const error = new Error('Event not found');
