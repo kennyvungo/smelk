@@ -7,13 +7,16 @@ const { isProduction } = require('./config/keys');
 const csurf = require('csurf');
 const debug = require('debug');
 require('./models/User');
-require('./models/Event');
+require('./config/passport');
+const passport = require('passport');
+
 // Express Routers
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 const eventsRouter = require('./routes/api/events')
 const app = express();
 
+app.use(passport.initialize());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
