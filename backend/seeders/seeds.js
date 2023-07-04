@@ -12,7 +12,8 @@ users.push(
         username: 'demo-user',
         fname: 'Demo',
         lname: 'User',
-        hashedPassword: bcrypt.hashSync('password', 10)
+        hashedPassword: bcrypt.hashSync('password', 10),
+        ownedEvents: []
     })
 )
 
@@ -52,6 +53,7 @@ const insertSeeds = () => {
         .then(() => Event.collection.drop())
         .then(() => User.insertMany(users))
         .then(() => Event.insertMany(events))
+        .then(() => User.updateOne({_id: users[0]._id}, {ownedEvents: [events[0]._id, events[1]._id]}))
         .then(() => {
             console.log("Done!");
             mongoose.disconnect();

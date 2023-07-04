@@ -16,7 +16,7 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
-        let ownedEvents = User.findById(newEvent.owner).
+        let ownedEvents = User.findById(newEvent.owner).ownedEvents
         ownedEvents.push(event._id)
         const user = await User.updateOne({_id: req.user.id}, {$set: ownedEvents})
         // event = await Event.populate('owner', '_id username');
