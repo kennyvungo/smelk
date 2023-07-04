@@ -16,8 +16,7 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
-        console.log(event.ObjectId);
-        const user = await User.updateOne({_id: req.user.id}, {$push: {ownedEvents: event._id}})
+        const user = await User.updateOne({_id: req.body.owner}, {$push: {ownedEvents: event._id}})
         return res.json(event);
     }
     catch(err) {
@@ -58,6 +57,7 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         const event = await Event.findOneAndDelete({_id: req.params.id})
+        // remove ownedEvent id from user
         return res.send('Event deleted successfully')
     }
     catch (err) {
