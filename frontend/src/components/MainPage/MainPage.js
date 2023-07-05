@@ -4,7 +4,6 @@ function MainPage() {
       <>
       <body className='home-background'>
         <div className='home-page-title'>Meet&Greet</div>
-
       </body>
       </>
     );

@@ -1,0 +1,61 @@
+.about-title {
+    font-size: 30px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-left: 6%;
+    margin-top: 2%;
+}
+
+.all-people {
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    justify-content: space-evenly;
+    margin-top: 4%;
+}
+
+
+
+.picture {
+    width: 250px;
+    height: 150px;
+    margin-top: 6%;
+    margin-left: 2%;
+}
+
+.person {
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 2%;
+    margin-left: 8%;
+}
+
+.github1 {
+    margin-top: 1%;
+    /* margin-left: 6%; */
+    width: 50px;
+    height: 50px;
+}
+
+.linkedin1 {
+    margin-top: 1%;
+    margin-left: 6%;
+    width: 50px;
+    height: 50px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+}
