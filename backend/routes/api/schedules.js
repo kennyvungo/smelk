@@ -6,9 +6,10 @@ const Schedule = mongoose.model('Schedule');
 router.post('/', async (req, res, next) => {
     try {
         const newSchedule = new Schedule({
-            username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             eventId: req.body.eventId,
-            
+
         })
     }
     catch (err) {

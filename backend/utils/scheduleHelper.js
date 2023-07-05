@@ -1,4 +1,3 @@
-// export const createDaySchedule = (startDate, endDate) => {
 const createDaySchedule = (startTime, endTime) => {
     const timesArr = [
         '12:00 AM',
@@ -62,7 +61,7 @@ const createDaySchedule = (startTime, endTime) => {
     return dailySchedule;
 };
 
-const updateDaySchedule = (oldDaySchedule, newStartTime, newEndTime) => {
+exports.updateDaySchedule = (oldDaySchedule, newStartTime, newEndTime) => {
     const newDaySchedule = createDaySchedule(newStartTime, newEndTime);
 
     for (const time of Object.keys(newDaySchedule)) {
@@ -72,17 +71,12 @@ const updateDaySchedule = (oldDaySchedule, newStartTime, newEndTime) => {
     return newDaySchedule;
 }
 
+exports.createEmptySchedule = (datesArr, startTime, endTime) => {
+    let emptySchedule = {};
 
-// console.log(createDaySchedule('9:00 AM', '12:00 PM'));
+    for (const date of datesArr) {
+        emptySchedule[date] = createDaySchedule(startTime,endTime);
+    }
 
-
-// const sched = {
-//     '9:00 AM': false,
-//     '9:30 AM': true,
-//     '10:00 AM': true,
-//     '10:30 AM': false,
-//     '11:00 AM': true,
-//     '11:30 AM': true
-// }
-
-// console.log(updateDaySchedule(sched, '8:00 AM', '1:00 PM'));
+    return emptySchedule;
+}

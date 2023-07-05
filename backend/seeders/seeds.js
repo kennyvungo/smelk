@@ -37,7 +37,8 @@ const events = [
 
 const schedules = [
     new Schedule ({
-        username: "lauren",
+        firstName: "Lauren",
+        lastName: "Cary",
         eventId: events[0]._id,
         dailySchedule: {
             '2023-06-26': {
@@ -143,7 +144,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        username: "misha",
+        firstName: "Misha",
+        lastName: "Bansal",
         eventId: events[0]._id,
         dailySchedule: {
             '2023-06-26': {
@@ -249,7 +251,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        username: "lauren",
+        firstName: "Demo",
+        lastName: "User",
         eventId: events[0]._id,
         dailySchedule: {
             '2023-06-26': {
