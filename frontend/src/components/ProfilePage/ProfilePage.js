@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
+import EventForm from "../Events/Eventform";
+import ChatGPTEvent from "../Events/ChatGPTEvent";
 
 function ProfilePage () {
     const dispatch = useDispatch();
@@ -28,6 +30,9 @@ function ProfilePage () {
                     </Link>
                 </div>
             ))}
+            <EventForm/>
+            <br />
+            <ChatGPTEvent />
         </>
     )
 }
