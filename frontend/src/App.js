@@ -10,6 +10,7 @@ import NavBar from './components/NavBar/NavBar';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import EventsShow from './components/Events/EventsShow';
 import { getCurrentUser } from './store/session';
+import { AboutPage } from './components/AboutPage/AboutPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           {/* <AuthRoute exact path="/event/:id" component={EventsShow} /> */}
           <AuthRoute exact path="/signup" component={SignupForm} />
           <AuthRoute exact path="/login" component={LoginForm} />
+          <AuthRoute exact path="/about" component={AboutPage} />
           <AuthRoute exact path="/" component={MainPage} />
 
           {/* <Route>
