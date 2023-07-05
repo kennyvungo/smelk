@@ -20,7 +20,7 @@ const EventForm = () => {
     return `${twelveHourFormat}:00 ${period}`;
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
       e.preventDefault();
 
       const newEvent = {
@@ -30,10 +30,13 @@ const EventForm = () => {
         dailyEventStartTime: eventStartTime,
         dailyEventEndTime: eventEndTime,
     };
+
+    const createdEvent = await dispatch(createEvent(newEvent));
     // console.log('New Event: ', newEvent);  //test object in console and see
-    dispatch(createEvent(newEvent)).then((createdEvent) => {
-      history.push('/event/' + createdEvent._id);
-    });
+    if (createdEvent) {
+      history.push('/event/' + createdEvent.event._id);
+    }
+
   }
 
   return (
