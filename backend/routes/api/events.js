@@ -14,15 +14,14 @@ router.post('/', async (req, res, next) => {
             name: req.body.name,
             dates: req.body.dates,
             dailyEventStartTime: req.body.dailyEventStartTime,
-            dailyEventEndTime: req.body.dailyEventEndTime
+            dailyEventEndTime: req.body.dailyEventEndTime,
+            emptySchedule: scheduleHelper.createEmptySchedule(req.body.dates, req.body.dailyEventStartTime, req.body.dailyEventEndTime)
         });
 
         let event = await newEvent.save();
-        // create an empty schedule
         let user = await User.updateOne({_id: req.body.owner}, {$push: {ownedEvents: event._id}})
         user = await User.findById(event.owner)
-        const emptySchedule = scheduleHelper.createEmptySchedule(event.dates, event.dailyEventStartTime, event.dailyEventEndTime);
-        return res.json({ user, event, emptySchedule });
+        return res.json({ user, event });
     }
     catch(err) {
         next(err);

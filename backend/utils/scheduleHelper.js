@@ -72,11 +72,20 @@ exports.updateDaySchedule = (oldDaySchedule, newStartTime, newEndTime) => {
 }
 
 exports.createEmptySchedule = (datesArr, startTime, endTime) => {
+// const createEmptySchedule = (datesArr, startTime, endTime) => {
     let emptySchedule = {};
 
     for (const date of datesArr) {
-        emptySchedule[date] = createDaySchedule(startTime,endTime);
+        console.log(date);
+        emptySchedule[date] = createDaySchedule(startTime, endTime);
     }
 
     return emptySchedule;
 }
+
+// console.log(createEmptySchedule([
+//     "2023-05-14",
+//     "2023-05-16",
+//     "2023-05-18",
+//     "2023-05-19"
+// ], '11:00 AM', '3:00 PM'))
