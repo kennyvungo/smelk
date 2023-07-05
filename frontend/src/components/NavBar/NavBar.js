@@ -17,8 +17,10 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
-          <Link to={`/profile/${userId}`}>Profile</Link>
-          <button onClick={logoutUser}>Logout</button>
+          <div className='links-auth-container'>
+            <Link to={`/profile/${userId}`}>Profile</Link>
+            <button onClick={logoutUser} >Logout</button>
+          </div>
         </div>
       );
     } else {

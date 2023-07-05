@@ -19,32 +19,31 @@
 }
 
 body  {
-    background-image: url('file:///Users/shannale/Downloads/pexels-karolina-grabowska-4862892.jpg');
-  background-size:cover;
-        -webkit-animation: slidein 8s;
-        animation: slidein 8s;
+    background-image: url('Images/background.jpg');
+    background-size:cover;
+    -webkit-animation: slidein 8s;
+    animation: slidein 8s;
 
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 
-        -webkit-animation-direction: alternate;
-        animation-direction: alternate;              
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;              
 }
 
 @-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
+    from {background-position: top; background-size:3000px; }
+    to {background-position: -100px 0px;background-size:2750px;}
 }
 
 @keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
+    from {background-position: top;background-size:3000px; }
+    to {background-position: -100px 0px;background-size:2750px;}
 
 }
-
 
 .center {
   /* display: flex;

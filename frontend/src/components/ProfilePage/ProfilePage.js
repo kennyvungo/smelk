@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
@@ -17,7 +17,6 @@ function ProfilePage () {
     }, [dispatch, user]);
 
     if (!userEvents) return null;
-
 
     return (
         <>
