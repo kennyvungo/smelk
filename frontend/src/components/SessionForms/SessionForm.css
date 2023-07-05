@@ -1,0 +1,172 @@
+.session-form {
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sign-up-form {
+    font-size: 50px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.first-name-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-fname{
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.signup-fname-box{
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.last-name-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-lname{
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+}
+
+.signup-lname-box{
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+.signup-username-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-username-box {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 2%;
+
+}
+
+.signup-username {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+}
+
+.signup-password-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-password {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+
+}
+
+.signup-password-box {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 2%;
+
+}
+
+.signup-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-button {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 2%;
+}
+
+.login-title {
+    font-size: 50px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.login-username-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-username {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 2%;
+}
+
+.login-username-box {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 2%;
+
+}
+
+.login-password-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-password {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    
+}
+
+.login-password-box {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-left: 2%;
+    
+}
+
+.login-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-button {
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 1%;
+
+}

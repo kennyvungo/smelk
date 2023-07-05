@@ -26,17 +26,21 @@ function NavBar () {
       );
     } else {
       return (
-        <div className="links-auth">
-          <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
-        </div>
+        <>
+            <div className='links-auth-container'>
+                <div className="links-auth">
+                    <Link to={'/signup'} className="link1-auth">Signup</Link>
+                    <Link to={'/login'} className="link2-auth">Login</Link>
+                </div>
+            </div>
+        </>
       );
     }
   }
 
   return (
     <>
-      <h1>Smelker</h1>
+      {/* <h1>Smelker</h1> */}
       { getLinks() }
     </>
   );

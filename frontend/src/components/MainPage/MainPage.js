@@ -1,10 +1,11 @@
+import './MainPage.css'
 function MainPage() {
     return (
       <>
-        <p>SMELK</p>
-        <footer>
-          Copyright &copy; 2023 Smelker
-        </footer>
+      <body className='home-background'>
+        <div className='home-page-title'>Meet&Greet</div>
+
+      </body>
       </>
     );
   }

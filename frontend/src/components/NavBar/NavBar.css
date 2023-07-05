@@ -15,7 +15,25 @@
 }
 
 .links-auth {
-    width: 100px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+.links-auth-container {
+    margin-right: 20%;
+    margin-top: 2%;
+}
+
+.link1-auth {
+    text-decoration: none;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    color: black;
+}
+
+.link2-auth {
+    text-decoration: none;
+    padding-left: 2%;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    color: black;
 }
