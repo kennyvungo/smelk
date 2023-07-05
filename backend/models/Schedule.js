@@ -13,6 +13,10 @@ const scheduleSchema = new Schema({
     dailySchedule: {
         type: mongoose.SchemaTypes.Mixed,
         required: true
+    },
+    owner: {
+        type: String,
+        ref: 'User'
     }
 }, {
     timestamps: true

@@ -16,6 +16,7 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
+        // create an empty schedule
         const user = await User.updateOne({_id: req.body.owner}, {$push: {ownedEvents: event._id}})
         return res.json(event);
     }
