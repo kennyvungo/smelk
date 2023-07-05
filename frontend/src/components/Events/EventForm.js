@@ -1,12 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
 
 const EventForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector(state => state.session.user);
 
   const [eventName, setEventName] = useState('');
@@ -31,9 +29,7 @@ const EventForm = () => {
         dailyEventEndTime: eventEndTime,
     };
     // console.log('New Event: ', newEvent);  //test object in console and see
-    dispatch(createEvent(newEvent)).then((createdEvent) => {
-      history.push('/event/' + createdEvent._id);
-    });
+    dispatch(createEvent(newEvent));
   }
 
   return (
@@ -91,4 +87,4 @@ const EventForm = () => {
   )
 }
 
-export default EventForm;
+export default EventForm
