@@ -54,56 +54,58 @@ function SignupForm () {
 
     return (
         <form className="session-form" onSubmit={handleSubmit}>
-            <h2 className='sign-up-form'>Sign Up</h2>
-            <div className="errors">{errors?.email}</div>
-            <label>
-                <span className='first-name-container'>
-                    <span className='signup-fname'>FirstName</span>
-                    <input className='signup-fname-box'type="text"
-                    value={fname}
-                    onChange={update('fname')}
-                    placeholder="FirstName"
+            <div className='signup-background'>
+                <h2 className='sign-up-form'>Sign Up</h2>
+                <div className="errors">{errors?.email}</div>
+                <label>
+                    <span className='first-name-container'>
+                        <span className='signup-fname'>FirstName</span>
+                        <input className='signup-fname-box'type="text"
+                        value={fname}
+                        onChange={update('fname')}
+                        placeholder="FirstName"
+                        />
+                    </span>
+                </label>
+                <label>
+                    <span className='last-name-container'>
+                        <span className='signup-lname'>LastName</span>
+                        <input className='signup-lname-box'type="text"
+                        value={lname}
+                        onChange={update('lname')}
+                        placeholder="LastName"
+                        />
+                    </span>
+                </label>
+                <div className="errors">{errors?.username}</div>
+                <label>
+                    <span className='signup-username-container'>
+                        <span className='signup-username'>Username</span>
+                        <input className='signup-username-box' type="text"
+                        value={username}
+                        onChange={update('username')}
+                        placeholder="Username"
+                        />
+                    </span>
+                </label>
+                <div className="errors">{errors?.password}</div>
+                <label>
+                    <span className='signup-password-container'>
+                        <span className='signup-password'>Password</span>
+                        <input className='signup-password-box' type="password"
+                        value={password}
+                        onChange={update('password')}
+                        placeholder="Password"
+                        />
+                    </span>
+                </label>
+                <div className='signup-button-container'>
+                    <input className='signup-button'
+                        type="submit"
+                        value="Signup"
+                        disabled={!fname || !lname || !username || !password }
                     />
-                </span>
-            </label>
-            <label>
-                <span className='last-name-container'>
-                    <span className='signup-lname'>LastName</span>
-                    <input className='signup-lname-box'type="text"
-                    value={lname}
-                    onChange={update('lname')}
-                    placeholder="LastName"
-                    />
-                </span>
-            </label>
-            <div className="errors">{errors?.username}</div>
-            <label>
-                <span className='signup-username-container'>
-                    <span className='signup-username'>Username</span>
-                    <input className='signup-username-box' type="text"
-                    value={username}
-                    onChange={update('username')}
-                    placeholder="Username"
-                    />
-                </span>
-            </label>
-            <div className="errors">{errors?.password}</div>
-            <label>
-                <span className='signup-password-container'>
-                    <span className='signup-password'>Password</span>
-                    <input className='signup-password-box' type="password"
-                    value={password}
-                    onChange={update('password')}
-                    placeholder="Password"
-                    />
-                </span>
-            </label>
-            <div className='signup-button-container'>
-                <input className='signup-button'
-                    type="submit"
-                    value="Sign Up"
-                    disabled={!fname || !lname || !username || !password }
-                />
+                </div>
             </div>
         </form>
     );

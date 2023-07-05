@@ -3,7 +3,7 @@
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
     margin-left: 6%;
-    margin-top: 2%;
+    margin-top: 6%;
 }
 
 .all-people {
@@ -14,6 +14,14 @@
     margin-top: 4%;
 }
 
+.about-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(230, 232, 217, 0.3);
+}
 
 
 .picture {

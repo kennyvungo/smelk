@@ -2,10 +2,26 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(230, 232, 217, 0.3);
+}
+
+.signup-background {
+    width: 500px;
+    height: 500px;
+    background-color: rgba(215, 228, 230, 0.405);
+    border-radius: 10%;
 }
 
 .sign-up-form {
-    font-size: 50px;
+    margin-top: 4%;
+    font-size: 40px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     display: flex;
     justify-content: center;
@@ -22,15 +38,21 @@
     font-weight: 300;
     display: flex;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 8.5%;
 }
 
 .signup-fname-box{
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 6%;
+    margin-left: 4%;
+    box-shadow: none;
+    height: 2em;
+    border: 1;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: white;
 }
 
 .last-name-container {
@@ -42,15 +64,21 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
+    margin-top: 4.5%;
 }
 
 .signup-lname-box{
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
-    margin-left: 2%;
+    margin-top: 2%;
+    margin-left: 4%;
+    box-shadow: none;
+    height: 2em;
+    border: 1;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: white;
 }
 
 .signup-username-container {
@@ -62,8 +90,14 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
-    margin-left: 2%;
+    margin-top: 2%;
+    margin-left: 4%;
+    box-shadow: none;
+    height: 2em;
+    border: 1;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: white;
 
 }
 
@@ -71,7 +105,7 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
+    margin-top: 4.5%;
 }
 
 .signup-password-container {
@@ -83,7 +117,7 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
+    margin-top: 4.5%;
 
 }
 
@@ -91,9 +125,14 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
-    margin-left: 2%;
-
+    margin-top: 2%;
+    margin-left: 4%;
+    box-shadow: none;
+    height: 2em;
+    border: 1;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: white;
 }
 
 .signup-button-container {
@@ -105,11 +144,23 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 2%;
+    margin-top: 8%;
+    border-radius: 10%;
+    text-align: center;
+    border-color: none;
+    background-color: transparent;
+}
+
+.login-background {
+    width: 500px;
+    height: 500px;
+    background-color: rgba(215, 228, 230, 0.383);
+    border-radius: 10%;
 }
 
 .login-title {
-    font-size: 50px;
+    margin-top: 4%;
+    font-size: 40px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     display: flex;
     justify-content: center;
@@ -118,13 +169,16 @@
 .login-username-container {
     display: flex;
     justify-content: center;
+    margin-top: 4%;
 }
 
 .login-username {
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4.5%;
 }
 
 .login-username-box {
@@ -133,7 +187,17 @@
     font-weight: 300;
     margin-top: 1%;
     margin-left: 2%;
-
+    font-size: 25px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    margin-top: 2%;
+    margin-left: 4%;
+    box-shadow: none;
+    height: 2em;
+    border: 1;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: white;
 }
 
 .login-password-container {
@@ -145,7 +209,7 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
+    margin-top: 4.5%;
     
 }
 
@@ -153,8 +217,14 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
-    margin-left: 2%;
+    margin-top: 2%;
+    margin-left: 4%;
+    box-shadow: none;
+    height: 2em;
+    border: 1;
+    border-radius: 6px;
+    border-color: transparent;
+    background-color: white;
     
 }
 
@@ -167,6 +237,9 @@
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300;
-    margin-top: 1%;
-
+    margin-top: 8%;
+    border-radius: 10%;
+    text-align: center;
+    border-color: none;
+    background-color: transparent;
 }

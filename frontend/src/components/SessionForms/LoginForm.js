@@ -28,36 +28,38 @@ function LoginForm () {
 
   return (
     <form className="session-form" onSubmit={handleSubmit}>
-      <h2 className='login-title'>Log In</h2>
-      <div className="errors">{errors?.username}</div>
-      <label>
-        <span className='login-username-container'>
-            <span className='login-username'>Username</span>
-            <input className='login-username-box'type="text"
-            value={username}
-            onChange={update('username')}
-            placeholder="Username"
-            />
-        </span>
-      </label>
-      <div className="errors">{errors?.password}</div>
-      <label>
-        <span className='login-password-container'>
-            <span className='login-password'>Password</span>
-            <input className='login-password-box' type="password"
-            value={password}
-            onChange={update('password')}
-            placeholder="Password"
-            />
-        </span>
-      </label>
-      <div className='login-button-container'>
-        <input className='login-button'
-            type="submit"
-            value="Log In"
-            disabled={!username || !password}
-        />
-      </div>
+        <div className='login-background'>
+            <h2 className='login-title'>Log In</h2>
+            <div className="errors">{errors?.username}</div>
+            <label>
+                <span className='login-username-container'>
+                    <span className='login-username'>Username</span>
+                    <input className='login-username-box'type="text"
+                    value={username}
+                    onChange={update('username')}
+                    placeholder="Username"
+                    />
+                </span>
+            </label>
+            <div className="errors">{errors?.password}</div>
+            <label>
+                <span className='login-password-container'>
+                    <span className='login-password'>Password</span>
+                    <input className='login-password-box' type="password"
+                    value={password}
+                    onChange={update('password')}
+                    placeholder="Password"
+                    />
+                </span>
+            </label>
+            <div className='login-button-container'>
+                <input className='login-button'
+                    type="submit"
+                    value="Login"
+                    disabled={!username || !password}
+                />
+            </div>
+        </div>
     </form>
   );
 }

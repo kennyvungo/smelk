@@ -2,6 +2,116 @@
     font-size: 50px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: 300px;
-    margin-left: 8%;
+    /* margin-left: 8%;
+    margin-top: 2%; */
+    display: flex;
+    justify-content: center;
+    margin-top: 6%;
 }
 
+.home-page-description {
+    font-size: 20px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 200;
+    display: flex;
+    justify-content: center;
+    z-index: -9999;
+}
+
+body  {
+    background-image: url('file:///Users/shannale/Downloads/pexels-karolina-grabowska-4862892.jpg');
+  background-size:cover;
+        -webkit-animation: slidein 8s;
+        animation: slidein 8s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+
+.center {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  position: absolute;
+  /* margin: auto; */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(232, 225, 217, 0.3);
+  /* border-radius: 3px; */
+} 
+
+/* .center h1{
+  text-align:center;
+  color:white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+} */
+
+.images {
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fadeinout1 {
+    animation: fadeinout 16s infinite 0s;
+    width: 300px;
+    height: 300px;
+    opacity: 0; 
+}
+
+.fadeinout2 {
+    animation: fadeinout 16s infinite 4s;
+    width: 300px;
+    height: 300px;
+    opacity: 0; 
+}
+
+.fadeinout3 {
+    animation: fadeinout 16s infinite 8s; 
+    width: 300px;
+    height: 300px;
+    opacity: 0; 
+}
+
+.fadeinout4 {
+    animation: fadeinout 16s infinite 12s;
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+@keyframes fadeinout {
+    0% {
+        opacity: 0;
+    }
+    16.66% {
+        opacity: 1;
+    }
+    83.33% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+} 
