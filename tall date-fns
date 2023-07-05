@@ -1,0 +1,386 @@
+[33mcommit 6c8de87541a0a941a99305d707bfb5f4a172028c[m[33m ([m[1;36mHEAD -> [m[1;32mfrontend-event[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/frontend-event[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 12:20:53 2023 -0700
+
+    Fix eventShow URL bug showing undefined to actual event id
+
+[33mcommit 1b7e3d09e3a7548a6dfb66b8195fabfe5972ee77[m
+Merge: 38e504e 97cc7e0
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 11:51:55 2023 -0700
+
+    Merge branch 'frontend-event'
+
+[33mcommit 97cc7e0e522fdc35cb5d54ea11881ce79aec8200[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 11:49:08 2023 -0700
+
+    Update Profile page to display events
+
+[33mcommit 38e504e193e0b4f6a1a4899afdd3f67d3c30d323[m
+Merge: dd2bafd 914e6b8
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Wed Jul 5 10:58:48 2023 -0700
+
+    Merge branch 'about-page'
+
+[33mcommit 914e6b81079d767c907a73fe2d8da3fb15defb0c[m[33m ([m[1;31morigin/about-page[m[33m)[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Wed Jul 5 10:57:57 2023 -0700
+
+    Style about page
+
+[33mcommit dd2bafdf42d3ac5e51325d07377d779f4ca6445b[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Wed Jul 5 10:45:44 2023 -0700
+
+    Add empty schedule to create event
+
+[33mcommit 53c42f8ea0ec4086cb01bdfa44a5cbf66b088774[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Wed Jul 5 10:12:39 2023 -0700
+
+    Add helper methods for schedule
+
+[33mcommit 7735da64ec878e75807da0ebcdcb3e048394ba2a[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 18:01:47 2023 -0700
+
+    Add schedule seeds
+
+[33mcommit 65e58885cbd962ded552b164e3016da076bcaa44[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 16:14:33 2023 -0700
+
+    Fix delete event to delete event id from User ownedEvents
+
+[33mcommit 65ed5228f12c2acc398f21dc7bbc58aab8a9c8c8[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 15:04:39 2023 -0700
+
+    Add schedule schema
+
+[33mcommit d94df30558103a25dc05151d842e787bda12a734[m
+Merge: ab45a27 2ba87e4
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 10:43:53 2023 -0700
+
+    Merge branch 'frontend-event'
+
+[33mcommit 2ba87e43d20fac1c77ba8e30ec8a4afd635e1d7f[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 10:39:49 2023 -0700
+
+    Successful creation of event on event form
+
+[33mcommit 929afd18afc07a97512604c175a2a8a9621faa1e[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 10:19:35 2023 -0700
+
+    Create object after clicking submit on event form
+
+[33mcommit ab45a275411d6e2b1bd4d54e1e8261feb6845134[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Wed Jul 5 09:56:10 2023 -0700
+
+    Fix login title
+
+[33mcommit d3c3ee49126e013fa68ef17ba0d5853aa7e4805a[m[33m ([m[1;31morigin/style-forms[m[33m)[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Wed Jul 5 09:52:25 2023 -0700
+
+    Style home, login, signup
+
+[33mcommit 9bbb35a0036b1535ebcbb04fd7b8a68aba647328[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Wed Jul 5 09:35:42 2023 -0700
+
+    Merge main to frontend-event branch
+
+[33mcommit ec84d638c51761829c48b2f8a6123cfcc144e7b7[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Tue Jul 4 19:03:35 2023 -0700
+
+    started event creation form
+
+[33mcommit 31a8c1b90723dc0803d83eae9b94ded4713c1bec[m[33m ([m[1;31morigin/deploy-render[m[33m)[m
+Author: misha <mishabansal7@gmail.com>
+Date:   Tue Jul 4 16:46:26 2023 -0700
+
+    changing config for rendering
+
+[33mcommit b1895b6e34d98981e665685ef163ad188bd59819[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Tue Jul 4 11:33:49 2023 -0700
+
+    css reset
+
+[33mcommit 681b6031413d22fba0916f0f38f47ac607773696[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 09:42:58 2023 -0700
+
+    Add get user route
+
+[33mcommit ae77e8cb961d308950096f14fac8a4533845fa56[m[33m ([m[1;31morigin/backend-events-crud[m[33m)[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 09:20:45 2023 -0700
+
+    Update body keys for create event
+
+[33mcommit fe43623289f1f8683df9699b636c8f0386c6ced7[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 09:19:37 2023 -0700
+
+    Add create event
+
+[33mcommit 43ba7815346258b30669b1ae4765b1048cc850c2[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 09:10:14 2023 -0700
+
+    Add delete event
+
+[33mcommit 78458def2d957d9cbbbc2b131f80632a6bebae88[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Tue Jul 4 08:07:49 2023 -0700
+
+    Updated seeds with ownedEvents for user
+
+[33mcommit cc6b81fb6f6abda1255c448b9c76f3ed6802f33d[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Tue Jul 4 01:10:23 2023 -0700
+
+    Fix date format
+
+[33mcommit 4274c0f6fce1ae8d7e4636ca56feebdd9f583c24[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Tue Jul 4 01:01:58 2023 -0700
+
+    Added events show page to display event info
+
+[33mcommit 836519cfd4c2061ba7946be081526a7c3a3504b2[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Tue Jul 4 00:14:18 2023 -0700
+
+    Add profile page to test
+
+[33mcommit 26e672ec7072d5328fe2eff0e039b769b3804c9c[m[33m ([m[1;31morigin/event-feature[m[33m)[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 18:47:38 2023 -0700
+
+    fixed csrf token issue
+
+[33mcommit ca9b2b43779976d61c1819a8113d1a5b03026a1c[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 18:23:04 2023 -0700
+
+    Add ownedEvent to seeds and User model
+
+[33mcommit b6e7ed2325855c5bef5e7470f888d06224521f3d[m
+Merge: 55a8371 9c0d2ff
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 17:22:42 2023 -0700
+
+    merge main
+
+[33mcommit 55a837156f8ffd2c26a6ce01297d198e5a50bb4d[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 17:19:54 2023 -0700
+
+    Add edit and show events - tested
+
+[33mcommit 9c0d2ff9f8158fdd69fbed92d4b21a307421f9bc[m[33m ([m[1;32mfixing-login-bug[m[33m)[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Mon Jul 3 16:49:54 2023 -0700
+
+    Fix a few bugs regarding signupForm and loginForm
+
+[33mcommit a04700ac843193879c32b72b3024f64cad518373[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Mon Jul 3 16:23:45 2023 -0700
+
+    Fix login/signup bug from switching
+
+[33mcommit c7ca83043d92463d0325c8b8f178d1ef2821b275[m
+Author: ertan3 <ernesttan96@gmail.com>
+Date:   Mon Jul 3 16:11:59 2023 -0700
+
+    Fix signup form error
+
+[33mcommit 4539bfc7a8b068310a205260161762f78d3d9bb4[m
+Merge: 2407444 6e27427
+Author: misha <mishabansal7@gmail.com>
+Date:   Mon Jul 3 16:50:58 2023 -0700
+
+    Merge branch 'userauth'
+
+[33mcommit 6e274273419351ec1214db4707ba371eda029f95[m[33m ([m[1;31morigin/userauth[m[33m)[m
+Author: misha <mishabansal7@gmail.com>
+Date:   Mon Jul 3 16:50:14 2023 -0700
+
+    finishing user auth
+
+[33mcommit 39165adb5e94570a9e82157b4960f4da5c076a94[m
+Author: misha <mishabansal7@gmail.com>
+Date:   Mon Jul 3 16:45:15 2023 -0700
+
+    adding jwt
+
+[33mcommit 2407444f8e294fac4995cc15a7ce559cc71c6a28[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 15:31:19 2023 -0700
+
+    Fix signup form
+
+[33mcommit 2fe08d09ebec19b9264c19f49b759dee294fe956[m
+Merge: 72ea02f f0ba5be
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 15:25:17 2023 -0700
+
+    Merge branch 'frontend-auth'
+
+[33mcommit f0ba5bed802d82f8ed50a5e5554dad596545bbed[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 15:24:45 2023 -0700
+
+    Fix frontend auth
+
+[33mcommit 3da02c3788dfb1766bd3360aac2330ecf211ed9c[m
+Merge: 93d278b 72ea02f
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 14:51:37 2023 -0700
+
+    Merge branch 'main' into backend-events-crud
+    Add user auth
+
+[33mcommit 93d278bf1ff0e78b7e5e9421deb2bdb2ce55b094[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 14:49:45 2023 -0700
+
+    Add seeds
+
+[33mcommit f6146b49530ccd71552c12a2411f0210fa38b200[m[33m ([m[1;31morigin/frontend-auth[m[33m, [m[1;32mfrontend-auth[m[33m)[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 14:46:55 2023 -0700
+
+    Session auth
+
+[33mcommit 72ea02f9f4cdb6433b39a048ab305d008d1e4067[m
+Merge: 2f771fb e6e2876
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 14:37:10 2023 -0700
+
+    Merge branch 'userauth'
+
+[33mcommit 7749de03dde0cb8ea7c32a2ef728b02582278590[m
+Merge: 0f87ce8 2f771fb
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 14:33:29 2023 -0700
+
+    Merge branch 'main' into backend-events-crud
+    
+    merge main to backend-events-crud to get user auth
+
+[33mcommit 0f87ce8608a11a5bfdb630fdeaeef5be6ca3e952[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 14:32:53 2023 -0700
+
+    Update comments
+
+[33mcommit e6e2876370a9793c1aa20af75032ec8c7f565835[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 14:31:41 2023 -0700
+
+    changed proxy
+
+[33mcommit 7a70a84da2595f387647ee628af4eb615912fced[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 14:30:18 2023 -0700
+
+    Add seeds
+
+[33mcommit e8e08af1f96f498818b4d00fe1c315eed05d6115[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 14:30:15 2023 -0700
+
+    fixed bug
+
+[33mcommit 74449b42b06007174eedac191b661dfc604a44dd[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 14:08:08 2023 -0700
+
+    Add create show and update event
+
+[33mcommit 2f771fbd84625c88462a9100c2d5cf023f5ebb24[m
+Merge: 6044f00 904a2be
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 14:03:05 2023 -0700
+
+    Merge branch 'frontend-setup'
+
+[33mcommit 904a2be3de2568fc826d1021726a511e12048afc[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 14:02:38 2023 -0700
+
+    Protected and auth routes for frontend
+
+[33mcommit f49a052d7e625075dc4ee373459bce0018571854[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 13:47:21 2023 -0700
+
+    set up User Model, currently not working, creating user in Postman gives 404
+
+[33mcommit 6044f00eff425fa70593a914bae1a3e395e9687f[m
+Merge: 93213a0 92bf696
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 11:20:39 2023 -0700
+
+    Merge branch 'main' into backend-models
+    adding frontend updates
+
+[33mcommit 93213a033555a66adfa4f3f7f68257df52d13b53[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 11:19:36 2023 -0700
+
+    Add sample schema
+
+[33mcommit 92bf696755afc7924f02b5d4096f9bb800afbeda[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 11:17:13 2023 -0700
+
+    Configure redux & entry file
+
+[33mcommit 28c0444cac09940d5915a0d99670dbe509dafc66[m[33m ([m[1;31morigin/frontend-setup[m[33m)[m
+Author: Shanna Le <shannatle@gmail.com>
+Date:   Mon Jul 3 11:08:34 2023 -0700
+
+    Frontend setup
+
+[33mcommit 7f0cc5944116cd6430cda84ff825136df67dbf46[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 10:39:06 2023 -0700
+
+    added error handling
+
+[33mcommit d057d5bd4a8077676656ede530e351d40d4d42fc[m
+Author: laurencary <armstronglg720@gmail.com>
+Date:   Mon Jul 3 10:22:22 2023 -0700
+
+    Add event schema
+
+[33mcommit 3a7f7a2bcb59ce3dcabb8f3ec7089282a618c003[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 10:14:13 2023 -0700
+
+    finished csurf and users router
+
+[33mcommit cbcc32de57647457b58fee1c3d602e4fd7e414e5[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 09:41:50 2023 -0700
+
+    set up backend
+
+[33mcommit de371a546db5c582cb108cc5b7a910d1a1dc2a25[m
+Author: Kenny <kennyvungo@gmail.com>
+Date:   Mon Jul 3 09:39:28 2023 -0700
+
+    git ignore

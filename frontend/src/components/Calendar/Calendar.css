@@ -1,0 +1,42 @@
+.calendar {
+    margin: 0 auto;
+    width: 300px;
+    border: 1px solid black;
+}
+
+.header, .days, .row {
+    display: flex;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none; /* Disable text selection */
+}
+
+.disabled {
+    color: #ddd;
+}
+
+.selected {
+    background-color: greenyellow;
+}
+
+::selection {
+    background: none;
+    color: inherit;
+}
+
+::-moz-selection {
+    background: none;
+    color: inherit;
+}
+
+.dragged {
+    background-color: #3290e1;
+}
