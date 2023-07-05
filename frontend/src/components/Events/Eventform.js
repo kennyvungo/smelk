@@ -26,8 +26,6 @@ const EventForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('eventDates:', eventDates); // Check the value of eventDates before creating the event
-
     const newEvent = {
       owner: user._id,
       name: eventName,
@@ -36,11 +34,8 @@ const EventForm = () => {
       dailyEventEndTime: eventEndTime,
     };
 
-    console.log('newEvent:', newEvent); // Check the newEvent object before dispatching
-
     const createdEvent = await dispatch(createEvent(newEvent));
     // console.log('New Event: ', newEvent);  //test object in console and see
-    dispatch(createEvent(newEvent));
   }
 
   return (
