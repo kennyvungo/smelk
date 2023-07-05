@@ -22,6 +22,9 @@ const eventSchema = new Schema({
     dailyEventEndTime: {
         type: String,
         required: true
+    },
+    emptySchedule: {
+        type: mongoose.SchemaTypes.Mixed
     }
 }, {
     timestamps: true

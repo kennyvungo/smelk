@@ -66,9 +66,9 @@ export const fetchEvents = () => async dispatch => {
 
 export const fetchUserEvents = id => async dispatch => {
     try {
-        const res = await jwtFetch(`/api/events/user/${id}`);
-        const events = await res.json();
-        dispatch(receiveUserEvents(events));
+        const res = await jwtFetch(`/api/users/${id}`);
+        const data = await res.json();
+        dispatch(receiveUserEvents(data.events));
     } catch(err) {
         const resBody = await err.json();
         if (resBody.statusCode === 400) {
@@ -85,6 +85,7 @@ export const createEvent = data => async dispatch => {
         });
         const event = await res.json();
         dispatch(receiveNewEvent(event));
+        return event;
     } catch(err) {
         const resBody = await err.json();
         if (resBody.statusCode === 400) {
