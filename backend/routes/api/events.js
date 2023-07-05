@@ -44,17 +44,24 @@ router.get('/:id', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
     try {
-        let updatedEvent = req.body;
+        let updatedEventDetails = req.body;
         const id = req.params.id;
-        if (req.body[dailyEventStartTime] || req.body[dailyEventEndTime]) {
-            updatedEvent[emptySchedule] = scheduleHelper.createEmptySchedule()
-        }
-        const update = await Event.updateOne({_id: id},{$set: updatedEvent});
+        const originalEvent = await Event.findById(id)
         // if start or end times change, update schedules
+
+        if (req.body.dailyEventStartTime || req.body.dailyEventEndTime) {
+            // console.log("test");
+            const startTime = req.body.dailyEventStartTime ? req.body.dailyEventStartTime : originalEvent.dailyEventStartTime;
+            const endTime = req.body.dailyEventEndTime ? req.body.dailyEventEndTime : originalEvent.dailyEventEndTime;
+            const dates = req.body.dates ? req.body.dates : originalEvent.dates;
+
+            updatedEventDetails.emptySchedule = scheduleHelper.createEmptySchedule(dates, startTime, endTime);
+        }
         
         
-        const event = await Event.findById(req.params.id)
-        return res.json(event);
+        const update = await Event.updateOne({_id: id},{$set: updatedEventDetails});
+        const updatedEvent = await Event.findById(id)
+        return res.json(updatedEvent);
     }
     catch (err) {
         const error = new Error('Event not found');
