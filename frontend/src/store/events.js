@@ -77,7 +77,7 @@ export const fetchUserEvents = id => async dispatch => {
     }
 };
 
-export const composeEvent = data => async dispatch => {
+export const createEvent = data => async dispatch => {
     try {
         const res = await jwtFetch('/api/events/', {
             method: 'POST',

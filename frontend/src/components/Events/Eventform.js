@@ -1,12 +1,17 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createEvent } from '../../store/events';
 
 const EventForm = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user);
+
   const [eventName, setEventName] = useState('');
   const [eventDates, setEventDates] = useState('');
   const [eventStartTime, setEventStartTime] = useState('12:00 AM');
   const [eventEndTime, setEventEndTime] = useState('12:00 AM');
-
+  
   const hours = Array.from({ length: 24 }, (v, i) => {
     const period = i < 12 || i === 24 ? 'AM' : 'PM';
     const twelveHourFormat = i === 0 ? 12 : i < 13 ? i : i - 12;
@@ -17,12 +22,14 @@ const EventForm = () => {
       e.preventDefault();
 
       const newEvent = {
+        owner: user._id,
         name: eventName,
         dates: eventDates,
         dailyEventStartTime: eventStartTime,
         dailyEventEndTime: eventEndTime,
     };
-    console.log('New Event: ', newEvent);
+    console.log('New Event: ', newEvent);  //test object in console and see
+    dispatch(createEvent(newEvent));
   }
 
   return (
