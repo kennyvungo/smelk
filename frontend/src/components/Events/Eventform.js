@@ -1,12 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
 
 const EventForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector(state => state.session.user);
 
   const [eventName, setEventName] = useState('');
@@ -20,7 +18,7 @@ const EventForm = () => {
     return `${twelveHourFormat}:00 ${period}`;
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
       e.preventDefault();
 
       const newEvent = {
@@ -30,13 +28,8 @@ const EventForm = () => {
         dailyEventStartTime: eventStartTime,
         dailyEventEndTime: eventEndTime,
     };
-
-    const createdEvent = await dispatch(createEvent(newEvent));
     // console.log('New Event: ', newEvent);  //test object in console and see
-    if (createdEvent) {
-      history.push('/event/' + createdEvent.event._id);
-    }
-
+    dispatch(createEvent(newEvent));
   }
 
   return (
@@ -94,4 +87,4 @@ const EventForm = () => {
   )
 }
 
-export default EventForm;
+export default EventForm
