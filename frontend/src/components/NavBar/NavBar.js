@@ -18,25 +18,29 @@ function NavBar () {
       return (
         <div className="links-nav">
           <Link to={`/profile/${userId}`}>Profile</Link>
-          {/* temp view event link to test */}
-          <Link to={`/event/64a36905031eb4776e7f543a`}>View Event1</Link> 
-          <Link to={`/event/64a36905031eb4776e7f543b`}>View Event2</Link> 
+          {/* temp view event link to test need to update by grabbing the event object ID*/}
+          <Link to={`/event/64a4cfb265da3e4b1adde4cf`}>View Event1</Link> 
+          <Link to={`/event/64a4cfb265da3e4b1adde4d0`}>View Event2</Link> 
           <button onClick={logoutUser}>Logout</button>
         </div>
       );
     } else {
       return (
-        <div className="links-auth">
-          <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
-        </div>
+        <>
+            <div className='links-auth-container'>
+                <div className="links-auth">
+                    <Link to={'/signup'} className="link1-auth">Signup</Link>
+                    <Link to={'/login'} className="link2-auth">Login</Link>
+                </div>
+            </div>
+        </>
       );
     }
   }
 
   return (
     <>
-      <h1>Smelker</h1>
+      {/* <h1>Smelker</h1> */}
       { getLinks() }
     </>
   );

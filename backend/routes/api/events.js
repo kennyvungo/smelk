@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Event = mongoose.model('Event');
+const Schedule = mongoose.model('Schedule');
+const scheduleHelper = require('../../utils/scheduleHelper')
 // const { requireUser } = require('../../config/passport');
 
 router.post('/', async (req, res, next) => {
@@ -16,8 +18,11 @@ router.post('/', async (req, res, next) => {
         });
 
         let event = await newEvent.save();
-        const user = await User.updateOne({_id: req.body.owner}, {$push: {ownedEvents: event._id}})
-        return res.json(event);
+        // create an empty schedule
+        let user = await User.updateOne({_id: req.body.owner}, {$push: {ownedEvents: event._id}})
+        user = await User.findById(event.owner)
+        const emptySchedule = scheduleHelper.createEmptySchedule(event.dates, event.dailyEventStartTime, event.dailyEventEndTime);
+        return res.json({ user, event, emptySchedule });
     }
     catch(err) {
         next(err);
