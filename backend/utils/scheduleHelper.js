@@ -76,7 +76,7 @@ exports.createEmptySchedule = (datesArr, startTime, endTime) => {
     let emptySchedule = {};
 
     for (const date of datesArr) {
-        console.log(date);
+        // console.log(date);
         emptySchedule[date] = createDaySchedule(startTime, endTime);
     }
 

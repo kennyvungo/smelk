@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Event = mongoose.model('Event');
 const Schedule = mongoose.model('Schedule');
-const scheduleHelper = require('../../utils/scheduleHelper')
+const scheduleHelper = require('../../utils/scheduleHelper');
 // const { requireUser } = require('../../config/passport');
 
 router.post('/', async (req, res, next) => {
@@ -44,11 +44,16 @@ router.get('/:id', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
     try {
-        const updatedEvent = req.body;
+        let updatedEvent = req.body;
         const id = req.params.id;
+        if (req.body[dailyEventStartTime] || req.body[dailyEventEndTime]) {
+            updatedEvent[emptySchedule] = scheduleHelper.createEmptySchedule()
+        }
         const update = await Event.updateOne({_id: id},{$set: updatedEvent});
+        // if start or end times change, update schedules
+        
+        
         const event = await Event.findById(req.params.id)
-        // if start or end times change, update schedule
         return res.json(event);
     }
     catch (err) {
