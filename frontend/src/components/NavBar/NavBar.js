@@ -2,28 +2,25 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session.js';
+import { useState } from 'react';
+import Sidebar from '../SideBar/SideBar';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const userId = useSelector(state => state.session.user)
   const dispatch = useDispatch();
+  const [showSidebar, setShowSidebar] = useState(false);
   
   const logoutUser = e => {
       e.preventDefault();
       dispatch(logout());
-  }
+  };
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
 
   const getLinks = () => {
-    if (loggedIn) {
-      return (
-        <div className="links-nav">
-          <div className='links-auth-container'>
-            <Link to={`/profile/${userId}`}>Profile</Link>
-            <button onClick={logoutUser} >Logout</button>
-          </div>
-        </div>
-      );
-    } else {
       return (
         <>
             <div className='links-auth-container'>
@@ -36,15 +33,24 @@ function NavBar () {
             </div>
         </>
       );
-    }
   }
 
   return (
     <>
-      {/* <h1>Smelker</h1> */}
-      { getLinks() }
+      {loggedIn ? (
+          <div className="links-nav">
+            <div className='links-auth-container'>
+              <Link to={`/profile/${userId}`} isOpen={showSidebar} onClick={() => toggleSidebar}>Profile</Link>
+              <button onClick={logoutUser}>Logout</button>
+            </div>
+          </div>
+      ) : (
+        getLinks()
+      )}
     </>
   );
 }
 
+
 export default NavBar;
+
