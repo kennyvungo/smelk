@@ -18,9 +18,6 @@ function NavBar () {
       return (
         <div className="links-nav">
           <Link to={`/profile/${userId}`}>Profile</Link>
-          {/* temp view event link to test need to update by grabbing the event object ID*/}
-          <Link to={`/event/64a4cfb265da3e4b1adde4cf`}>View Event1</Link> 
-          <Link to={`/event/64a4cfb265da3e4b1adde4d0`}>View Event2</Link> 
           <button onClick={logoutUser}>Logout</button>
         </div>
       );

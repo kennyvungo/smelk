@@ -9,6 +9,7 @@ import SignupForm from './components/SessionForms/SignupForm';
 import NavBar from './components/NavBar/NavBar';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import EventsShow from './components/Events/EventsShow';
+import EventForm from './components/Events/Eventform';
 import { getCurrentUser } from './store/session';
 
 
@@ -25,7 +26,7 @@ function App() {
         <Switch>
 
           {/* <ProtectedRoute exact path="/event/edit" component={EventEditPage} /> */}
-          {/* <ProtectedRoute exact path="/event/new" component={EventFormPage} /> */}
+          <ProtectedRoute exact path="/event/new" component={EventForm} />
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
           <ProtectedRoute exact path="/event/:id" component={EventsShow} />
 
