@@ -27,7 +27,7 @@ const ChatGPTEvent = () => {
         return data.response.trim();
     }
 
-    const handleSubmit = async (e) => {
+    const handleChatSubmit = async (e) => {
         e.preventDefault();
         console.log("form submitted")
         console.log(setting)
@@ -46,7 +46,7 @@ const ChatGPTEvent = () => {
     return (
         <>
             <h1>Need ideas of what to do? We can help...</h1>
-            <form className='event-form' onSubmit={handleSubmit}>
+            <form className='event-form' onSubmit={handleChatSubmit}>
                 <h3>Choose your setting</h3>
                 <button type="button" onClick={() => setSetting("inside")}>Inside</button>
                 <button type="button" onClick={() => setSetting("outside")}>Outside</button>
