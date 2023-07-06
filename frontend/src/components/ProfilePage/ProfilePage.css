@@ -1,2 +1,8 @@
-.chat-gpt {
+.new-event-link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 200;
+    margin-bottom: 20%;
 }
