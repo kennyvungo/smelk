@@ -73,28 +73,28 @@ body  {
 }
 
 .fadeinout1 {
-    animation: fadeinout 16s infinite 0s;
+    animation: fadeinout 10s infinite 0s;
     width: 300px;
     height: 300px;
     opacity: 0; 
 }
 
 .fadeinout2 {
-    animation: fadeinout 16s infinite 4s;
+    animation: fadeinout 10s infinite 2s;
     width: 300px;
     height: 300px;
     opacity: 0; 
 }
 
 .fadeinout3 {
-    animation: fadeinout 16s infinite 8s; 
+    animation: fadeinout 10s infinite 4s; 
     width: 300px;
     height: 300px;
     opacity: 0; 
 }
 
 .fadeinout4 {
-    animation: fadeinout 16s infinite 12s;
+    animation: fadeinout 10s infinite 6s;
     width: 300px;
     height: 300px;
     opacity: 0;

@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import EventForm from "../Events/Eventform";
 import ChatGPTEvent from "../Events/ChatGPTEvent";
+=======
+import Sidebar from '../SideBar/SideBar';
+>>>>>>> event-pages
 
 function ProfilePage () {
     const dispatch = useDispatch();
@@ -20,15 +24,17 @@ function ProfilePage () {
 
     return (
         <>
-            <Link to="/event/new">Create New Event!</Link>
-            <h2>Your upcoming Events!</h2>
-            {Object.values(userEvents).map(event => (
-                <div key={event._id}>
-                    <Link to={`/event/${event._id}`}>
-                        {event.name}
-                    </Link>
-                </div>
-            ))}
+            <Sidebar>
+                <Link to="/event/new">Create New Event!</Link>
+                <h2>Your upcoming Events!</h2>
+                {Object.values(userEvents).map(event => (
+                    <div key={event._id}>
+                        <Link to={`/event/${event._id}`}>
+                            {event.name}
+                        </Link>
+                    </div>
+                ))}
+            </Sidebar>
             <EventForm/>
             <br />
             <ChatGPTEvent />
