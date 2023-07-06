@@ -49,3 +49,29 @@
     justify-content: center;
     margin-top: 6%;
 }
+
+.event-page-title {
+    font-size: 45px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    /* font-weight: 200px; */
+    margin-top: 8%;
+    margin-left: 4%;
+}
+
+.event-index-container {
+    margin-left: 20%;
+    margin-top: 6%;
+    width: 550px;
+    height: 500px;
+    background-color: rgba(232, 225, 217, 0.3);
+    padding: 10px;
+    border-radius: 10%;
+}
+
+.event-index-input {
+    font-size: 30px;
+    margin-top: 8%;
+    line-height: 120%;
+    font-weight: lighter;
+    margin-left: 4%;
+}

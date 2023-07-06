@@ -2,7 +2,7 @@ import './AboutPage.css';
 import kenny from "./Images/kenny.png";
 import ernest from "./Images/ernest.png";
 import lauren from "./Images/lauren.png";
-import misha from "./Images/misha.png";
+import misha from "././Images/misha.png";
 import shanna from "./Images/shanna.png";
 import {BsGithub} from 'react-icons/bs';
 import {FaLinkedin} from 'react-icons/fa';

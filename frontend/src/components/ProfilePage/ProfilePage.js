@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
-import EventForm from "../Events/Eventform";
+import EventIndex from '../Events/EventIndex';
 import Sidebar from '../SideBar/SideBar';
 import "./ProfilePage.css"
 
@@ -22,17 +22,28 @@ function ProfilePage () {
     return (
         <>
             <Sidebar>
-                <Link to="/event/new" className="new-event-link">Create New Event!</Link>
-                <h2>Your upcoming Events!</h2>
-                {Object.values(userEvents).map(event => (
-                    <div key={event._id}>
-                        <Link to={`/event/${event._id}`}>
-                            {event.name}
-                        </Link>
-                    </div>
-                ))}
+                <div className='user-name'>
+                    {user.fname}
+                </div>
+                <div className='side-bar-container'>
+                    <Link to="/event/new" className="new-event-link">Create New Event!</Link>
+                    <h2 className='side-bar-title'>Your Upcoming Events!</h2>
+                    {Object.values(userEvents).map(event => (
+                        <div key={event._id } >
+                            <Link to={`/event/${event._id}`} className="event-link">
+                                <div className='bigger-container'>
+                                    <div className='event-sidebar-container'>
+                                        <div className='event-name'>
+                                            {event.name}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
             </Sidebar>
-            <EventForm/>
+            <EventIndex />
             <br />
         </>
     )
