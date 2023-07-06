@@ -9,13 +9,13 @@
     flex-direction: column;
 }
 .grid-cell {
-    border: 0.5px solid #4d145f;
+    border: 0.25px solid #4d145f;
     cursor: pointer;
     user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
+    width: 5.4vw;
     height: 18px;
     text-align: center;
     padding: 10px;

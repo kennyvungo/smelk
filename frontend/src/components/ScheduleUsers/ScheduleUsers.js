@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import { createSchedule } from '../../store/schedules';
 import './ScheduleUsers.css'
 
 const ScheduleUsers = ({event}) => {
@@ -9,16 +10,15 @@ const ScheduleUsers = ({event}) => {
     const responses = useSelector(state => state.events.current.responses)
     const [currentSchedule, setCurrentSchedule] = useState('')
     
-    const createSchedule = () => {
+    const sendCreateSchedule = () => {
         const schedule = {
             fname: firstName,
             lname: lastName,
             eventId: event["_id"],
             dailySchedule: event.emptySchedule
         };
-        console.log(schedule);
-        // dispatch(createSchedule(schedule));
-        
+        // console.log(schedule);
+        dispatch(createSchedule(schedule));
     }
 
     return (
@@ -36,7 +36,7 @@ const ScheduleUsers = ({event}) => {
                     placeholder='Last name'
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}></input>
-            <button className='create-schedule-button' onClick={createSchedule}>Add schedule</button>
+            <button className='create-schedule-button' onClick={sendCreateSchedule}>Add schedule</button>
             <div className="schedule-users-splitter">
                 <hr></hr>
                 <span className='schedule-users-splitter-text'> OR </span>

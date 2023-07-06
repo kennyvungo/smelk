@@ -40,8 +40,8 @@ function Grid({ event }) {
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
-                        <div className='date-header'>{date}</div>
                         <div className='date-header'>{getDayOfWeek(date)} </div>
+                        <div className='date-header'>{date}</div>
                         {Object.entries(timeSlots).map(([time, selected]) => (
                             <div
                             className='grid-cell'
