@@ -29,7 +29,8 @@ function ProfilePage () {
                     <div className='create-event-link'>
                         <Link to="/event/new" className="new-event-link">Click To Create New Event!</Link>
                     </div>
-                    <h2 className='side-bar-title'>Your Upcoming Events!</h2>
+                    {userEvents.length > 0 ? (
+                    <h2 className='side-bar-title'>Your Upcoming Events!</h2>) : <h2 className='side-bar-title'> No Upcoming Events </h2> }
                     {Object.values(userEvents).map(event => (
                         <div key={event._id } >
                             <Link to={`/event/${event._id}`} className="event-link">
@@ -43,6 +44,7 @@ function ProfilePage () {
                             </Link>
                         </div>
                     ))}
+                    
                 </div>
             </Sidebar>
             <EventIndex />

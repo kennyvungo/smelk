@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session.js';
 import { useState } from 'react';
+import { FcCalendar } from 'react-icons/fc';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
@@ -17,6 +18,9 @@ function NavBar () {
 
   return (
     <>
+    <div className='logo-container'>
+      <span className='logo'> Meet&Greet <FcCalendar /> </span>
+    </div>
       {loggedIn ? (
           <div className="links-user">
             <div className='links-user-container'>
