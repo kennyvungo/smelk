@@ -40,7 +40,7 @@ function NavBar () {
       {loggedIn ? (
           <div className="links-nav">
             <div className='links-auth-container'>
-              <Link to={`/profile/${userId}`} isOpen={showSidebar} onClick={() => toggleSidebar}>Profile</Link>
+              <Link to={`/profile/${userId}`} isOpen={showSidebar} onClick={() => toggleSidebar} className='profile'>Profile</Link>
               <button onClick={logoutUser}>Logout</button>
             </div>
           </div>
