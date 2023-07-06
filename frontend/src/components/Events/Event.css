@@ -41,6 +41,7 @@
     display: flex;
     justify-content: center;
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .event-form-input {
@@ -74,4 +75,57 @@
     line-height: 120%;
     font-weight: lighter;
     margin-left: 4%;
+}
+.clicked-button {
+    background-color: rgb(108, 192, 203);
+}
+
+.chat-gpt-submit {
+    background-color: lightgreen;
+    margin: 0px;
+}
+
+.chat-gpt-form {
+    text-align: center;
+}
+
+.left-button {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100px;
+    margin: 0px;
+}
+
+.right-button {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 100px;
+    margin: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+.chat-result-button {
+    margin: 0px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chat-result-buttons-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.chat-result-button:hover {
+    background-color: rgb(108, 192, 203);
+}
+
+.chat-subheading {
+    padding: 5px;
 }
