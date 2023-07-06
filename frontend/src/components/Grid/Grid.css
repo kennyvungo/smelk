@@ -6,11 +6,7 @@
 }
 .grid-row {
     display: flex;
-<<<<<<< HEAD
-    flex-wrap: wrap;
-=======
     flex-direction: column;
->>>>>>> agggrid
 }
 .grid-cell {
     border: 1px solid #000;
@@ -20,11 +16,6 @@
     justify-content: center;
     align-items: center;
     width: 100px;
-<<<<<<< HEAD
-    height: 20px; /* Increase this for better text visibility and alignment */
-    text-align: center;
-    padding: 10px; /* Add this to have some spacing around the text */
-=======
     height: 20px;
     text-align: center;
     padding: 10px;
@@ -36,5 +27,4 @@
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: bold;
     height: 5%;
->>>>>>> agggrid
 }
