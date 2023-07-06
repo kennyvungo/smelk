@@ -13,11 +13,11 @@ const ScheduleUsers = ({event}) => {
         const schedule = {
             fname: firstName,
             lname: lastName,
-            eventId: event._id,
-            dailySchedule: event.current.emptySchedule
+            eventId: event["_id"],
+            dailySchedule: event.emptySchedule
         };
-
-        dispatch(createSchedule(schedule));
+        console.log(schedule);
+        // dispatch(createSchedule(schedule));
         
     }
 
@@ -45,7 +45,7 @@ const ScheduleUsers = ({event}) => {
             <div className="schedule-users-buttons-container">
                 <h1 className='schedule-users-header-text'>Select your name below</h1>
                 {responses.map(user => (
-                    <div className='user-button-container' key={user}>
+                    <div className='user-button-container' key={event["_id"] + user}>
                         <button className='user-button'>{user.fname + " " + user.lname}</button>
                     </div>
                 ))}
