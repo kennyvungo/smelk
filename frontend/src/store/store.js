@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import errors from './errors';
 import session from './session';
 import events from './events';
+import schedules from './schedules'
 
 const rootReducer = combineReducers({
   events,
   session,
   errors,
+  schedules
 });
 
 let enhancer;

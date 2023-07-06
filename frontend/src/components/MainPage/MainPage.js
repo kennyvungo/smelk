@@ -1,5 +1,8 @@
 import './MainPage.css'
 import kenny from "./Images/kenny.png";
+import phone from "./Images/phone.gif";
+import calendar from "./Images/calendar.gif";
+import party from "./Images/party.gif";
 function MainPage() {
     return (
       <>
@@ -12,9 +15,9 @@ function MainPage() {
         </div>
         <div className='images'>
             <img class="fadeinout1" src={kenny} />
-            <img class="fadeinout2" src={kenny} />
-            <img class="fadeinout3" src={kenny} />
-            <img class="fadeinout4" src={kenny} />
+            <img class="fadeinout2" src={calendar} />
+            <img class="fadeinout3" src={phone} />
+            <img class="fadeinout4" src={party} />
         </div>
       </div>
       </>

@@ -9,10 +9,13 @@ const ChatGPTEvent = () => {
     const [setting, setSetting] = useState('')
     const [energy, setEnergy] = useState('')
     const [people, setPeople] = useState(0)
+    const [eventOne, setEventOne] = useState("")
+    const [eventTwo, setEventTwo] = useState("")
+    const [eventThree, setEventThree] = useState("")
+
 
     const generateQuery = async () => {
-        console.log("whatsup");
-        const response = await jwtFetch("http://localhost:3000/generate", {
+        const response = await jwtFetch("/api/events/generate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -20,29 +23,30 @@ const ChatGPTEvent = () => {
             body: JSON.stringify({ people: people, setting: setting, energy: energy })
         })
         
-        console.log("response", response)
         const data = await response.json()
-        console.log("data", data)
-        return data.response
+        return data.response.trim();
     }
 
-    const handleSubmit = async (e) => {
+    const handleChatSubmit = async (e) => {
         e.preventDefault();
         console.log("form submitted")
         console.log(setting)
         console.log(energy)
         console.log(people)
 
-
         const query = await generateQuery();
-        console.log("returned from server", query)      
+        const eventArr = query.split(",");
+        console.log(eventArr);
+        setEventOne(eventArr[0]);
+        setEventTwo(eventArr[1]);
+        setEventThree(eventArr[2]);
     };
     
 
     return (
         <>
             <h1>Need ideas of what to do? We can help...</h1>
-            <form className='event-form' onSubmit={handleSubmit}>
+            <form className='event-form' onSubmit={handleChatSubmit}>
                 <h3>Choose your setting</h3>
                 <button type="button" onClick={() => setSetting("inside")}>Inside</button>
                 <button type="button" onClick={() => setSetting("outside")}>Outside</button>
@@ -71,6 +75,9 @@ const ChatGPTEvent = () => {
                     value="Find Us Something To Do"
                 />
             </form>
+            <button>{eventOne}</button>
+            <button>{eventTwo}</button>
+            <button>{eventThree}</button>
         </>
     )
 }

@@ -26,6 +26,13 @@ function LoginForm () {
     dispatch(login({ username, password })); 
   }
 
+  const handleDemoSignIn = async (e) => {
+    e.preventDefault();
+    dispatch(login({ username: "demo-user" , password: "password" }))
+  };
+
+
+
   return (
     <form className="session-form" onSubmit={handleSubmit}>
         <div className='login-background'>
@@ -58,6 +65,10 @@ function LoginForm () {
                     value="Login"
                     disabled={!username || !password}
                 />
+            </div>
+
+            <div className="demo-button-container" onClick={handleDemoSignIn}>
+                <button className='demo-button'>Sign In With Demo </button>
             </div>
         </div>
     </form>

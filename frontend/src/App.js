@@ -1,4 +1,4 @@
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 // import { Route, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -30,12 +30,13 @@ function App() {
           <ProtectedRoute exact path="/event/new" component={EventForm} />
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
           <ProtectedRoute exact path="/event/:id" component={EventsShow} />
+          <Route exact path="/about" component={AboutPage} />
 
 
           {/* <AuthRoute exact path="/event/:id" component={EventsShow} /> */}
           <AuthRoute exact path="/signup" component={SignupForm} />
           <AuthRoute exact path="/login" component={LoginForm} />
-          <AuthRoute exact path="/about" component={AboutPage} />
+          {/* <AuthRoute exact path="/about" component={AboutPage} /> */}
           <AuthRoute exact path="/" component={MainPage} />
 
           {/* <Route>

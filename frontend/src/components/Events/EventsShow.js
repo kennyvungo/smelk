@@ -5,6 +5,7 @@ import { fetchEvent } from '../../store/events';
 import Grid from '../Grid/Grid';
 import './Event.css'
 import ScheduleUsers from '../ScheduleUsers/ScheduleUsers';
+import AggGrid from '../Grid/AggGrid';
 
 function EventsShow() {
     const { id } = useParams();
@@ -29,6 +30,7 @@ function EventsShow() {
             <div className='event-show-content-container'>
                 {event && <ScheduleUsers />}
                 {event && <Grid event={event}/>}
+                {event && <AggGrid event={event}/>}
             </div>
         </div>
     );
