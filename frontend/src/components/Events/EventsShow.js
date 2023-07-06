@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchEvent } from '../../store/events';
+import Grid from '../Grid/Grid';
 
 function EventsShow() {
     const { id } = useParams();
@@ -23,6 +24,7 @@ function EventsShow() {
                     <p>Dates: {event.dates.map(date => new Date(date).toLocaleDateString()).join(', ')}</p>
                 </div>
             )}
+            <div><Grid/></div>
         </div>
     );
 }
