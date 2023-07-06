@@ -15,7 +15,7 @@ const ChatGPTEvent = () => {
 
 
     const generateQuery = async () => {
-        const response = await jwtFetch("http://localhost:3000/generate", {
+        const response = await jwtFetch("/api/events/generate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
