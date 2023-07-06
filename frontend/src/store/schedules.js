@@ -33,8 +33,6 @@ const receiveErrors = errors => ({
     errors
 });
 
-
-
 export const fetchAggSchedule = id => async dispatch => {
     try {
         const res = await jwtFetch(`/api/schedules/agg/${id}`);
