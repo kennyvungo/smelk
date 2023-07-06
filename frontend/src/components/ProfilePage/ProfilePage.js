@@ -26,7 +26,9 @@ function ProfilePage () {
                     {user.fname}'s Events
                 </div>
                 <div className='side-bar-container'>
-                    <Link to="/event/new" className="new-event-link">Create New Event!</Link>
+                    <div className='create-event-link'>
+                        <Link to="/event/new" className="new-event-link">Click To Create New Event!</Link>
+                    </div>
                     <h2 className='side-bar-title'>Your Upcoming Events!</h2>
                     {Object.values(userEvents).map(event => (
                         <div key={event._id } >

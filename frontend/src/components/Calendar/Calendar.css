@@ -1,18 +1,33 @@
 .calendar {
     margin: 0 auto;
-    width: 200px;
+    width: 300px;
     border: 1px solid black;
 }
 
 .header, .days, .row {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.header {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.days {
+    font-size: 12px;
+}
+
+.header, .days {
+    background-color: rgb(230, 99, 99);
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
     border: 1px solid #ddd;
     display: flex;
     align-items: center;
@@ -26,7 +41,7 @@
 }
 
 .selected {
-    background-color: greenyellow;
+    background-color: lightgreen;
 }
 
 .dragged {
