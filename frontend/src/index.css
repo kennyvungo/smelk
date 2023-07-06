@@ -22,7 +22,8 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-weight: 300;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */

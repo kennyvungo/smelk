@@ -1,0 +1,43 @@
+.schedule-users-container {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    padding: 10px;
+    border: 1px #888688 solid;
+    border-radius: 6px;
+    margin: 20px;
+}
+
+.schedule-users-splitter {
+    display: flex;
+    flex-direction: row;
+}
+
+hr {
+    background-color: #888688;
+    flex-grow: 1;
+    border: none;
+    height: 1px;
+}
+
+.schedule-users-splitter-text {
+    padding: 0 20px;
+}
+
+.schedule-users-header-text {
+    font-size: 20px;
+}
+
+.schedule-label {
+    padding-top: 10px;
+}
+
+.schedule-input {
+    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-schedule-button {
+    margin: 10px 0 ;
+}

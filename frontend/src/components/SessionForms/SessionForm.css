@@ -198,6 +198,7 @@
     border-radius: 6px;
     border-color: transparent;
     background-color: white;
+    padding-left: 10px;
 }
 
 .login-password-container {
@@ -225,7 +226,7 @@
     border-radius: 6px;
     border-color: transparent;
     background-color: white;
-    
+    padding-left: 10px;
 }
 
 .login-button-container {

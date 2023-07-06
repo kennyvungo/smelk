@@ -7,7 +7,7 @@ import Sidebar from '../SideBar/SideBar';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
-  const userId = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
   const [showSidebar, setShowSidebar] = useState(false);
   
@@ -33,15 +33,16 @@ function NavBar () {
             </div>
         </>
       );
-  }
-
-  return (
-    <>
-      {loggedIn ? (
-          <div className="links-nav">
+    }
+    
+    return (
+      <>
+      {loggedIn && user ? (
+        <div className="links-nav">
             <div className='links-auth-container'>
-              <Link to={`/profile/${userId}`} isOpen={showSidebar} onClick={() => toggleSidebar} className='profile'>Profile</Link>
-              <button onClick={logoutUser}>Logout</button>
+            <Link to={'/about'} className='about-link'>About</Link>
+            <Link to={`/profile/${user["_id"]}`} isOpen={showSidebar} onClick={() => toggleSidebar} className='profile'>Profile</Link>
+            <button onClick={logoutUser}>Logout</button>
             </div>
           </div>
       ) : (
