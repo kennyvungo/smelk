@@ -21,6 +21,20 @@
     padding: 10px;
     font-weight: 300;
 }
+
+.agg-cell{
+    border: 0.5px solid #4d145f;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 18px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 300;
+    /* background-color:  #A98DE2; */
+}
 .date-header {
     display: flex;
     justify-content: center;
