@@ -30,6 +30,7 @@ function App() {
           <ProtectedRoute exact path="/event/new" component={EventForm} />
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
           <ProtectedRoute exact path="/event/:id" component={EventsShow} />
+          <ProtectedRoute exact path="/about" component={AboutPage} />
 
 
           {/* <AuthRoute exact path="/event/:id" component={EventsShow} /> */}
