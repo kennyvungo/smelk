@@ -7,8 +7,7 @@ function Grid({ event }) {
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
         let hoursArray = Array.from({length: ((endTime - startTime) * 2)}, (_, i) => startTime + (i * 0.5));
         let tempGrid = event.dates.reduce((acc, date) => {
-            const formattedDate = new Date(date).toLocaleDateString();
-            acc[formattedDate] = hoursArray.reduce((timeSlots, hour) => {
+            acc[dateConverter(date)] = hoursArray.reduce((timeSlots, hour) => {
                 const formattedTime = convertTo12HourFormat(hour);
                 timeSlots[formattedTime] = false;
                 return timeSlots;
@@ -78,3 +77,8 @@ const getDayOfWeek = (date) => {
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     return days[new Date(date).getDay()];
 }
+
+
+const dateConverter = (str) => {
+    return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
+ }
