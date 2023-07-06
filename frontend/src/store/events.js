@@ -13,7 +13,7 @@ const receiveEvents = events => ({
     events
 });
 
-const receiveEvent = event => ({
+export const receiveEvent = event => ({
     type: RECEIVE_EVENT,
     event
 });

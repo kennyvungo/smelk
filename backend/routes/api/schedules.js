@@ -11,9 +11,11 @@ router.post('/', async (req, res, next) => {
             eventId: req.body.eventId,
             dailySchedule: req.body.dailySchedule
         });
-
+        const update = await Event.updateOne({ _id: req.body.eventId }, { $push: { responses: { fname: req.body.fname, lname: req.body.lname}}})
         const schedule = await newSchedule.save();
-        return res.json(schedule);
+        const event = await Event.findById({ _id: id });
+
+        return res.json({event, schedule});
     }
     catch (err) {
         next(err);

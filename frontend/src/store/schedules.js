@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt";
+import { receiveEvent } from "./events";
 
 const RECEIVE_SCHEDULES = "schedules/RECEIVE_SCHEDULES";
 const RECEIVE_SCHEDULE = "schedules/RECEIVE_SCHEDULE";
@@ -55,9 +56,10 @@ export const createSchedule = data => async dispatch => {
             method: 'POST',
             body: JSON.stringify(data)
         });
-        const schedule = await res.json();
-        dispatch(receiveNewSchedule(schedule));
-        return schedule;
+        const resData = await res.json();
+        dispatch(receiveNewSchedule(resData.schedule));
+        dispatch(receiveEvent(resData.event));
+        return resData.schedule;
     } catch(err) {
         const resBody = await err.json();
         if (resBody.statusCode === 400) {

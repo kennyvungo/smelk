@@ -31,7 +31,8 @@ router.post('/', async (req, res, next) => {
             dates: req.body.dates,
             dailyEventStartTime: req.body.dailyEventStartTime,
             dailyEventEndTime: req.body.dailyEventEndTime,
-            emptySchedule: createEmptySchedule(req.body.dates, req.body.dailyEventStartTime, req.body.dailyEventEndTime)
+            emptySchedule: createEmptySchedule(req.body.dates, req.body.dailyEventStartTime, req.body.dailyEventEndTime),
+            responses: []
         });
 
         let event = await newEvent.save();

@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import './ScheduleUsers.css'
 
 const ScheduleUsers = ({event}) => {
+    const dispatch = useDispatch();
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [users, setUsers] = useState(["Lauren Cary"])
+    const responses = useSelector(state => state.events.current.responses)
+    const [currentSchedule, setCurrentSchedule] = useState('')
     
     const createSchedule = () => {
-        setUsers = [...users, ...firstName + ' ' + lastName]
+        // event.emptySchedule
     }
 
     return (
@@ -33,9 +36,9 @@ const ScheduleUsers = ({event}) => {
             </div>
             <div className="schedule-users-buttons-container">
                 <h1 className='schedule-users-header-text'>Select your name below</h1>
-                {users.map(user => (
+                {responses.map(user => (
                     <div className='user-button-container' key={user}>
-                        <button className='user-button'>{user}</button>
+                        <button className='user-button'>{user.fname + " " + user.lname}</button>
                     </div>
                 ))}
             </div>

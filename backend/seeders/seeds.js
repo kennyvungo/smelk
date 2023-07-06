@@ -27,7 +27,12 @@ const events = [
         dates: ['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29','2023-06-30'],
         dailyEventStartTime: "9:00 AM",
         dailyEventEndTime: "6:00 PM",
-        emptySchedule: createEmptySchedule(['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29', '2023-06-30'], "9:00 AM","6:00 PM")
+        emptySchedule: createEmptySchedule(['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29', '2023-06-30'], "9:00 AM","6:00 PM"),
+        responses: [
+            {fname: 'Lauren', lname: 'Cary'},
+            {fname: 'Demo', lname: 'User'},
+            {fname: 'Misha', lname: 'Bansal'}
+        ]
     }),
     new Event({
         owner: users[0]._id,
@@ -35,7 +40,13 @@ const events = [
         dates: ['2023-07-14', '2023-07-15', '2023-07-16'],
         dailyEventStartTime: "4:00 PM",
         dailyEventEndTime: "10:00 PM",
-        emptySchedule: createEmptySchedule(['2023-07-14', '2023-07-15', '2023-07-16'], "4:00 PM", "10:00 PM")
+        emptySchedule: createEmptySchedule(['2023-07-14', '2023-07-15', '2023-07-16'], "4:00 PM", "10:00 PM"),
+        responses: [
+            { fname: 'Kenny', lname: 'Ngo' },
+            { fname: 'Demo', lname: 'User' },
+            { fname: 'Ernest', lname: 'Tan' },
+            { fname: 'Shanna', lname: 'Le' }
+        ]
     })
 ]
 

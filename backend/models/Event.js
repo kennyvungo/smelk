@@ -25,6 +25,9 @@ const eventSchema = new Schema({
     },
     emptySchedule: {
         type: mongoose.SchemaTypes.Mixed
+    },
+    responses: {
+        type: mongoose.SchemaTypes.Mixed
     }
 }, {
     timestamps: true
