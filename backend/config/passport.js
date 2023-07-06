@@ -16,7 +16,7 @@ passport.use(new JwtStrategy(options, async (jwtPayload, done) => {
     const user = await User.findById(jwtPayload._id)
     if (user) {
       // return the user to the frontend
-      console.log("passport", user);
+      // console.log("passport", user);
       return done(null, user);
     }
     // return false since there is no user
@@ -34,7 +34,7 @@ exports.restoreUser = (req, res, next) => {
     if (err) return next(err);
     if (user) req.user = user;
     next();
-    console.log("restore", user);
+    // console.log("restore", user);
   })(req, res, next);
 };
 
@@ -54,7 +54,7 @@ passport.use(new LocalStrategy({
   }));
 
 exports.loginUser = async function(user) {
-  console.log("passport", user);
+  // console.log("passport", user);
   const userInfo = {
     _id: user._id,
     username: user.username,

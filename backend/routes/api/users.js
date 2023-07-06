@@ -8,18 +8,19 @@ const passport = require('passport');
 const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 
-router.get('/current', restoreUser, (req, res) => {
+router.get('/current', restoreUser, async (req, res) => {
   if (!isProduction) {
     const csrfToken = req.csrfToken();
     res.cookie("CSRF-TOKEN", csrfToken);
   }
   if (!req.user) return res.json(null);
-  const dbUser = User.findById({_id: req.user.id})
+  const dbUser = await User.findById({_id: req.user.id})
+  // console.log(dbUser.fname);
   return res.json({
     _id: req.user._id,
     username: req.user.username,
     fname: dbUser.fname,
-    lastName: dbUser.lastName
+    lastName: dbUser.lname
   });
 });
 
