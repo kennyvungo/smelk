@@ -7,40 +7,8 @@
     background-color: #f0f0f0;
     padding: 20px;
 }
-/*   
-.sidebar a {
-    display: block;
-    margin-bottom: 10px;
-    color: #333;
-    text-decoration: none;
-}
   
-.sidebar a:hover {
-    color: #000;
-} */
-  
-.sidebar button {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-.sidebar h2 {
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
-  
-.sidebar .sidebar-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #f0f0f0;
-    border: none;
-    padding: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-  
+
   
   
   

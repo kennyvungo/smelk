@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/events';
 import { useHistory } from 'react-router-dom';
 import Calendar from '../Calendar/Calendar';
+import './Event.css'
+import ChatGPTEvent from './ChatGPTEvent';
 
 const EventForm = () => {
   const dispatch = useDispatch();
@@ -45,50 +47,58 @@ const EventForm = () => {
 
   return (
     <>
-      <form className='event-form' onSubmit={handleSubmit}>
-          <h2>Create Event</h2>
-          
-          <div className='eventerrors'></div>
+    <span className='chat-box'>
+      <ChatGPTEvent className="chat-gpt" />
+    </span>
+    <span className='event-form-container'>
+        <form className='event-form' onSubmit={handleSubmit}>
+            <h2 className='event-form-title'>Create Event</h2>
+            
+            <div className='event-errors'></div>
 
-          <label>
-            <span>Event Name</span>
-            <input 
-              type="text" 
-              value={eventName} 
-              onChange={e => setEventName(e.target.value)} 
-            />
-          </label>
-          <br/>
+            <div className='event-form-input'>
+                  <label>
+                    <span>Event Name</span>
+                    <input 
+                      type="text" 
+                      value={eventName} 
+                      onChange={e => setEventName(e.target.value)} 
+                    />
+                  </label>
+                  <br/>
 
-          <label>
-            <Calendar onDatesChange={handleDatesChange}/>
-          </label>
-          <br/>
+                  <label>
+                    <Calendar onDatesChange={handleDatesChange}/>
+                  </label>
+                  <br/>
 
-          <label>
-            <span>Event Start time?</span>
-            <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
-              {hours.map(hour => (
-                <option key={hour} value={hour}>{hour}</option>
-              ))}
-            </select>
-          </label>
-          <br/>
-          
-          <label>
-            <span>Event End time?</span>
-            <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
-              {hours.map(hour => (
-                <option key={hour} value={hour}>{hour}</option>
-              ))}
-            </select>
-          </label>
-          <br/>
-          <input 
-            type="submit"
-            value="Create Event"
-          />
-      </form>
+                  <label>
+                    <span>Event Start time?</span>
+                    <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
+                      {hours.map(hour => (
+                        <option key={hour} value={hour}>{hour}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <br/>
+                  
+                  <label>
+                    <span>Event End time?</span>
+                    <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
+                      {hours.map(hour => (
+                        <option key={hour} value={hour}>{hour}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <br/>
+                  <input 
+                    type="submit"
+                    value="Create Event"
+                  />
+            </div>
+
+        </form>
+    </span>
     </>
   )
 }
