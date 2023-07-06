@@ -1,13 +1,13 @@
 .grid {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 20px 0;
+    width: 100%;
 }
-
 .grid-row {
     display: flex;
+    flex-wrap: wrap;
 }
-
 .grid-cell {
     border: 1px solid #000;
     cursor: pointer;
@@ -15,8 +15,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
-    height: 20px;
+    width: 100px;
+    height: 20px; /* Increase this for better text visibility and alignment */
     text-align: center;
-    
+    padding: 10px; /* Add this to have some spacing around the text */
 }
