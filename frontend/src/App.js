@@ -13,6 +13,7 @@ import EventForm from './components/Events/Eventform';
 import EventIndex from './components/Events/EventIndex';
 import { getCurrentUser } from './store/session';
 import { AboutPage } from './components/AboutPage/AboutPage';
+import Sidebar from './components/SideBar/SideBar';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
           <ProtectedRoute exact path="/event/:id" component={EventsShow} />
           <ProtectedRoute exact path="/events" component={EventIndex} />
+          <ProtectedRoute exact path="/events" component={Sidebar} />
           <Route exact path="/about" component={AboutPage} />
 
 

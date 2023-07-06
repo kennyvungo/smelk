@@ -57,6 +57,7 @@
     /* font-weight: 200px; */
     margin-top: 8%;
     margin-left: 4%;
+    color: rgb(0, 0, 0);
 }
 
 .event-index-container {
@@ -73,8 +74,9 @@
     font-size: 30px;
     margin-top: 8%;
     line-height: 120%;
-    font-weight: lighter;
+    font-weight: 200;
     margin-left: 4%;
+    color: rgb(167, 29, 29);
 }
 .clicked-button {
     background-color: rgb(108, 192, 203);
