@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     z-index: 1;
-    margin-top: -2%;
+    margin-top: -3.5%;
 }
 
 .links-auth-container {
@@ -81,6 +81,7 @@
     color: black;
     font-weight: 250;
     z-index: 999;
+    margin-top: -12%;
 }
 
 
@@ -104,4 +105,5 @@
     text-decoration: none;
     z-index: 999;
     font-size: 20px;
+    margin-top: -12%;
 }
