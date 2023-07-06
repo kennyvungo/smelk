@@ -3,7 +3,7 @@ import { receiveEvent } from "./events";
 
 const RECEIVE_SCHEDULES = "schedules/RECEIVE_SCHEDULES";
 const RECEIVE_SCHEDULE = "schedules/RECEIVE_SCHEDULE";
-const RECEIVE_USER_SCHEDULES = "schedules/RECEIVE_USER_SCHEDULE";
+const RECEIVE_USER_SCHEDULE = "schedules/RECEIVE_USER_SCHEDULE";
 const RECEIVE_NEW_SCHEDULE = "schedules/RECEIVE_NEW_SCHEDULE";
 const RECEIVE_SCHEDULE_ERRORS = "events/RECEIVE_EVENT_ERRORS";
 const CLEAR_EVENT_ERRORS = "events/CLEAR_EVENT_ERRORS";
@@ -19,9 +19,9 @@ const receiveSchedule = schedule => ({
     schedule
 });
 
-const receiveUserSchedules = schedules => ({
-    type: RECEIVE_USER_SCHEDULES,
-    schedules
+const receiveUserSchedule = schedule => ({
+    type: RECEIVE_USER_SCHEDULE,
+    schedule
 });
 
 const receiveNewSchedule = SCHEDULE => ({
@@ -35,7 +35,13 @@ const receiveErrors = errors => ({
 });
 
 
+export const getAggSchedule =(eventId) => (state) =>{
+    return state.schedules ? Object.values(state.schedules).filter(agg => agg._id === eventId)[0]: null
+}
 
+// export const getPost =(postId) => (state) => {
+//     return state.posts ? state.posts[postId] :null
+// }
 export const fetchAggSchedule = id => async dispatch => {
     try {
         const res = await jwtFetch(`/api/schedules/agg/${id}`);
@@ -48,7 +54,6 @@ export const fetchAggSchedule = id => async dispatch => {
         }
     }
 };
-
 
 export const createSchedule = data => async dispatch => {
     try {
@@ -68,6 +73,23 @@ export const createSchedule = data => async dispatch => {
     }
 };
 
+export const updateSchedule = (data) => async dispatch => {
+    const {id} = data;
+    try{
+        const res = await jwtFetch(`/api/schedules/${id}`,{
+            method: 'PATCH',
+            body: JSON.stringify(data)
+        });
+        const schedule = await res.json();
+        dispatch(receiveUserSchedule(schedule))
+    } catch(err){
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveErrors(resBody.errors));
+        }
+    }
+}
+
 const nullErrors = null;
 
 export const scheduleErrorsReducer = (state = nullErrors, action) => {
@@ -82,16 +104,16 @@ export const scheduleErrorsReducer = (state = nullErrors, action) => {
     }
 };
 
-const schedulesReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
+const schedulesReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_SCHEDULES:
-            return { ...state, all: action.schedules, new: undefined};
-        case RECEIVE_USER_SCHEDULES:
-            return { ...state, user: action.events, new: undefined};
+            return { ...state, ...action.schedules};
+        case RECEIVE_USER_SCHEDULE:
+            return { ...state, ...action.schedule};
         case RECEIVE_NEW_SCHEDULE:
-            return { ...state, new: action.event};
+            return { ...state, ...action.schedule};
         case RECEIVE_SCHEDULE:
-            return { ...state, current: action.event };
+            return { ...state, ...action.schedule};
         default:
             return state;
     }
