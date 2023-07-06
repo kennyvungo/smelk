@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
-import EventForm from "../Events/Eventform";
+import EventIndex from '../Events/EventIndex';
 import Sidebar from '../SideBar/SideBar';
 import "./ProfilePage.css"
 
@@ -23,16 +23,16 @@ function ProfilePage () {
         <>
             <Sidebar>
                 <Link to="/event/new" className="new-event-link">Create New Event!</Link>
-                <h2>Your upcoming Events!</h2>
+                <h2 className='side-bar-title'>Your upcoming Events!</h2>
                 {Object.values(userEvents).map(event => (
-                    <div key={event._id}>
-                        <Link to={`/event/${event._id}`}>
+                    <div key={event._id } className='new-event-link'>
+                        <Link to={`/event/${event._id}`}className='new-event-link'>
                             {event.name}
                         </Link>
                     </div>
                 ))}
             </Sidebar>
-            <EventForm/>
+            <EventIndex />
             <br />
         </>
     )
