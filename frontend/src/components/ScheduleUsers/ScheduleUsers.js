@@ -10,7 +10,15 @@ const ScheduleUsers = ({event}) => {
     const [currentSchedule, setCurrentSchedule] = useState('')
     
     const createSchedule = () => {
-        // event.emptySchedule
+        const schedule = {
+            fname: firstName,
+            lname: lastName,
+            eventId: event._id,
+            dailySchedule: event.current.emptySchedule
+        };
+
+        dispatch(createSchedule(schedule));
+        
     }
 
     return (
