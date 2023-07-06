@@ -23,7 +23,7 @@ function EventIndex() {
                 <h2 className="event-page-title">Your Upcoming Events!</h2>
                         {Object.values(userEvents).map(event => (
                             <div key={event._id} className="event-index-input">
-                                {event.name}
+                                ** {event.name}
                             </div>
                         ))}
             </div>
