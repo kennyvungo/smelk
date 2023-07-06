@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// const dailyScheduleSchema = new Schema({
+    
+// })
+
+
 const scheduleSchema = new Schema({
     firstName: {
         type: String,
@@ -25,5 +30,6 @@ const scheduleSchema = new Schema({
 }, {
     timestamps: true
 });
+
 
 module.exports = mongoose.model('Schedule', scheduleSchema)

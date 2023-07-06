@@ -4,7 +4,7 @@ const User = require('../models/User');
 const Event = require('../models/Event');
 const Schedule = require("../models/Schedule.js");
 const bcrypt = require('bcryptjs');
-const scheduleHelper = require('../utils/scheduleHelper');
+const { createEmptySchedule, updateDailySchedule } = require('../utils/scheduleHelper');
 
 // const { faker } = require('@faker-js/faker');
 
@@ -27,7 +27,7 @@ const events = [
         dates: ['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29','2023-06-30'],
         dailyEventStartTime: "9:00 AM",
         dailyEventEndTime: "6:00 PM",
-        emptySchedule: scheduleHelper.createEmptySchedule(['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29', '2023-06-30'], "9:00 AM","6:00 PM")
+        emptySchedule: createEmptySchedule(['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29', '2023-06-30'], "9:00 AM","6:00 PM")
     }),
     new Event({
         owner: users[0]._id,
@@ -35,7 +35,7 @@ const events = [
         dates: ['2023-07-14', '2023-07-15', '2023-07-16'],
         dailyEventStartTime: "4:00 PM",
         dailyEventEndTime: "10:00 PM",
-        emptySchedule: scheduleHelper.createEmptySchedule(['2023-07-14', '2023-07-15', '2023-07-16'], "4:00 PM", "10:00 PM")
+        emptySchedule: createEmptySchedule(['2023-07-14', '2023-07-15', '2023-07-16'], "4:00 PM", "10:00 PM")
     })
 ]
 

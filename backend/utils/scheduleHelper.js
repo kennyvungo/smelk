@@ -61,31 +61,37 @@ const createDaySchedule = (startTime, endTime) => {
     return dailySchedule;
 };
 
-exports.updateDaySchedule = (oldDaySchedule, newStartTime, newEndTime) => {
-    const newDaySchedule = createDaySchedule(newStartTime, newEndTime);
-
+const updateDaySchedule = (oldDaySchedule, newDaySchedule) => {
     for (const time of Object.keys(newDaySchedule)) {
+
         if (oldDaySchedule[time]) newDaySchedule[time] = oldDaySchedule[time];
     }
-
+    
     return newDaySchedule;
-}
+};
 
-exports.createEmptySchedule = (datesArr, startTime, endTime) => {
+function updateDailySchedule(oldDailySchedule, dates, newStartTime, newEndTime) {
+    const newDaySchedule = createDaySchedule(newStartTime, newEndTime);
+
+    let newDailySchedule = {};
+    for (const date of dates) {
+        oldDailySchedule[date] !== undefined ? 
+            newDailySchedule[date] = updateDaySchedule(oldDailySchedule[date], newDaySchedule)
+            : newDailySchedule[date] = newDaySchedule;
+    }
+    return newDailySchedule;
+};
+
+function createEmptySchedule(datesArr, startTime, endTime) {
 // const createEmptySchedule = (datesArr, startTime, endTime) => {
     let emptySchedule = {};
 
     for (const date of datesArr) {
-        // console.log(date);
         emptySchedule[date] = createDaySchedule(startTime, endTime);
     }
 
     return emptySchedule;
-}
+};
 
-// console.log(createEmptySchedule([
-//     "2023-05-14",
-//     "2023-05-16",
-//     "2023-05-18",
-//     "2023-05-19"
-// ], '11:00 AM', '3:00 PM'))
+module.exports.updateDailySchedule = updateDailySchedule
+module.exports.createEmptySchedule = createEmptySchedule

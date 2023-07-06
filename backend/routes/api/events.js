@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Event = mongoose.model('Event');
 const Schedule = mongoose.model('Schedule');
-const scheduleHelper = require('../../utils/scheduleHelper');
+const {createEmptySchedule, updateDailySchedule} = require('../../utils/scheduleHelper');
 // const { requireUser } = require('../../config/passport');
 
 router.post('/', async (req, res, next) => {
@@ -15,7 +15,7 @@ router.post('/', async (req, res, next) => {
             dates: req.body.dates,
             dailyEventStartTime: req.body.dailyEventStartTime,
             dailyEventEndTime: req.body.dailyEventEndTime,
-            emptySchedule: scheduleHelper.createEmptySchedule(req.body.dates, req.body.dailyEventStartTime, req.body.dailyEventEndTime)
+            emptySchedule: createEmptySchedule(req.body.dates, req.body.dailyEventStartTime, req.body.dailyEventEndTime)
         });
 
         let event = await newEvent.save();
@@ -49,21 +49,29 @@ router.patch('/:id', async (req, res, next) => {
         const originalEvent = await Event.findById(id)
         // if start or end times change, update schedules
 
-        if (req.body.dailyEventStartTime || req.body.dailyEventEndTime) {
+        if (req.body.dailyEventStartTime || req.body.dailyEventEndTime || req.body.dates) {
             // console.log("test");
-            const startTime = req.body.dailyEventStartTime ? req.body.dailyEventStartTime : originalEvent.dailyEventStartTime;
-            const endTime = req.body.dailyEventEndTime ? req.body.dailyEventEndTime : originalEvent.dailyEventEndTime;
-            const dates = req.body.dates ? req.body.dates : originalEvent.dates;
+            const startTime = req.body.dailyEventStartTime === undefined ? originalEvent.dailyEventStartTime :  req.body.dailyEventStartTime;
+            const endTime = req.body.dailyEventEndTime === undefined ? originalEvent.dailyEventEndTime :  req.body.dailyEventEndTime;
+            const dates = req.body.dates === undefined ? originalEvent.dates :  req.body.dates;
 
-            updatedEventDetails.emptySchedule = scheduleHelper.createEmptySchedule(dates, startTime, endTime);
+            updatedEventDetails.emptySchedule = createEmptySchedule(dates, startTime, endTime);
+
+            const schedules = await Schedule.find({ eventId: id })
+            for (const schedule of schedules) {
+                const updatedSchedule = updateDailySchedule(schedule.dailySchedule, dates, startTime, endTime)
+                const updates = await Schedule.updateOne({ _id: schedule._id }, { $set: { dailySchedule: updatedSchedule }})
+            }
         }
         
         
         const update = await Event.updateOne({_id: id},{$set: updatedEventDetails});
         const updatedEvent = await Event.findById(id)
         return res.json(updatedEvent);
+        // return res.send("made it to the end");
     }
     catch (err) {
+        console.log(err);
         const error = new Error('Event not found');
         error.statusCode = 404;
         error.errors = { message: "No event found with that id" };
