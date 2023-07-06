@@ -4,9 +4,13 @@ import './SideBar.css'
 function Sidebar({ children }) {
 
     return (
-      <div className='sidebar'>
-        {children}
-      </div>
+      <>
+        <div className='sidebar-container'>
+          <div className='sidebar'>
+            {children}
+          </div>
+        </div>
+      </>
     );
   }
   
