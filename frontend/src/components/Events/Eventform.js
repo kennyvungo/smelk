@@ -75,10 +75,12 @@ const EventForm = () => {
 
     const query = await generateQuery();
     const eventArr = query.split(",");
-    console.log(eventArr);
     setEventOne(eventArr[0]);
     setEventTwo(eventArr[1]);
     setEventThree(eventArr[2]);
+    if (hidden) {
+      setHidden(false)
+    }
   };
   
   return (
@@ -107,9 +109,9 @@ const EventForm = () => {
               <br />
               <br />
 
-              <button className='demo-button chat-gpt-submit' type="submit" onClick={() => {setHidden(!hidden)}}>Find Us Something To Do</button>
+              <button className='demo-button chat-gpt-submit' type="submit">Find Us Something To Do</button>
           </form>
-          <h3 className="chat-subheading">Our suggestions</h3>
+          <h3 className={hidden ? 'chat-subheading hidden' : 'chat-subheading'}>Our suggestions</h3>
           <div className='chat-result-buttons-container'>
             <button className={hidden ? 'demo-button hidden' : 'demo-button chat-result-button'} onClick={() => setEventName(eventOne)}>{eventOne}</button>
             <button className={hidden ? 'demo-button hidden' : 'demo-button chat-result-button'} onClick={() => setEventName(eventTwo)}>{eventTwo}</button>
