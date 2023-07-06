@@ -2,13 +2,13 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 500px;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #070707;
     /* padding: 20px; */
     display: flex;
     flex-direction: column;
-    padding-left: 10%;
+    /* padding-left: 10%; */
     padding-top: 2%;
 }
 

@@ -22,19 +22,26 @@ function ProfilePage () {
     return (
         <>
             <Sidebar>
-                <Link to="/event/new" className="new-event-link">Create New Event!</Link>
-                <h2 className='side-bar-title'>Your upcoming Events!</h2>
-                {Object.values(userEvents).map(event => (
-                    <div key={event._id } className='new-event-link'>
-                        <Link to={`/event/${event._id}`}className='new-event-link'>
-                            <div className='event-sidebar-container'>
-                                <div className='event-name'>
-                                    {event.name}
+                <div className='user-name'>
+                    {user.fname}
+                </div>
+                <div className='side-bar-container'>
+                    <Link to="/event/new" className="new-event-link">Create New Event!</Link>
+                    <h2 className='side-bar-title'>Your Upcoming Events!</h2>
+                    {Object.values(userEvents).map(event => (
+                        <div key={event._id } >
+                            <Link to={`/event/${event._id}`} className="event-link">
+                                <div className='bigger-container'>
+                                    <div className='event-sidebar-container'>
+                                        <div className='event-name'>
+                                            {event.name}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
+                            </Link>
+                        </div>
+                    ))}
+                </div>
             </Sidebar>
             <EventIndex />
             <br />
