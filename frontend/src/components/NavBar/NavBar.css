@@ -61,4 +61,26 @@
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     color: black;
     font-weight: 250;
+    z-index: 999;
+}
+
+
+.links-user-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.links-user {
+    display: flex;
+    justify-content: center;
+}
+
+.profile2 {
+    padding-left: 80%;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    color: black;
+    font-weight: 250;
+    text-decoration: none;
+    z-index: 999;
 }
