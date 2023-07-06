@@ -79,92 +79,89 @@ const EventForm = () => {
   };
   
   return (
-    <>
-    <span className='chat-box'>
-    <h1>Need ideas of what to do? We can help...</h1>
-            <form className='event-form' onSubmit={handleChatSubmit}>
-                <h3>Choose your setting</h3>
-                <button type="button" onClick={() => setSetting("inside")}>Inside</button>
-                <button type="button" onClick={() => setSetting("outside")}>Outside</button>
-                <br />
-                <br />
+    <div className="create-event-page">
+      <span className='event-form-container login-background'>
+        <h2 className='event-form-title'>Need ideas?</h2>
+          <form className='event-form' onSubmit={handleChatSubmit}>
+              <h3 className="chat-subheading">Choose your setting</h3>
+              <button className="demo-button" type="button" onClick={() => setSetting("inside")}>Inside</button>
+              <button className="demo-button" type="button" onClick={() => setSetting("outside")}>Outside</button>
+              <br />
+              <br />
 
 
 
-                <h3>What vibe are you going for?</h3>
-                <button type="button" onClick={() => setEnergy("active")}>Active</button>
-                <button type="button" onClick={() => setEnergy("chill")}>Chill</button>
-                <br />
-                <br />
+              <h3>What vibe are you going for?</h3>
+              <button className="demo-button" type="button" onClick={() => setEnergy("active")}>Active</button>
+              <button className="demo-button" type="button" onClick={() => setEnergy("chill")}>Chill</button>
+              <br />
+              <br />
 
-                <h3>How many people are you thinking?</h3>
-                <input 
-                    type="text"
-                    placeholder="#"
-                    onChange={(e) => setPeople(e.target.value)}
-                />
-                <br />
-                <br />
+              <h3>How many people are you thinking?</h3>
+              <input 
+                  type="text"
+                  placeholder="#"
+                  onChange={(e) => setPeople(e.target.value)}
+              />
+              <br />
+              <br />
 
-                <input 
-                    type="submit"
-                    value="Find Us Something To Do"
-                />
-            </form>
-            <button onClick={() => setEventName(eventOne)}>{eventOne}</button>
-            <button onClick={() => setEventName(eventTwo)}>{eventTwo}</button>
-            <button onClick={() => setEventName(eventThree)}>{eventThree}</button>
-    </span>
-    <span className='event-form-container'>
-        <form className='event-form' onSubmit={handleSubmit}>
-            <h2 className='event-form-title'>Create Event</h2>
-            
-            <div className='event-errors'></div>
+              <button className="demo-button" type="submit">Find Us Something To Do</button>
+          </form>
+          <button onClick={() => setEventName(eventOne)}>{eventOne}</button>
+          <button onClick={() => setEventName(eventTwo)}>{eventTwo}</button>
+          <button onClick={() => setEventName(eventThree)}>{eventThree}</button>
+      </span>
+      <span className='event-form-container login-background'>
+          <form className='event-form' onSubmit={handleSubmit}>
+              <h2 className='event-form-title'>Create Event</h2>
+              
+              <div className='event-errors'></div>
 
-            <div className='event-form-input'>
-                  <label>
-                    <span>Event Name</span>
+              <div className='event-form-input'>
+                    <label>
+                      <span>Event Name</span>
+                      <input 
+                        type="text" 
+                        value={eventName} 
+                        onChange={e => setEventName(e.target.value)} 
+                      />
+                    </label>
+                    <br/>
+
+                    <label>
+                      <Calendar onDatesChange={handleDatesChange}/>
+                    </label>
+                    <br/>
+
+                    <label>
+                      <span>Event Start time?</span>
+                      <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
+                        {hours.map(hour => (
+                          <option key={hour} value={hour}>{hour}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <br/>
+                    
+                    <label>
+                      <span>Event End time?</span>
+                      <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
+                        {hours.map(hour => (
+                          <option key={hour} value={hour}>{hour}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <br/>
                     <input 
-                      type="text" 
-                      value={eventName} 
-                      onChange={e => setEventName(e.target.value)} 
+                      type="submit"
+                      value="Create Event"
                     />
-                  </label>
-                  <br/>
+              </div>
 
-                  <label>
-                    <Calendar onDatesChange={handleDatesChange}/>
-                  </label>
-                  <br/>
-
-                  <label>
-                    <span>Event Start time?</span>
-                    <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
-                      {hours.map(hour => (
-                        <option key={hour} value={hour}>{hour}</option>
-                      ))}
-                    </select>
-                  </label>
-                  <br/>
-                  
-                  <label>
-                    <span>Event End time?</span>
-                    <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
-                      {hours.map(hour => (
-                        <option key={hour} value={hour}>{hour}</option>
-                      ))}
-                    </select>
-                  </label>
-                  <br/>
-                  <input 
-                    type="submit"
-                    value="Create Event"
-                  />
-            </div>
-
-        </form>
-    </span>
-    </>
+          </form>
+      </span>
+    </div>
   )
 }
 export default EventForm;

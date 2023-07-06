@@ -14,12 +14,24 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+.create-event-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px;
+}
+
+.chat-box {
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
 .event-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: -5%;
+    margin: 10px;
 }
 
 .event-form-title {
@@ -28,6 +40,7 @@
     font-weight: 300px;
     display: flex;
     justify-content: center;
+    margin-top: 5px;
 }
 
 .event-form-input {

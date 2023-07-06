@@ -1,76 +1,96 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchAggSchedule } from '../../store/schedules';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './Grid.css';
-
 //helper function to convert time
 const convertTo12HourFormat = (time) => {
-    if(time === 0) {
-        return "12:00 AM";
+    let hour = Math.floor(time);
+    let minute = (time % 1) > 0 ? 30 : 0;
+    let amPm = hour >= 12 ? 'PM' : 'AM';
+    if (hour === 0) {
+        hour = 12;
+    } else if (hour > 12) {
+        hour -= 12;
     }
-    else if(time < 12) {
-        return `${time}:00 AM`;
-    }
-    else if(time === 12) {
-        return "12:00 PM";
-    }
-    else {
-        return `${time-12}:00 PM`;
-    }
+    return `${hour}:${minute === 0 ? '00' : '30'} ${amPm}`;
 }
-
 function AggGrid({ event }) {
-    const [grid, setGrid] = useState([]);
-    const {id} = useParams();
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchAggSchedule(id))
-    },[dispatch,id])
-
+    const [grid, setGrid] = useState({});
     useEffect(() => {
         let startTime = new Date("1970-01-01 " + event.dailyEventStartTime).getHours();
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
         let hoursArray = Array.from({length: ((endTime - startTime) * 2)}, (_, i) => startTime + (i * 0.5));
-    
-        let tempGrid = [[{time: '', selected: false}, ...event.dates.map(date => new Date(date).toLocaleDateString())], ...hoursArray.map(hour => {
-            return [{time: hour, selected: false}, ...event.dates.map(date => {
-                return {
-                    time: hour,
-                    selected: false
-                };
-            })];
-        })];
-    
+        let tempGrid = event.dates.reduce((acc, date) => {
+            const formattedDate = new Date(date).toLocaleDateString();
+            acc[formattedDate] = hoursArray.reduce((timeSlots, hour) => {
+                const formattedTime = convertTo12HourFormat(hour);
+                timeSlots[formattedTime] = false;
+                return timeSlots;
+            }, {});
+            return acc;
+        }, {});
         setGrid(tempGrid);
     }, [event]);
-
-    const handleTimeSlotClick = (rowIndex, colIndex) => {
-        if(rowIndex > 0 && colIndex > 0) {
-            let newGrid = [...grid];
-            newGrid[rowIndex][colIndex].selected = !newGrid[rowIndex][colIndex].selected;
-            setGrid(newGrid);
-        }
+    const handleTimeSlotClick = (date, time) => {
+        let newGrid = {...grid};
+        newGrid[date][time] = !newGrid[date][time];
+        setGrid(newGrid);
     };
-
-    return (
-        <div className='grid'>
-            {grid.map((row, rowIndex) => (
-                <div className='grid-row' key={rowIndex}>
-                    {row.map((cell, colIndex) => (
-                        <div 
-                            className='grid-cell' 
-                            key={colIndex} 
-                            onClick={() => handleTimeSlotClick(rowIndex, colIndex)}
-                            style={{backgroundColor: rowIndex === 0 || colIndex === 0 ? 'white' : cell.selected ? 'green' : 'white'}}
-                        >
-                            {rowIndex === 0 && colIndex !== 0 ? cell : colIndex === 0 && rowIndex !== 0 && Number.isInteger(cell.time) ? convertTo12HourFormat(cell.time) : ""}
-                        </div>
-                    ))}
-                </div>
-            ))}
-        </div>
-    );
+    const columnDates = Object.keys(grid);
+    let second;
+    if (grid) {
+        const first = Object.keys(grid)[0];
+        if (grid[first]){
+            console.log(grid[first]);
+            second = Object.keys(grid[first]);
+        }
+        if (second) {
+            console.log(second);
+        }
+    }
+    // console.log(grid);
+    if (grid) {
+        return (
+            <div className='grid'>
+                {Object.entries(grid).map(([date, timeSlots]) => (
+                    <div className='grid-row' key={date}>
+                        {Object.entries(timeSlots).map(([time, selected]) => (
+                            <div
+                                className='grid-cell'
+                                key={time}
+                                onClick={() => handleTimeSlotClick(date, time)}
+                                style={{backgroundColor: selected ? '#A98DE2' : '#CBC3E3'}}
+                            >
+                                {time}
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+        );
+    } else {
+        <h1>loading...</h1>
+    }
 }
-
 export default AggGrid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
