@@ -24,7 +24,7 @@ function EventsShow() {
                     <p>Dates: {event.dates.map(date => new Date(date).toLocaleDateString()).join(', ')}</p>
                 </div>
             )}
-            <div><Grid/></div>
+            {event && <Grid event={event}/>}
         </div>
     );
 }
