@@ -10,6 +10,7 @@ import NavBar from './components/NavBar/NavBar';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import EventsShow from './components/Events/EventsShow';
 import EventForm from './components/Events/Eventform';
+import EventIndex from './components/Events/EventIndex';
 import { getCurrentUser } from './store/session';
 import { AboutPage } from './components/AboutPage/AboutPage';
 
@@ -30,6 +31,7 @@ function App() {
           <ProtectedRoute exact path="/event/new" component={EventForm} />
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
           <ProtectedRoute exact path="/event/:id" component={EventsShow} />
+          <ProtectedRoute exact path="/events" component={EventIndex} />
           <Route exact path="/about" component={AboutPage} />
 
 
