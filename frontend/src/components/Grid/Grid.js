@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Grid.css';
 
+//helper function to convert time
+const convertTo12HourFormat = (time) => {
+    if(time === 0) {
+        return "12:00 AM";
+    }
+    else if(time < 12) {
+        return `${time}:00 AM`;
+    }
+    else if(time === 12) {
+        return "12:00 PM";
+    }
+    else {
+        return `${time-12}:00 PM`;
+    }
+}
+
 function Grid({ event }) {
     const [grid, setGrid] = useState([]);
 
@@ -8,8 +24,8 @@ function Grid({ event }) {
         let startTime = new Date("1970-01-01 " + event.dailyEventStartTime).getHours();
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
         let hoursArray = Array.from({length: ((endTime - startTime) * 2)}, (_, i) => startTime + (i * 0.5));
-
-        let tempGrid = [event.dates.map(date => new Date(date).toLocaleDateString()), ...hoursArray.map(hour => {
+    
+        let tempGrid = [[{time: '', selected: false}, ...event.dates.map(date => new Date(date).toLocaleDateString())], ...hoursArray.map(hour => {
             return [{time: hour, selected: false}, ...event.dates.map(date => {
                 return {
                     time: hour,
@@ -17,7 +33,7 @@ function Grid({ event }) {
                 };
             })];
         })];
-
+    
         setGrid(tempGrid);
     }, [event]);
 
@@ -38,9 +54,9 @@ function Grid({ event }) {
                             className='grid-cell' 
                             key={colIndex} 
                             onClick={() => handleTimeSlotClick(rowIndex, colIndex)}
-                            style={{backgroundColor: cell.selected ? 'green' : 'red'}}
+                            style={{backgroundColor: rowIndex === 0 || colIndex === 0 ? '#CAE8E4' : cell.selected ? '#FFD1DC' : '#FFF9B0'}}
                         >
-                            {rowIndex === 0 ? cell : colIndex === 0 && Number.isInteger(cell.time) ? cell.time : ""}
+                            {rowIndex === 0 && colIndex !== 0 ? cell : colIndex === 0 && rowIndex !== 0 && Number.isInteger(cell.time) ? convertTo12HourFormat(cell.time) : ""}
                         </div>
                     ))}
                 </div>
