@@ -20,6 +20,7 @@ const dateConverter = (str) => {
     return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
  }
 function AggGrid({ event }) {
+    const [isLoaded,setisLoaded] = useState(false);
     const {id} = useParams();
     const [grid, setGrid] = useState({});
     const aggie = useSelector(getAggSchedule(id))
@@ -36,18 +37,21 @@ function AggGrid({ event }) {
         let startTime = new Date("1970-01-01 " + event.dailyEventStartTime).getHours();
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
         let hoursArray = Array.from({length: ((endTime - startTime) * 2)}, (_, i) => startTime + (i * 0.5));
+        if(aggie){
+            setisLoaded(true);
+        }
         let tempGrid = event.dates.reduce((acc, date) => {
             acc[dateConverter(date)] = hoursArray.reduce((timeSlots, hour) => {
-                const formattedTime =  convertTo12HourFormat(hour);
+                const formattedTime = convertTo12HourFormat(hour);
                 if(formattedTime){
-                    timeSlots[formattedTime] = aggregate[(dateConverter(date))][formattedTime] || {}[formattedTime];;
+                    timeSlots[formattedTime] = (aggregate[(dateConverter(date))] || {})[formattedTime];
                 }
                 return timeSlots;
             }, {});
             return acc;
         }, {});
         setGrid(tempGrid);
-    }, [event]);
+    }, [event,aggie]);
     const handleTimeSlotClick = (date, time) => {
         let newGrid = {...grid};
         newGrid[date][time] = !newGrid[date][time];
@@ -55,7 +59,7 @@ function AggGrid({ event }) {
     };
 
     console.log("THIS IS AGGREGATED GRID",grid);
-    if (grid) {
+    if (isLoaded) {
         return (
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
