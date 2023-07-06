@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Schedule = mongoose.model('Schedule');
+const {ObjectId} = require('mongodb');
 
 router.post('/', async (req, res, next) => {
     try {
@@ -41,9 +42,13 @@ router.get('/', async (req, res) => {
     return res.json(schedules)
 })
 
-router.get('/agg',async(req,res,next) => {
+router.get('/:id',async(req,res,next) => {
     try{
         const agg = await Schedule.aggregate([
+            // {'$match':{
+            //     'eventId': ObjectId(req.params.id)
+            // }
+            // },
             {
               '$addFields': {
                 'dateArray': {
