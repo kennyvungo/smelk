@@ -19,20 +19,17 @@ const convertTo12HourFormat = (time) => {
 const dateConverter = (str) => {
     return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
  }
-
 function AggGrid({ event }) {
     const {id} = useParams();
     const [grid, setGrid] = useState({});
     const aggie = useSelector(getAggSchedule(id))
-    console.log("aggie",aggie)
+    let aggregate = {};
     if(aggie){
-        console.log("aggie",aggie.dates)
         const dates = Object.keys(aggie.dates).sort()
-        let aggregate = {};
+        
         dates.forEach((day) => {
-            aggregate[dateConverter(day)] = aggie[day]
+            aggregate[dateConverter(day)] = aggie.dates[day]
         })
-        console.log(aggregate)
     }
 
     useEffect(() => {
@@ -40,10 +37,11 @@ function AggGrid({ event }) {
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
         let hoursArray = Array.from({length: ((endTime - startTime) * 2)}, (_, i) => startTime + (i * 0.5));
         let tempGrid = event.dates.reduce((acc, date) => {
-            const formattedDate = new Date(date).toLocaleDateString();
-            acc[formattedDate] = hoursArray.reduce((timeSlots, hour) => {
-                const formattedTime = convertTo12HourFormat(hour);
-                timeSlots[formattedTime] = "banana";
+            acc[dateConverter(date)] = hoursArray.reduce((timeSlots, hour) => {
+                const formattedTime =  convertTo12HourFormat(hour);
+                if(formattedTime){
+                    timeSlots[formattedTime] = aggregate[(dateConverter(date))][formattedTime] || {}[formattedTime];;
+                }
                 return timeSlots;
             }, {});
             return acc;
