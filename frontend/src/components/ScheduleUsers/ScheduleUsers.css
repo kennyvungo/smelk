@@ -5,7 +5,7 @@
     padding: 20px;
     border: 1px #888688 solid;
     border-radius: 25px;
-    margin: 20px;
+    /* margin: 20px; */
     background-color: rgba(215, 228, 230, 0.383);
     border: none;
 }
@@ -25,14 +25,18 @@ hr {
 .schedule-users-splitter-text {
     padding: 0 20px;
     margin-bottom: 10px;
+    font-weight: 200;
 }
 
 .schedule-users-header-text {
     font-size: 20px;
+    font-weight: 400;
+
 }
 
 .schedule-label {
     padding-top: 10px;
+    font-weight: 200;
 }
 
 .schedule-input {

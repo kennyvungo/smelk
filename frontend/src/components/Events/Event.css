@@ -1,5 +1,7 @@
 .event-show-event-name {
     font-size: 50px !important;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .event-show-container {
@@ -10,6 +12,7 @@
 .event-show-content-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 .event-form-container {
     display: flex;
