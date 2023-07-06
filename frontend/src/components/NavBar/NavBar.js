@@ -17,8 +17,10 @@ function NavBar () {
     if (loggedIn) {
       return (
         <div className="links-nav">
-          <Link to={`/profile/${userId}`}>Profile</Link>
-          <button onClick={logoutUser}>Logout</button>
+          <div className='links-auth-container'>
+            <Link to={`/profile/${userId}`}>Profile</Link>
+            <button onClick={logoutUser} >Logout</button>
+          </div>
         </div>
       );
     } else {
@@ -29,6 +31,7 @@ function NavBar () {
                     <Link to={'/signup'} className="link1-auth">Signup</Link>
                     <Link to={'/login'} className="link2-auth">Login</Link>
                     <Link to={'/about'} className='about-link'>About</Link>
+                    <Link to={'/'} className='about-link'>Home</Link>
                 </div>
             </div>
         </>

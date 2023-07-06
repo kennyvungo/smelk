@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
+import EventForm from "../Events/Eventform";
+import ChatGPTEvent from "../Events/ChatGPTEvent";
 
 function ProfilePage () {
     const dispatch = useDispatch();
@@ -16,7 +18,6 @@ function ProfilePage () {
 
     if (!userEvents) return null;
 
-
     return (
         <>
             <Link to="/event/new">Create New Event!</Link>
@@ -28,6 +29,9 @@ function ProfilePage () {
                     </Link>
                 </div>
             ))}
+            <EventForm/>
+            <br />
+            <ChatGPTEvent />
         </>
     )
 }

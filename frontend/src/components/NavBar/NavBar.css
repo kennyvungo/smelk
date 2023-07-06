@@ -16,19 +16,27 @@
 
 .links-auth {
     width: 100%;
+    /* display: flex; */
+    /* justify-content: flex-end; */
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    z-index: 1;
 }
 
 .links-auth-container {
-    margin-right: 20%;
+    /* margin-right: 20%; */
+    z-index: 1;
     margin-top: 2%;
+    display: flex;
+    justify-content: center;
+
 }
 
 .link1-auth {
     text-decoration: none;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     color: black;
+    font-weight: 250;
 }
 
 .link2-auth {
@@ -36,6 +44,7 @@
     padding-left: 2%;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     color: black;
+    font-weight: 250;
 }
 
 .about-link {
@@ -43,4 +52,5 @@
     padding-left: 2%;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     color: black;
+    font-weight: 250;
 }
