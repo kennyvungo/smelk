@@ -9,7 +9,7 @@ import SignupForm from './components/SessionForms/SignupForm';
 import NavBar from './components/NavBar/NavBar';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import EventsShow from './components/Events/EventsShow';
-import EventForm from './components/Events/EventForm';
+import EventForm from './components/Events/Eventform';
 import { getCurrentUser } from './store/session';
 import { AboutPage } from './components/AboutPage/AboutPage';
 
