@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchEvent } from '../../store/events';
 import Grid from '../Grid/Grid';
+import AggGrid from '../Grid/AggGrid';
 
 function EventsShow() {
     const { id } = useParams();
@@ -25,6 +26,7 @@ function EventsShow() {
                 </div>
             )}
             {event && <Grid event={event}/>}
+            {event && <AggGrid event={event}/>}
         </div>
     );
 }

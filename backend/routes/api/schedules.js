@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
     return res.json(schedules)
 })
 
-router.get('/agg',async(req,res,next) => {
+router.get('/agg/:id',async(req,res,next) => {
     try{
         const agg = await Schedule.aggregate([
             {
