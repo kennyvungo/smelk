@@ -15,6 +15,20 @@ const ChatGPTEvent = () => {
         console.log(setting)
         console.log(energy)
         console.log(people)
+        const eventQuery = generateQuery();
+    }
+
+    const generateQuery = async () => {
+        const response = await fetch("http://localhost:3000/generate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ people: people, setting: setting, energy: energy })
+        })
+
+        const data = await response.json()
+        return data
     }
 
     return (

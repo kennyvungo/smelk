@@ -65,7 +65,24 @@ if (isProduction) {
             path.resolve(__dirname, '../frontend', 'build', 'index.html')
         );
     });
+
 }
+
+const generateEvents = require('./generate');
+
+app.post("/generate", async (req, res) => {
+    const people = req.body.people
+    const setting = req.body.setting
+    const energy = req.body.energy
+    try {
+        const events = await generateEvents(people, setting, energy);
+        res.json({ response: events })
+    } catch (error) {
+        console.log("here is error")
+        console.error(error)
+        res.status(500).send("Internal Server Error")
+    }
+})
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

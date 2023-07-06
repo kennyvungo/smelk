@@ -7,6 +7,13 @@ const Schedule = mongoose.model('Schedule');
 const scheduleHelper = require('../../utils/scheduleHelper');
 // const { requireUser } = require('../../config/passport');
 
+
+router.post("/generate", (req, res) => {
+    const people = req.body.people
+    console.log("received people: ", people)
+    res.json({ response: `you sent this: ${people}`})
+})
+
 router.post('/', async (req, res, next) => {
     try {
         const newEvent = new Event({
