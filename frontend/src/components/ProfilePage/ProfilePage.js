@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
 import EventForm from "../Events/Eventform";
-import ChatGPTEvent from "../Events/ChatGPTEvent";
 import Sidebar from '../SideBar/SideBar';
 
 function ProfilePage () {
@@ -34,7 +33,6 @@ function ProfilePage () {
             </Sidebar>
             <EventForm/>
             <br />
-            <ChatGPTEvent />
         </>
     )
 }
