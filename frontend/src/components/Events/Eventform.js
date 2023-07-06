@@ -19,6 +19,9 @@ const EventForm = () => {
   const [setting, setSetting] = useState('')
   const [energy, setEnergy] = useState('')
   const [people, setPeople] = useState(0)
+  const [settingButton, setSettingButton] = useState(3)
+  const [energyButton, setEnergyButton] = useState(3)
+  const [hidden, setHidden] = useState(true)
   const [eventOne, setEventOne] = useState("")
   const [eventTwo, setEventTwo] = useState("")
   const [eventThree, setEventThree] = useState("")
@@ -82,35 +85,36 @@ const EventForm = () => {
     <div className="create-event-page">
       <span className='event-form-container login-background'>
         <h2 className='event-form-title'>Need ideas?</h2>
-          <form className='event-form' onSubmit={handleChatSubmit}>
+          <form className='event-form chat-gpt-form' onSubmit={handleChatSubmit}>
               <h3 className="chat-subheading">Choose your setting</h3>
-              <button className="demo-button" type="button" onClick={() => setSetting("inside")}>Inside</button>
-              <button className="demo-button" type="button" onClick={() => setSetting("outside")}>Outside</button>
+              <button className={settingButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setSetting("inside");setSettingButton(0)}}>Inside</button>
+              <button className={settingButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setSetting("outside");setSettingButton(1)}}>Outside</button>
               <br />
               <br />
 
-
-
-              <h3>What vibe are you going for?</h3>
-              <button className="demo-button" type="button" onClick={() => setEnergy("active")}>Active</button>
-              <button className="demo-button" type="button" onClick={() => setEnergy("chill")}>Chill</button>
+              <h3 className="chat-subheading">What vibe are you going for?</h3>
+              <button className={energyButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setEnergy("active");setEnergyButton(0)}}>Active</button>
+              <button className={energyButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setEnergy("chill");setEnergyButton(1)}}>Chill</button>
               <br />
               <br />
 
-              <h3>How many people are you thinking?</h3>
+              <h3 className="chat-subheading">How many people are you thinking?</h3>
               <input 
                   type="text"
-                  placeholder="#"
+                  placeholder="# people"
                   onChange={(e) => setPeople(e.target.value)}
               />
               <br />
               <br />
 
-              <button className="demo-button" type="submit">Find Us Something To Do</button>
+              <button className='demo-button chat-gpt-submit' type="submit" onClick={() => {setHidden(!hidden)}}>Find Us Something To Do</button>
           </form>
-          <button onClick={() => setEventName(eventOne)}>{eventOne}</button>
-          <button onClick={() => setEventName(eventTwo)}>{eventTwo}</button>
-          <button onClick={() => setEventName(eventThree)}>{eventThree}</button>
+          <h3 className="chat-subheading">Our suggestions</h3>
+          <div className='chat-result-buttons-container'>
+            <button className={hidden ? 'demo-button hidden' : 'demo-button chat-result-button'} onClick={() => setEventName(eventOne)}>{eventOne}</button>
+            <button className={hidden ? 'demo-button hidden' : 'demo-button chat-result-button'} onClick={() => setEventName(eventTwo)}>{eventTwo}</button>
+            <button className={hidden ? 'demo-button hidden' : 'demo-button chat-result-button'} onClick={() => setEventName(eventThree)}>{eventThree}</button>
+          </div>
       </span>
       <span className='event-form-container login-background'>
           <form className='event-form' onSubmit={handleSubmit}>
@@ -135,7 +139,7 @@ const EventForm = () => {
                     <br/>
 
                     <label>
-                      <span>Event Start time?</span>
+                      <span>Availability start time</span>
                       <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
                         {hours.map(hour => (
                           <option key={hour} value={hour}>{hour}</option>
@@ -145,7 +149,7 @@ const EventForm = () => {
                     <br/>
                     
                     <label>
-                      <span>Event End time?</span>
+                      <span>Availability end time</span>
                       <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
                         {hours.map(hour => (
                           <option key={hour} value={hour}>{hour}</option>
