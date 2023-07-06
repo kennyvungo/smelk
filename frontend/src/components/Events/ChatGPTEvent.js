@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
+import jwtFetch from '../../store/jwt';
 
 const ChatGPTEvent = () => {
     // indoors, outdoors
@@ -9,28 +10,34 @@ const ChatGPTEvent = () => {
     const [energy, setEnergy] = useState('')
     const [people, setPeople] = useState(0)
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log("form submitted")
-        console.log(setting)
-        console.log(energy)
-        console.log(people)
-        const eventQuery = await generateQuery();
-        console.log("returned from server: ", eventQuery)
-    }
-
     const generateQuery = async () => {
-        const response = await fetch("http://localhost:3000/generate", {
+        console.log("whatsup");
+        const response = await jwtFetch("http://localhost:3000/generate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ people: people, setting: setting, energy: energy })
         })
-
+        
+        console.log("response", response)
         const data = await response.json()
-        return data
+        console.log("data", data)
+        return data.response
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log("form submitted")
+        console.log(setting)
+        console.log(energy)
+        console.log(people)
+
+
+        const query = await generateQuery();
+        console.log("returned from server", query)      
+    };
+    
 
     return (
         <>
