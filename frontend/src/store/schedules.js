@@ -74,6 +74,19 @@ export const createSchedule = (data) => async (dispatch) => {
     }
 };
 
+export const fetchSchedule = (fname,lname) => async (dispatch) => {
+    try {
+        const res = await jwtFetch(`/api/schedules/${fname}&${lname}`);
+        const schedule = await res.json();
+        dispatch(receiveUserSchedule(schedule))
+    } catch (err) {
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveErrors(resBody.errors));
+        }
+    }
+}
+
 export const updateSchedule = (data) => async dispatch => {
     const {id} = data;
     try{

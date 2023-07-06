@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { createSchedule } from '../../store/schedules';
+import { createSchedule, fetchSchedule } from '../../store/schedules';
 import './ScheduleUsers.css'
 
 const ScheduleUsers = ({event}) => {
@@ -8,7 +8,11 @@ const ScheduleUsers = ({event}) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const responses = useSelector(state => state.events.current.responses)
-    const [currentSchedule, setCurrentSchedule] = useState('')
+    const schedule = useSelector(state => state.schedules.current)
+    
+    const getSchedule = () => {
+        dispatch(fetchSchedule(firstName, lastName))
+    }
     
     const sendCreateSchedule = () => {
         const schedule = {
@@ -42,8 +46,8 @@ const ScheduleUsers = ({event}) => {
                 <span className='schedule-users-splitter-text'> OR </span>
                 <hr></hr>
             </div>
+            <h1 className='schedule-users-header-text'>Select your name below</h1>
             <div className="schedule-users-buttons-container">
-                <h1 className='schedule-users-header-text'>Select your name below</h1>
                 {responses.map(user => (
                     <div className='user-button-container' key={event["_id"] + user}>
                         <button className='user-button'>{user.fname + " " + user.lname}</button>

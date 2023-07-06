@@ -28,7 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
+    width: 5.4vw;
     height: 18px;
     text-align: center;
     padding: 10px;
@@ -41,5 +41,5 @@
     align-items: center;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: bold;
-    height: 5%;
+    height: 3%;
 }
