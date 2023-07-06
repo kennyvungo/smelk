@@ -1,111 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { isBefore, isAfter, format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, isSameMonth, isSameDay, addMonths, subMonths, eachDayOfInterval, getDay, eachWeekOfInterval, isWithinInterval } from 'date-fns';
+import { isBefore, isAfter, format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, isSameMonth, addMonths, subMonths, getDay, eachWeekOfInterval, isWithinInterval, startOfDay } from 'date-fns';
 import './Calendar.css';
+import {BiSolidLeftArrowCircle, BiSolidRightArrowCircle} from "react-icons/bi";
 
 const Calendar = ({ onDatesChange }) => {
-    const [currentMonth, setCurrentMonth] = useState(new Date());
+    const today = startOfDay(new Date());
+    const [currentMonth, setCurrentMonth] = useState(startOfMonth(new Date()));
     const [selectedDates, setSelectedDates] = useState([]);
     const [dragStart, setDragStart] = useState(null);
     const [dragEnd, setDragEnd] = useState(null);
+    
+    useEffect(() => {
+        // console.log("Selected Dates:", selectedDates);
+        onDatesChange(selectedDates);
+    }, [selectedDates, onDatesChange]);
+    
+    const getDatesInColumn = (start, end, dayOfWeek) => {
+        const weeks = eachWeekOfInterval({ start, end });
+        return weeks
+        .map(weekStart => addDays(weekStart, dayOfWeek))
+        .filter(date => isWithinInterval(date, { start, end }))
+        .map(date => format(date, "yyyy-MM-dd"));
+    };
     
     const getDayOfWeek = (date) => {
         return getDay(date);
     };
 
-    useEffect(() => {
-        console.log("Selected Dates:", selectedDates);
-        onDatesChange(selectedDates);
-    }, [selectedDates, onDatesChange]);
-
-    const getDatesInColumn = (start, end, dayOfWeek) => {
-        const weeks = eachWeekOfInterval({ start, end });
-        return weeks
-            .map(weekStart => addDays(weekStart, dayOfWeek))
-            .filter(date => isWithinInterval(date, { start, end }))
-            .map(date => format(date, "yyyy-MM-dd"));
+    const nextMonth = () => {
+        setCurrentMonth(prevMonth => addMonths(prevMonth, 1));
     };
 
-    const renderHeader = () => {
-        const dateFormat = "MMMM yyyy";
+    const prevMonth = () => {
+        setCurrentMonth(prevMonth => isBefore(startOfMonth(prevMonth), currentMonth) ? prevMonth : subMonths(prevMonth, 1));
+    };
 
-        return (
-            <div className="header row flex-middle">
-                <div className="col col-start">
-                    <div className="icon" onClick={prevMonth}>left</div>
-                </div>
-                <div className="col col-center">
-                    <span>{format(currentMonth, dateFormat)}</span>
-                </div>
-                <div className="col col-end" onClick={nextMonth}>
-                    <div className="icon">right</div>
-                </div>
-            </div>
-        );
-    }
-
-    const renderDays = () => {
-        const dateFormat = "iii";
-        const days = [];
-
-        let startDate = startOfWeek(currentMonth);
-
-        for (let i = 0; i < 7; i++) {
-            days.push(
-                <div className="col col-center" key={i}>
-                    {format(addDays(startDate, i), dateFormat)}
-                </div>
-            );
-        }
-
-        return <div className="days row">{days}</div>;
-    }
-
-    const renderCells = () => {
-        const monthStart = startOfMonth(currentMonth);
-        const monthEnd = endOfMonth(monthStart);
-        const startDate = startOfWeek(monthStart);
-        const endDate = endOfWeek(monthEnd);
-
-        const dateFormat = "d";
-        const rows = [];
-
-        let days = [];
-        let day = startDate;
-        let formattedDate = "";
-
-        while (day <= endDate) {
-            for (let i = 0; i < 7; i++) {
-                formattedDate = format(day, dateFormat);
-                const cloneDay = day;
-                days.push(
-                    <div
-                        className={`col cell ${
-                            !isSameMonth(day, monthStart)
-                            ? "disabled"
-                            : selectedDates.includes(format(day, "yyyy-MM-dd")) ? "selected" : ""
-                        }`}
-                        key={day}
-                        onMouseDown={() => startDrag(cloneDay)}
-                        onMouseUp={() => endDrag(cloneDay)}
-                        onMouseOver={() => onDragOver(cloneDay)}
-                        onDragStart={(event) => event.preventDefault()}
-                    >
-                        <span className="number">{formattedDate}</span>
-                    </div>
-                );
-                day = addDays(day, 1);
-            }
-            rows.push(
-                <div className="row" key={day}> 
-                    {days}
-                </div>
-            );
-            days = [];
-        }
-        return <div className="body">{rows}</div>;
-    }
-
-    //click handlers
+    //not working, buggy
+    // const clearSelection = (e) => {
+    //     e.preventDefault();
+    //     setSelectedDates([]);
+    // };
 
     const startDrag = day => {
         setDragStart(day);
@@ -151,20 +85,94 @@ const Calendar = ({ onDatesChange }) => {
         setSelectedDates(allSelectedDates);
     };
 
-    const nextMonth = () => {
-        setCurrentMonth(prevMonth => addMonths(prevMonth, 1));
-    };
+    const Header = () => {
+        const dateFormat = "MMMM yyyy";
 
-    const prevMonth = () => {
-        setCurrentMonth(prevMonth => subMonths(prevMonth, 1));
-    };
+        return (
+            <div className="header row flex-middle">
+                <div className="col col-start">
+                    <div className="icon" onClick={prevMonth}><BiSolidLeftArrowCircle/></div>
+                </div>
+                <div className="col col-center">
+                    <span>{format(currentMonth, dateFormat)}</span>
+                </div>
+                <div className="col col-end" onClick={nextMonth}>
+                    <div className="icon"><BiSolidRightArrowCircle/></div>
+                </div>
+            </div>
+        );
+    }
+
+    const Days = () => {
+        const dateFormat = "iii";
+        const days = [];
+
+        let startDate = startOfWeek(currentMonth);
+
+        for (let i = 0; i < 7; i++) {
+            days.push(
+                <div className="col col-center" key={i}>
+                    {format(addDays(startDate, i), dateFormat)}
+                </div>
+            );
+        }
+
+        return <div className="days row">{days}</div>;
+    }
+
+    const Cells = () => {
+        const monthStart = startOfMonth(currentMonth);
+        const monthEnd = endOfMonth(monthStart);
+        const startDate = startOfWeek(monthStart);
+        const endDate = endOfWeek(monthEnd);
+
+        const dateFormat = "d";
+        const rows = [];
+
+        let days = [];
+        let day = startDate;
+        let formattedDate = "";
+
+        while (day <= endDate) {
+            for (let i = 0; i < 7; i++) {
+                formattedDate = format(day, dateFormat);
+                const cloneDay = day;
+                const isSelected = selectedDates.includes(format(day, "yyyy-MM-dd"));
+                const isDisabled = !isSameMonth(day, monthStart) || isBefore(day, today);
+    
+                days.push(
+                    <div
+                        className={`col cell ${isDisabled ? "disabled" : isSelected ? "selected" : ""}`}
+                        key={day}
+                        onMouseDown={() => !isDisabled && startDrag(cloneDay)}
+                        onMouseUp={() => !isDisabled && endDrag(cloneDay)}
+                        onMouseOver={() => !isDisabled && onDragOver(cloneDay)}
+                        onDragStart={(event) => event.preventDefault()}
+                    >
+                        <span className="number">{formattedDate}</span>
+                    </div>
+                );
+                day = addDays(day, 1);
+            }
+            rows.push(
+                <div className="row" key={day}> 
+                    {days}
+                </div>
+            );
+            days = [];
+        }
+        return <div className="body">{rows}</div>;
+    }
 
     return (
-        <div className="calendar">
-            {renderHeader()}
-            {renderDays()}
-            {renderCells()}
-        </div>
+        <>
+            <div className="calendar">
+                {Header()}
+                {Days()}
+                {Cells()}
+            </div>
+            {/* <button onClick={(e) => clearSelection(e)}>Clear Dates</button> */}
+        </>
     );
 }
 

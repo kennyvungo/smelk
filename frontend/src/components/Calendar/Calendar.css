@@ -1,11 +1,13 @@
 .calendar {
     margin: 0 auto;
-    width: 300px;
+    width: 200px;
     border: 1px solid black;
 }
 
 .header, .days, .row {
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .cell {
@@ -27,16 +29,6 @@
     background-color: greenyellow;
 }
 
-::selection {
-    background: none;
-    color: inherit;
-}
-
-::-moz-selection {
-    background: none;
-    color: inherit;
-}
-
 .dragged {
-    background-color: #3290e1;
+    background-color: lightblue;
 }
