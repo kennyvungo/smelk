@@ -156,6 +156,7 @@
     height: 500px;
     background-color: rgba(215, 228, 230, 0.383);
     border-radius: 10%;
+    text-align: center;
 }
 
 .login-title {
@@ -261,3 +262,14 @@
     background-color: transparent;
 }
 
+.error-exclamation {
+    color: red;
+}
+
+.errors {
+    color: red;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
