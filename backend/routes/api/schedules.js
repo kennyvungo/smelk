@@ -78,7 +78,7 @@ router.get('/agg/:id',async(req,res,next) => {
                         '$eq': [
                           '$timeArray.v', true
                         ]
-                      }, '$firstName', null
+                      }, '$fname', null
                     ]
                   }
                 }, 
@@ -89,7 +89,7 @@ router.get('/agg/:id',async(req,res,next) => {
                         '$eq': [
                           '$timeArray.v', false
                         ]
-                      }, '$firstName', null
+                      }, '$fname', null
                     ]
                   }
                 }

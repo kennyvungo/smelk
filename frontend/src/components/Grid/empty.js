@@ -1,40 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
-import { fetchAggSchedule,getAggSchedule } from '../../store/schedules';
 import './Grid.css';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-
-//helper function to convert time
-const convertTo12HourFormat = (time) => {
-    let hour = Math.floor(time);
-    let minute = (time % 1) > 0 ? 30 : 0;
-    let amPm = hour >= 12 ? 'PM' : 'AM';
-    if (hour === 0) {
-        hour = 12;
-    } else if (hour > 12) {
-        hour -= 12;
-    }
-    return `${hour}:${minute === 0 ? '00' : '30'} ${amPm}`;
-}
-const dateConverter = (str) => {
-    return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
- }
-
-function AggGrid({ event }) {
-    const {id} = useParams();
+function Grid({ event }) {
     const [grid, setGrid] = useState({});
-    const aggie = useSelector(getAggSchedule(id))
-    console.log("aggie",aggie)
-    if(aggie){
-        console.log("aggie",aggie.dates)
-        const dates = Object.keys(aggie.dates).sort()
-        let aggregate = {};
-        dates.forEach((day) => {
-            aggregate[dateConverter(day)] = aggie[day]
-        })
-        console.log(aggregate)
-    }
-
     useEffect(() => {
         let startTime = new Date("1970-01-01 " + event.dailyEventStartTime).getHours();
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
@@ -43,32 +10,31 @@ function AggGrid({ event }) {
             const formattedDate = new Date(date).toLocaleDateString();
             acc[formattedDate] = hoursArray.reduce((timeSlots, hour) => {
                 const formattedTime = convertTo12HourFormat(hour);
-                timeSlots[formattedTime] = "banana";
+                timeSlots[formattedTime] = false;
                 return timeSlots;
             }, {});
             return acc;
         }, {});
         setGrid(tempGrid);
     }, [event]);
-
     const handleTimeSlotClick = (date, time) => {
         let newGrid = {...grid};
         newGrid[date][time] = !newGrid[date][time];
         setGrid(newGrid);
     };
-
-    console.log("THIS IS AGGREGATED GRID",grid);
     if (grid) {
         return (
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
+                        <div className='date-header'>{date}</div>
+                        <div className='date-header'>{getDayOfWeek(date)} </div>
                         {Object.entries(timeSlots).map(([time, selected]) => (
                             <div
-                                className='grid-cell'
-                                key={time}
-                                onClick={() => handleTimeSlotClick(date, time)}
-                                style={{backgroundColor: selected ? '#A98DE2' : '#CBC3E3'}}
+                            className='grid-cell'
+                            key={time}
+                            onClick={() => handleTimeSlotClick(date, time)}
+                            style={{backgroundColor: selected ? '#A98DE2' : '#CBC3E3'}}
                             >
                                 {time}
                             </div>
@@ -81,27 +47,21 @@ function AggGrid({ event }) {
         <h1>loading...</h1>
     }
 }
-export default AggGrid;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Grid;
+//helper function to convert time
+const convertTo12HourFormat = (time) => {
+    let hour = Math.floor(time);
+    let minute = (time % 1) > 0 ? 30 : 0;
+    let amPm = hour >= 12 ? 'PM' : 'AM';
+    if (hour === 0) {
+        hour = 12;
+    } else if (hour > 12) {
+        hour -= 12;
+    }
+    return `${hour}:${minute === 0 ? '00' : '30'} ${amPm}`;
+}
+//helper function to get day of week
+const getDayOfWeek = (date) => {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return days[new Date(date).getDay()];
+}

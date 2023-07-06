@@ -6,7 +6,7 @@
 }
 .grid-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 .grid-cell {
     border: 1px solid #000;
@@ -16,7 +16,15 @@
     justify-content: center;
     align-items: center;
     width: 100px;
-    height: 20px; /* Increase this for better text visibility and alignment */
+    height: 20px;
     text-align: center;
-    padding: 10px; /* Add this to have some spacing around the text */
+    padding: 10px;
+}
+.date-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    height: 5%;
 }
