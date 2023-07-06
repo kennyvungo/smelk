@@ -9,13 +9,14 @@ const ChatGPTEvent = () => {
     const [energy, setEnergy] = useState('')
     const [people, setPeople] = useState(0)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("form submitted")
         console.log(setting)
         console.log(energy)
         console.log(people)
-        const eventQuery = generateQuery();
+        const eventQuery = await generateQuery();
+        console.log("returned from server: ", eventQuery)
     }
 
     const generateQuery = async () => {
