@@ -7,12 +7,21 @@ const Schedule = mongoose.model('Schedule');
 const {createEmptySchedule, updateDailySchedule} = require('../../utils/scheduleHelper');
 // const { requireUser } = require('../../config/passport');
 
+const generateEvents = require('../../generate.js');
 
-router.post("/generate", (req, res) => {
+router.post("/generate", async (req, res) => {
     const people = req.body.people
-    console.log("received people: ", people)
-    res.json({ response: `you sent this: ${people}`})
+    const setting = req.body.setting
+    const energy = req.body.energy
+    try {
+        const events = await generateEvents(people, setting, energy);
+        res.json({ response: events })
+    } catch (error) {
+        console.error(error)
+        res.status(500).send("Internal Server Error")
+    }
 })
+
 
 router.post('/', async (req, res, next) => {
     try {
