@@ -85,7 +85,7 @@ const EventForm = () => {
   
   return (
     <div className="create-event-page">
-      <span className='event-form-container login-background'>
+      <span className='login-background event-form-container'>
         <h2 className='event-form-title'>Need ideas?</h2>
           <form className='event-form chat-gpt-form' onSubmit={handleChatSubmit}>
               <h3 className="chat-subheading">Choose your setting</h3>
@@ -119,14 +119,14 @@ const EventForm = () => {
           </div>
       </span>
       <span className='event-form-container login-background'>
-          <form className='event-form' onSubmit={handleSubmit}>
+          <form className='event-form chat-gpt-form' onSubmit={handleSubmit}>
               <h2 className='event-form-title'>Create Event</h2>
               
               <div className='event-errors'></div>
 
               <div className='event-form-input'>
                     <label>
-                      <span>Event Name</span>
+                      <span className='availability-subheader'>Event Name</span>
                       <input 
                         type="text" 
                         value={eventName} 
@@ -141,7 +141,7 @@ const EventForm = () => {
                     <br/>
 
                     <label>
-                      <span>Availability start time</span>
+                      <span className='availability-subheader'>Availability start time</span>
                       <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
                         {hours.map(hour => (
                           <option key={hour} value={hour}>{hour}</option>
@@ -151,7 +151,7 @@ const EventForm = () => {
                     <br/>
                     
                     <label>
-                      <span>Availability end time</span>
+                      <span className='availability-subheader'>Availability end time</span>
                       <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
                         {hours.map(hour => (
                           <option key={hour} value={hour}>{hour}</option>
@@ -159,10 +159,7 @@ const EventForm = () => {
                       </select>
                     </label>
                     <br/>
-                    <input 
-                      type="submit"
-                      value="Create Event"
-                    />
+                    <button className='demo-button chat-gpt-submit' type="submit">Create Event</button>
               </div>
 
           </form>
