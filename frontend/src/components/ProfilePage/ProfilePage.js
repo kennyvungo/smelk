@@ -23,7 +23,7 @@ function ProfilePage () {
         <>
             <Sidebar>
                 <div className='user-name'>
-                    {user.fname}
+                    {user.fname}'s Events
                 </div>
                 <div className='side-bar-container'>
                     <Link to="/event/new" className="new-event-link">Create New Event!</Link>
