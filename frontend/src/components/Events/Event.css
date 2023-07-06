@@ -1,3 +1,10 @@
+.create-event-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px;
+}
+
 .event-form-container {
     display: flex;
     flex-direction: column;
