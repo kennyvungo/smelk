@@ -80,20 +80,20 @@ const EventForm = () => {
   
   return (
     <div className="create-event-page">
-      <span className='chat-box'>
-        <h1>Need ideas of what to do? We can help...</h1>
+      <span className='event-form-container login-background'>
+        <h2 className='event-form-title'>Need ideas?</h2>
           <form className='event-form' onSubmit={handleChatSubmit}>
-              <h3>Choose your setting</h3>
-              <button type="button" onClick={() => setSetting("inside")}>Inside</button>
-              <button type="button" onClick={() => setSetting("outside")}>Outside</button>
+              <h3 className="chat-subheading">Choose your setting</h3>
+              <button className="demo-button" type="button" onClick={() => setSetting("inside")}>Inside</button>
+              <button className="demo-button" type="button" onClick={() => setSetting("outside")}>Outside</button>
               <br />
               <br />
 
 
 
               <h3>What vibe are you going for?</h3>
-              <button type="button" onClick={() => setEnergy("active")}>Active</button>
-              <button type="button" onClick={() => setEnergy("chill")}>Chill</button>
+              <button className="demo-button" type="button" onClick={() => setEnergy("active")}>Active</button>
+              <button className="demo-button" type="button" onClick={() => setEnergy("chill")}>Chill</button>
               <br />
               <br />
 
@@ -106,16 +106,13 @@ const EventForm = () => {
               <br />
               <br />
 
-              <input 
-                  type="submit"
-                  value="Find Us Something To Do"
-              />
+              <button className="demo-button" type="submit">Find Us Something To Do</button>
           </form>
           <button onClick={() => setEventName(eventOne)}>{eventOne}</button>
           <button onClick={() => setEventName(eventTwo)}>{eventTwo}</button>
           <button onClick={() => setEventName(eventThree)}>{eventThree}</button>
       </span>
-      <span className='event-form-container'>
+      <span className='event-form-container login-background'>
           <form className='event-form' onSubmit={handleSubmit}>
               <h2 className='event-form-title'>Create Event</h2>
               
