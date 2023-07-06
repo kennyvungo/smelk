@@ -68,7 +68,6 @@ router.patch('/:id', async (req, res, next) => {
         const update = await Event.updateOne({_id: id},{$set: updatedEventDetails});
         const updatedEvent = await Event.findById(id)
         return res.json(updatedEvent);
-        // return res.send("made it to the end");
     }
     catch (err) {
         console.log(err);
@@ -83,6 +82,7 @@ router.delete('/:id', async (req, res, next) => {
     try {
         const event = await Event.findOneAndDelete({_id: req.params.id})
         console.log(event.owner);
+        const schedules = await Schedule.deleteMany({ eventId: req.params.id })
         let user = await User.updateOne({ _id: event.owner }, { $pull: { ownedEvents: event._id }})
         user = await User.findById(event.owner)
         return res.json(user)

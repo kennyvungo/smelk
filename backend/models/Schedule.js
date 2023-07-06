@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// const dailyScheduleSchema = new Schema({
-    
-// })
-
 
 const scheduleSchema = new Schema({
     firstName: {

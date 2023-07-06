@@ -4,7 +4,7 @@ const User = require('../models/User');
 const Event = require('../models/Event');
 const Schedule = require("../models/Schedule.js");
 const bcrypt = require('bcryptjs');
-const { createEmptySchedule, updateDailySchedule } = require('../utils/scheduleHelper');
+const { createEmptySchedule } = require('../utils/scheduleHelper');
 
 // const { faker } = require('@faker-js/faker');
 
