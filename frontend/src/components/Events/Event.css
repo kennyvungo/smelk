@@ -30,6 +30,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 550px;
+    height: 700px;
     margin-top: -5%;
     margin: 10px;
 }
@@ -128,4 +130,8 @@
 
 .chat-subheading {
     padding: 5px;
+}
+
+.availability-subheader {
+    padding-right: 10px;
 }
