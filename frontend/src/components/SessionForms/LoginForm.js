@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import './SessionForm.css';
+import { FaExclamation } from "react-icons/fa"
 
 import { login, clearSessionErrors } from '../../store/session';
 
@@ -37,7 +38,6 @@ function LoginForm () {
     <form className="session-form" onSubmit={handleSubmit}>
         <div className='login-background'>
             <h2 className='login-title'>Log In</h2>
-            <div className="errors">{errors?.username}</div>
             <label>
                 <span className='login-username-container'>
                     <span className='login-username'>Username</span>
@@ -48,7 +48,6 @@ function LoginForm () {
                     />
                 </span>
             </label>
-            <div className="errors">{errors?.password}</div>
             <label>
                 <span className='login-password-container'>
                     <span className='login-password'>Password</span>
@@ -59,6 +58,11 @@ function LoginForm () {
                     />
                 </span>
             </label>
+            <div className="errors">
+              {errors ? <FaExclamation /> : null}
+              {errors?.username}
+            </div>
+            {/* <div className="errors">{errors?.password}</div> */}
             <div className='login-button-container'>
                 <input className='login-button'
                     type="submit"
