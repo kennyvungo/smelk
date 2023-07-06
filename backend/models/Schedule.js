@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 
 const scheduleSchema = new Schema({
-    firstName: {
+    fname: {
         type: String,
         required: true
     },
-    lastName: {
+    lname: {
         type: String,
         required: true
     },

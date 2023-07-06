@@ -41,8 +41,8 @@ const events = [
 
 const schedules = [
     new Schedule ({
-        firstName: "Lauren",
-        lastName: "Cary",
+        fname: "Lauren",
+        lname: "Cary",
         eventId: events[0]._id,
         dailySchedule: {
             '2023-06-26': {
@@ -148,8 +148,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        firstName: "Misha",
-        lastName: "Bansal",
+        fname: "Misha",
+        lname: "Bansal",
         eventId: events[0]._id,
         dailySchedule: {
             '2023-06-26': {
@@ -255,8 +255,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        firstName: "Demo",
-        lastName: "User",
+        fname: "Demo",
+        lname: "User",
         eventId: events[0]._id,
         dailySchedule: {
             '2023-06-26': {
@@ -362,8 +362,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        firstName: "Kenny",
-        lastName: "Ngo",
+        fname: "Kenny",
+        lname: "Ngo",
         eventId: events[1]._id,
         dailySchedule: {
             '2023-07-14': {
@@ -411,8 +411,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        firstName: "Demo",
-        lastName: "User",
+        fname: "Demo",
+        lname: "User",
         eventId: events[1]._id,
         dailySchedule: {
             '2023-07-14': {
@@ -460,8 +460,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        firstName: "Ernest",
-        lastName: "Tan",
+        fname: "Ernest",
+        lname: "Tan",
         eventId: events[1]._id,
         dailySchedule: {
             '2023-07-14': {
@@ -509,8 +509,8 @@ const schedules = [
         }
     }),
     new Schedule({
-        firstName: "Shanna",
-        lastName: "Le",
+        fname: "Shanna",
+        lname: "Le",
         eventId: events[1]._id,
         dailySchedule: {
             '2023-07-14': {

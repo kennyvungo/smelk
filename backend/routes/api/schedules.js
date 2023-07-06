@@ -6,8 +6,8 @@ const Schedule = mongoose.model('Schedule');
 router.post('/', async (req, res, next) => {
     try {
         const newSchedule = new Schedule({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            fname: req.body.fname,
+            lname: req.body.lname,
             eventId: req.body.eventId,
             dailySchedule: req.body.dailySchedule
         });
@@ -78,7 +78,7 @@ router.get('/agg/:id',async(req,res,next) => {
                         '$eq': [
                           '$timeArray.v', true
                         ]
-                      }, '$firstName', null
+                      }, '$fname', null
                     ]
                   }
                 }, 
@@ -89,7 +89,7 @@ router.get('/agg/:id',async(req,res,next) => {
                         '$eq': [
                           '$timeArray.v', false
                         ]
-                      }, '$firstName', null
+                      }, '$fname', null
                     ]
                   }
                 }

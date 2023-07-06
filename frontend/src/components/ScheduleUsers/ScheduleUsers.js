@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './ScheduleUsers.css'
 
-const ScheduleUsers = () => {
+const ScheduleUsers = ({event}) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [users, setUsers] = useState(["Lauren Cary"])

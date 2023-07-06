@@ -14,9 +14,12 @@ router.get('/current', restoreUser, (req, res) => {
     res.cookie("CSRF-TOKEN", csrfToken);
   }
   if (!req.user) return res.json(null);
+  const dbUser = User.findById({_id: req.user.id})
   res.json({
     _id: req.user._id,
-    username: req.user.username
+    username: req.user.username,
+    fname: dbUser.fname,
+    lastName: dbUser.lastName
   });
 });
 
@@ -85,6 +88,7 @@ router.post('/login', async (req, res, next) => {
       err.errors = { username: "Invalid credentials" };
       return next(err);
     }
+    console.log(user);
     return res.json(await loginUser(user));
   })(req, res, next);
 });
