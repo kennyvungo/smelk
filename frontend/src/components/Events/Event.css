@@ -18,7 +18,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 100px;
+    /* padding: 100px; */
+    height: 90vh;
 }
 
 .chat-box {
