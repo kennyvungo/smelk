@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserEvents } from '../../store/events';
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import EventForm from "../Events/Eventform";
+import EventForm from "../Events/EventForm";
 import ChatGPTEvent from "../Events/ChatGPTEvent";
-=======
 import Sidebar from '../SideBar/SideBar';
->>>>>>> event-pages
 
 function ProfilePage () {
     const dispatch = useDispatch();
