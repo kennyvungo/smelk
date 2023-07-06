@@ -11,7 +11,7 @@ const EventForm = () => {
   const user = useSelector(state => state.session.user);
 
   const [eventName, setEventName] = useState('');
-  const [eventDates, setEventDates] = useState([]);
+  const [eventDates, setEventDates] = useState('');
   const [eventStartTime, setEventStartTime] = useState('12:00 AM');
   const [eventEndTime, setEventEndTime] = useState('12:00 AM');
   
@@ -20,10 +20,6 @@ const EventForm = () => {
     const twelveHourFormat = i === 0 ? 12 : i < 13 ? i : i - 12;
     return `${twelveHourFormat}:00 ${period}`;
   });
-
-  const handleDatesChange = (dates) => {
-    setEventDates(dates); // Update the eventDates state with the selected dates from the Calendar component
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,7 +57,12 @@ const EventForm = () => {
           <br/>
 
           <label>
-            <Calendar onDatesChange={handleDatesChange}/>
+            <span>Dates Array:</span>
+            <input 
+              type="text"
+              value={eventDates}
+              onChange={e => setEventDates(e.target.value)} 
+            />
           </label>
           <br/>
 

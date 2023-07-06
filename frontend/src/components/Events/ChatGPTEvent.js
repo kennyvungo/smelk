@@ -9,9 +9,12 @@ const ChatGPTEvent = () => {
     const [setting, setSetting] = useState('')
     const [energy, setEnergy] = useState('')
     const [people, setPeople] = useState(0)
+    const [eventOne, setEventOne] = useState("")
+    const [eventTwo, setEventTwo] = useState("")
+    const [eventThree, setEventThree] = useState("")
+
 
     const generateQuery = async () => {
-        console.log("whatsup");
         const response = await jwtFetch("http://localhost:3000/generate", {
             method: "POST",
             headers: {
@@ -20,10 +23,8 @@ const ChatGPTEvent = () => {
             body: JSON.stringify({ people: people, setting: setting, energy: energy })
         })
         
-        console.log("response", response)
         const data = await response.json()
-        console.log("data", data)
-        return data.response
+        return data.response.trim();
     }
 
     const handleSubmit = async (e) => {
@@ -33,9 +34,12 @@ const ChatGPTEvent = () => {
         console.log(energy)
         console.log(people)
 
-
         const query = await generateQuery();
-        console.log("returned from server", query)      
+        const eventArr = query.split(",");
+        console.log(eventArr);
+        setEventOne(eventArr[0]);
+        setEventTwo(eventArr[1]);
+        setEventThree(eventArr[2]);
     };
     
 
@@ -71,6 +75,9 @@ const ChatGPTEvent = () => {
                     value="Find Us Something To Do"
                 />
             </form>
+            <button>{eventOne}</button>
+            <button>{eventTwo}</button>
+            <button>{eventThree}</button>
         </>
     )
 }
