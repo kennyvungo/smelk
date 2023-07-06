@@ -37,7 +37,7 @@ function AggGrid({ event }) {
         let startTime = new Date("1970-01-01 " + event.dailyEventStartTime).getHours();
         let endTime = new Date("1970-01-01 " + event.dailyEventEndTime).getHours();
         let hoursArray = Array.from({length: ((endTime - startTime) * 2)}, (_, i) => startTime + (i * 0.5));
-        if(aggie){
+        if(aggie && grid){
             setisLoaded(true);
         }
         let tempGrid = event.dates.reduce((acc, date) => {
@@ -51,29 +51,37 @@ function AggGrid({ event }) {
             return acc;
         }, {});
         setGrid(tempGrid);
-    }, [event,aggie]);
+    }, [event,aggie,grid]);
     const handleTimeSlotClick = (date, time) => {
         let newGrid = {...grid};
         newGrid[date][time] = !newGrid[date][time];
         setGrid(newGrid);
     };
 
-    console.log("THIS IS AGGREGATED GRID",grid);
     if (isLoaded) {
         return (
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
-                        {Object.entries(timeSlots).map(([time, selected]) => (
+                        <div className='date-header'>{date}</div>
+                        <div className='date-header'>{getDayOfWeek(date)} </div>
+                        {Object.entries(timeSlots).map(([time, avaarr]) => {
+                            if(avaarr){
+                            let ratio = numNonNulls(avaarr.available) / avaarr.available.length
+                            let r = 168 * ratio;
+                            let g = 141 * ratio;
+                            let b = 225 * ratio;
+                            return(
                             <div
-                                className='grid-cell'
+                                className='agg-cell'
                                 key={time}
-                                onClick={() => handleTimeSlotClick(date, time)}
-                                style={{backgroundColor: selected ? '#A98DE2' : '#CBC3E3'}}
+                                style={{backgroundColor: `rgb(${r},${g},${b})`}}
                             >
                                 {time}
-                            </div>
-                        ))}
+                            </div>)
+                            }
+
+                            })}
                     </div>
                 ))}
             </div>
@@ -83,6 +91,21 @@ function AggGrid({ event }) {
     }
 }
 export default AggGrid;
+
+
+//helper func
+const numNonNulls = (arr) => (
+    arr.filter((ind) => ind != null).length
+)
+const numNulls = (arr) =>(
+    arr.filter(ind => ind === null).length
+)
+
+const getDayOfWeek = (date) => {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return days[new Date(date).getDay()];
+}
+
 
 
 

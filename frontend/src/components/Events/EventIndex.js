@@ -20,12 +20,13 @@ function EventIndex() {
     return (
         <>
             <div className='event-index-container'>
-                <h2 className="event-page-title">Your Upcoming Events!</h2>
+                { userEvents.length > 0 ? (
+                <h2 className="event-page-title">Your Upcoming Events!</h2>) : <h2 className="event-page-title">No Upcoming Events</h2> }
                         {Object.values(userEvents).map(event => (
                             <div key={event._id} className="event-index-input">
                                 {event.name}
                             </div>
-                        ))}
+                        ))} 
             </div>
         </>
     );
