@@ -15,5 +15,16 @@
     font-weight: 200;
     margin-bottom: 20%;
     margin-right: 6%;
-    
+}
+
+.event-sidebar-container {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(113, 146, 182);
+    padding: 10px;
+}
+
+.event-name {
+    margin-left: 6%;
+    margin-top: 7%;
 }

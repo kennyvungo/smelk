@@ -27,7 +27,11 @@ function ProfilePage () {
                 {Object.values(userEvents).map(event => (
                     <div key={event._id } className='new-event-link'>
                         <Link to={`/event/${event._id}`}className='new-event-link'>
-                            {event.name}
+                            <div className='event-sidebar-container'>
+                                <div className='event-name'>
+                                    {event.name}
+                                </div>
+                            </div>
                         </Link>
                     </div>
                 ))}
