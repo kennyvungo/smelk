@@ -45,7 +45,7 @@ export const AboutPage = () => {
                     <span>
                         <span className='person-container'>
                             <img className='picture' src={lauren} alt='kenny image' />
-                            <div className='person'> Lauren Armstrong </div>
+                            <div className='person'> Lauren Cary </div>
                             <div className='social-links'>
                                 <a href='https://github.com/laurencary'>
                                     <BsGithub className='github1'/>

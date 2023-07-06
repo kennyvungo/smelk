@@ -6,6 +6,7 @@ import Grid from '../Grid/Grid';
 import './Event.css'
 import ScheduleUsers from '../ScheduleUsers/ScheduleUsers';
 import AggGrid from '../Grid/AggGrid';
+import { fetchAggSchedule,getAggSchedule } from '../../store/schedules';
 
 function EventsShow() {
     const { id } = useParams();
@@ -14,6 +15,7 @@ function EventsShow() {
 
     useEffect(() => {
         dispatch(fetchEvent(id));
+        dispatch(fetchAggSchedule(id))
     }, [dispatch, id]);
 
     return (

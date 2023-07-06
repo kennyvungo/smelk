@@ -2,21 +2,30 @@
     display: flex;
     flex-direction: row;
     margin: 20px 0;
-    width: 100%;
+    /* width: 100%; */
 }
 .grid-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 .grid-cell {
-    border: 1px solid #000;
+    border: 0.5px solid #4d145f;
     cursor: pointer;
     user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 20px; /* Increase this for better text visibility and alignment */
+    width: 75px;
+    height: 18px;
     text-align: center;
-    padding: 10px; /* Add this to have some spacing around the text */
+    padding: 10px;
+    font-weight: 300;
+}
+.date-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: bold;
+    height: 5%;
 }
