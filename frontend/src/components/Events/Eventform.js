@@ -2,14 +2,13 @@ import React from 'react'
 import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/events';
-import Calendar from '../Calendar/Calendar';
 
 const EventForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
 
   const [eventName, setEventName] = useState('');
-  const [eventDates, setEventDates] = useState([]);
+  const [eventDates, setEventDates] = useState('');
   const [eventStartTime, setEventStartTime] = useState('12:00 AM');
   const [eventEndTime, setEventEndTime] = useState('12:00 AM');
   
@@ -19,26 +18,16 @@ const EventForm = () => {
     return `${twelveHourFormat}:00 ${period}`;
   });
 
-  const handleDatesChange = (dates) => {
-    setEventDates(dates); // Update the eventDates state with the selected dates from the Calendar component
-  };
+  const handleSubmit = (e) => {
+      e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log('eventDates:', eventDates); // Check the value of eventDates before creating the event
-
-    const newEvent = {
-      owner: user._id,
-      name: eventName,
-      dates: eventDates,
-      dailyEventStartTime: eventStartTime,
-      dailyEventEndTime: eventEndTime,
+      const newEvent = {
+        owner: user._id,
+        name: eventName,
+        dates: eventDates,
+        dailyEventStartTime: eventStartTime,
+        dailyEventEndTime: eventEndTime,
     };
-
-    console.log('newEvent:', newEvent); // Check the newEvent object before dispatching
-
-    const createdEvent = await dispatch(createEvent(newEvent));
     // console.log('New Event: ', newEvent);  //test object in console and see
     dispatch(createEvent(newEvent));
   }
@@ -61,7 +50,12 @@ const EventForm = () => {
           <br/>
 
           <label>
-            <Calendar onDatesChange={handleDatesChange}/>
+            <span>Dates Array:</span>
+            <input 
+              type="text"
+              value={eventDates}
+              onChange={e => setEventDates(e.target.value)} 
+            />
           </label>
           <br/>
 
