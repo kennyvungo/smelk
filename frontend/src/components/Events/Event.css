@@ -62,6 +62,11 @@
     margin-top: 4%;
     margin-left: 4%;
     color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.event-index-create-event:hover {
+    text-decoration: underline;
 }
 
 .event-index-container {
@@ -79,10 +84,11 @@
     margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
-    padding: 5px;
+    padding: 40px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     text-align: center;
+    position: relative;
 }
 
 .main-page-calendar-footer {
@@ -202,4 +208,65 @@
     background-color: rgb(161, 161, 161);
     border-radius: 20px;
     cursor: pointer;
+}
+
+.ring {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgb(104, 104, 104); 
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    transform: rotate(310deg);
+    z-index: 1;
+}
+
+
+.ring-two {
+    top: 15%;
+    left: 15%;
+}
+
+.ring-three {
+    top: 15%;
+    left: 35%;
+}
+
+.ring-one {
+    top: 15%;
+    left: 55%;
+}
+
+.ring-four {
+    top: 15%;
+    left: 75%;
+}
+
+.circle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 25px; 
+    height: 25px; 
+    background-color: white;
+    border-radius: 50%;
+}
+
+.circle-one {
+    top: 36%; 
+    left: 17%; 
+}
+
+.circle-two {
+    top: 36%; 
+    left: 38.5%; 
+}
+
+.circle-three {
+    top: 36%; 
+    left: 60%; 
+}
+
+.circle-four {
+    top: 36%; 
+    left: 81.5%; 
 }
