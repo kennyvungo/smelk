@@ -34,14 +34,14 @@ const receiveErrors = errors => ({
     errors
 });
 
+export const getCurrSchedule = (state) => {
+    return state.schedules.current ? state.schedules.current : null
+}
 
 export const getAggSchedule =(eventId) => (state) =>{
     return state.schedules ? Object.values(state.schedules).filter(agg => agg._id === eventId)[0]: null
 }
 
-// export const getPost =(postId) => (state) => {
-//     return state.posts ? state.posts[postId] :null
-// }
 export const fetchAggSchedule = id => async dispatch => {
     try {
         const res = await jwtFetch(`/api/schedules/agg/${id}`);
@@ -88,9 +88,9 @@ export const fetchSchedule = (fname,lname, eventId) => async (dispatch) => {
 }
 
 export const updateSchedule = (data) => async dispatch => {
-    const {id} = data;
+    const {_id} = data;
     try{
-        const res = await jwtFetch(`/api/schedules/${id}`,{
+        const res = await jwtFetch(`/api/schedules/${_id}`,{
             method: 'PATCH',
             body: JSON.stringify(data)
         });
