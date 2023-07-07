@@ -110,7 +110,7 @@
     margin-right: 50px;
     color: black;
     background-color: white;
-    border-bottom: 5px solid black;
+    /* border-bottom: 5px solid black; */
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -129,6 +129,10 @@
 .event-title-info {
     text-decoration: none;
     color: black;
+}
+
+.event-title-info:hover {
+    text-decoration: underline;
 }
 
 .clicked-button {
@@ -274,21 +278,21 @@
 }
 
 .circle-one {
-    top: 36%; 
+    top: 33%; 
     left: 17%; 
 }
 
 .circle-two {
-    top: 36%; 
+    top: 33%; 
     left: 38.5%; 
 }
 
 .circle-three {
-    top: 36%; 
+    top: 33%; 
     left: 60%; 
 }
 
 .circle-four {
-    top: 36%; 
+    top: 33%; 
     left: 81.5%; 
 }
