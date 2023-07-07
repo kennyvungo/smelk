@@ -76,7 +76,7 @@
 
 .main-page-calendar-header {
     background-color: rgb(230, 99, 99);
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
     padding: 5px;
@@ -93,6 +93,7 @@
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .event-index-input {

@@ -29,9 +29,11 @@ function EventIndex() {
                 { userEvents.length > 0 ? 
                 (<div class="main-page-calendar-header">
                     <h2 className="event-page-title">Your Upcoming Events</h2> 
-                </div>): 
-                <h2 className="event-page-title">No Upcoming Events</h2> }
-                {userEvents.map(event => (
+                </div>):
+                (<div class="main-page-calendar-header">
+                    <h2 className="event-page-title">No Upcoming Events</h2> 
+                </div>)}
+                {userEvents.map(event => 
                     <div key={event._id} className="event-index-input">
                         <div className="event-index-info">
                             <div>
@@ -44,10 +46,10 @@ function EventIndex() {
                             <li onClick={() => handleDelete(event._id)}> Delete</li>
                         </ul>
                     </div>
-                ))}
-                (<div class="main-page-calendar-footer">
+                )}
+                <div class="main-page-calendar-footer">
                     <Link to="/event/new" className="event-page-title">Create New Event</Link>
-                </div>):  
+                </div>
             </div>
         </>
     );
