@@ -17,7 +17,7 @@ function EventIndex() {
     }, [dispatch, user]);
 
     useEffect(() => {
-        // dispatch(removeCurrentSchedule())
+        dispatch(removeCurrentSchedule())
     },[])
     if (!userEvents) return null;
 

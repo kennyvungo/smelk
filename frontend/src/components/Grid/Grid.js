@@ -29,7 +29,7 @@ function Grid({ event }) {
     const curschedule = useSelector(getCurrSchedule)
     // console.log("this da grid",grid)
     // console.log("this da schedule,",curschedule)
-    if (curschedule) {
+    if (curschedule.fname) {
         return (
             <div className='grid-container'>
                 <h1 className='gridheader'>{curschedule.fname}'s Schedule</h1>
@@ -54,7 +54,7 @@ function Grid({ event }) {
         </div>
         );
     } else {
-        <h1>loading...</h1>
+        return null
     }
 }
 export default Grid;
