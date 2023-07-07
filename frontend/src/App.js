@@ -32,7 +32,7 @@ function App() {
           <ProtectedRoute exact path="/event/edit/:eventId" component={EventEdit} />
           <ProtectedRoute exact path="/event/new" component={EventForm} />
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
-          <ProtectedRoute exact path="/event/:id" component={EventsShow} />
+          <Route exact path="/event/:id" component={EventsShow} />
           <ProtectedRoute exact path="/events" component={EventIndex} />
           <ProtectedRoute exact path="/events" component={Sidebar} />
           <Route exact path="/about" component={AboutPage} />
