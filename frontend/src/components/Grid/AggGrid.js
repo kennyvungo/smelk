@@ -3,7 +3,7 @@ import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { fetchAggSchedule,getAggSchedule } from '../../store/schedules';
 import './Grid.css';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-
+import AggCell from './AggCell';
 //helper function to convert time
 const convertTo12HourFormat = (time) => {
     let hour = Math.floor(time);
@@ -72,13 +72,8 @@ function AggGrid({ event }) {
                             let g = (141 * ratio) + 141;
                             let b = (225 * ratio) + 225;
                             return(
-                            <div
-                                className='agg-cell'
-                                key={time}
-                                style={{backgroundColor: `rgb(${r},${g},${b})`}}
-                            >
-                                {time}
-                            </div>)
+                                <AggCell time={time} avaarr={avaarr} r={r} g={g} b={b} />
+                            )
                             }
 
                             })}
