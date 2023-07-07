@@ -11,6 +11,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import EventsShow from './components/Events/EventsShow';
 import EventForm from './components/Events/Eventform';
 import EventIndex from './components/Events/EventIndex';
+import EventEdit from './components/Events/EventEdit';
 import { getCurrentUser } from './store/session';
 import { AboutPage } from './components/AboutPage/AboutPage';
 import Sidebar from './components/SideBar/SideBar';
@@ -28,7 +29,7 @@ function App() {
       <NavBar />
         <Switch>
 
-          {/* <ProtectedRoute exact path="/event/edit" component={EventEditPage} /> */}
+          <ProtectedRoute exact path="/event/edit/:eventId" component={EventEdit} />
           <ProtectedRoute exact path="/event/new" component={EventForm} />
           <ProtectedRoute exact path="/profile/:id" component={ProfilePage} />
           <ProtectedRoute exact path="/event/:id" component={EventsShow} />

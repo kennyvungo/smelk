@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserEvents } from '../../store/events';
+import { fetchUserEvents,deleteEvent } from '../../store/events';
+import { Link } from 'react-router-dom';
 import './Event.css'
 
 
@@ -17,6 +18,11 @@ function EventIndex() {
 
     if (!userEvents) return null;
 
+    const handleDelete = async (eventId) => {
+        await dispatch(deleteEvent(eventId));
+        dispatch(fetchUserEvents(user._id));
+    };
+
     return (
         <>
             <div className='event-index-container'>
@@ -25,6 +31,10 @@ function EventIndex() {
                         {Object.values(userEvents).map(event => (
                             <div key={event._id} className="event-index-input">
                                 {event.name}
+                                <ul>
+                                    <Link to={`/event/edit/${event._id}`}><li> Edit</li></Link>
+                                    <li onClick={() => handleDelete(event._id)}> Delete</li>
+                                </ul>
                             </div>
                         ))} 
             </div>
