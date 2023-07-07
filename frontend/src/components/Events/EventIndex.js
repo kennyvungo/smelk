@@ -4,7 +4,7 @@ import { fetchUserEvents,deleteEvent } from '../../store/events';
 import { Link } from 'react-router-dom';
 import './Event.css'
 import { removeCurrentSchedule} from '../../store/schedules';
-
+import {MdAutoDelete} from 'react-icons/md'
 function EventIndex() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
@@ -59,13 +59,13 @@ function EventIndex() {
                         <ul className="event-edit-delete-buttons">
                             <div className='edit-del-button'>
                                 <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
-                                <li onClick={() => handleDelete(event._id)} className='delete-button'> Delete</li>
+                                <li onClick={() => handleDelete(event._id)} className='delete-button'> <MdAutoDelete/></li>
                             </div>
                         </ul>
                     </div>
                 )}
                 <div class="main-page-calendar-footer">
-                    <Link to="/event/new" className="event-page-title event-index-create-event">Create New Event</Link>
+                    <Link to="/event/new" className="event-index-create-event">Create New Event</Link>
                 </div>
             </div>
         </>

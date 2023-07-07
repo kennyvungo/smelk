@@ -27,8 +27,8 @@ function NavBar () {
           <div className="links-user">
             <div className='links-user-container'>
               <Link to={"/events"} isOpen={showSidebar} className='profile'>Profile</Link>
+              <Link className='profile2' to={'/about'}>About</Link>
               <div className='profile2' onClick={logoutUser}>Logout</div>
-              <Link className='profile2' to={'/about'} >About</Link>
             </div>
           </div>
       ) : (

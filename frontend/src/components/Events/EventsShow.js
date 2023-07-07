@@ -32,8 +32,10 @@ function EventsShow() {
 
     return (
         <>  
-            <div className='copy-message'> Share The Link To Your Event: </div>
-            <button onClick={copy}className="copy-button" >{!copied ? "Copy URL" : "Copied!"}</button>
+            <div className='copy-container'>
+                <div className='copy-message'> Share The Link To Your Event! </div>
+                <button onClick={copy}className="copy-button" >{!copied ? "Copy URL" : "Copied!"}</button>
+            </div>
             <div className='event-show-container'>
                 {/* <h1>Event Details</h1> */}
                 {event && (
