@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserEvents,deleteEvent } from '../../store/events';
 import { Link } from 'react-router-dom';
 import './Event.css'
+import { receiveNewSchedule } from '../../store/schedules';
 
 function EventIndex() {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function EventIndex() {
         if (user) {
             dispatch(fetchUserEvents(user._id));
         }
+        // dispatch(receiveNewSchedule({}));
     }, [dispatch, user]);
 
     if (!userEvents) return null;

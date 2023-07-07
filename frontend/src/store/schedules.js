@@ -24,7 +24,7 @@ const receiveUserSchedule = schedule => ({
     schedule
 });
 
-const receiveNewSchedule = schedule => ({
+export const receiveNewSchedule = schedule => ({
     type: RECEIVE_NEW_SCHEDULE,
     schedule
 });

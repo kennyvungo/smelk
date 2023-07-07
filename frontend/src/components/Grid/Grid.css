@@ -114,3 +114,13 @@
 .avails, .unavails {
     width: 9vw;
 }
+.grid-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 2%;
+}
+.gridheader{
+    font-size: 28px;
+}

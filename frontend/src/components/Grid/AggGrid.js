@@ -60,6 +60,8 @@ function AggGrid({ event }) {
 
     if (isLoaded) {
         return (
+            <div className='grid-container'>
+                <h1 className='gridheader'>Group Availability</h1>
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
@@ -67,18 +69,19 @@ function AggGrid({ event }) {
                         <div className='date-header'>{date}</div>
                         {Object.entries(timeSlots).map(([time, avaarr]) => {
                             if(avaarr){
-                            let ratio = 1 - (numNonNulls(avaarr.available) / avaarr.available.length)
-                            let r = (168 * ratio) + 168;
-                            let g = (141 * ratio) + 141;
-                            let b = (225 * ratio) + 225;
-                            return(
-                                <AggCell time={time} avaarr={avaarr} r={r} g={g} b={b} />
-                            )
-                            }
-
+                                let ratio = 1 - (numNonNulls(avaarr.available) / avaarr.available.length)
+                                let r = (168 * ratio) + 168;
+                                let g = (141 * ratio) + 141;
+                                let b = (225 * ratio) + 225;
+                                return(
+                                    <AggCell time={time} avaarr={avaarr} r={r} g={g} b={b} />
+                                    )
+                                }
+                                
                             })}
                     </div>
                 ))}
+            </div>
             </div>
         );
     } else {

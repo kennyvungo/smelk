@@ -31,6 +31,8 @@ function Grid({ event }) {
     console.log("this da schedule,",curschedule)
     if (curschedule) {
         return (
+            <div className='grid-container'>
+                <h1 className='gridheader'>{curschedule.fname}'s Schedule</h1>
             <div className='grid'>
                 {Object.entries(curschedule.dailySchedule).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
@@ -49,6 +51,7 @@ function Grid({ event }) {
                     </div>
                 ))}
             </div>
+        </div>
         );
     } else {
         <h1>loading...</h1>
