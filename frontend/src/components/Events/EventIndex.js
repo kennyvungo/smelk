@@ -30,15 +30,15 @@ function EventIndex() {
                 { userEvents.length > 0 ? 
                 (<div class="main-page-calendar-header">
                     <h2 className="event-page-title">Your Upcoming Events</h2> 
-                    <div class="circle circle-one"></div>
-                    <div class="circle circle-two"></div>
-                    <div class="circle circle-three"></div>
-                    <div class="circle circle-four"></div>
 
                 </div>):
                 (<div class="main-page-calendar-header">
                     <h2 className="event-page-title">No Upcoming Events</h2> 
                 </div>)}
+                <div class="circle circle-one"></div>
+                <div class="circle circle-two"></div>
+                <div class="circle circle-three"></div>
+                <div class="circle circle-four"></div>
                 <div class="ring ring-one"></div>
                 <div class="ring ring-two"></div>
                 <div class="ring ring-three"></div>
