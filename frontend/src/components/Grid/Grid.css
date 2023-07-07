@@ -33,6 +33,8 @@
     text-align: center;
     padding: 10px;
     font-weight: 300;
+    background: lighten(white,30%);
+    cursor: pointer;
     /* background-color:  #A98DE2; */
 }
 .date-header {
@@ -42,4 +44,56 @@
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-weight: bold;
     height: 3%;
+}
+.avail-container{
+    position: relative;
+    background-color: white;
+    z-index: 100;
+}
+
+.available-wrapper{
+    position: absolute;
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    z-index: 3;
+    background-color: white;
+}
+.avails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.unavails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.avail-container{
+    position: relative;
+    background-color: white;
+    z-index: 100;
+}
+
+.available-wrapper{
+    position: absolute;
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    z-index: 3;
+    background-color: white;
+}
+.avails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.unavails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }

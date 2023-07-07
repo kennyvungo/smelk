@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Grid.css';
+import { useDispatch } from 'react-redux';
 function Grid({ event }) {
+    const dispatch = useDispatch();
     const [grid, setGrid] = useState({});
     useEffect(() => {
         let startTime = new Date("1970-01-01 " + event.dailyEventStartTime).getHours();
@@ -17,23 +19,11 @@ function Grid({ event }) {
         setGrid(tempGrid);
     }, [event]);
     const handleTimeSlotClick = (date, time) => {
-        let newGrid = {...grid};
-        newGrid[date][time] = !newGrid[date][time];
-        setGrid(newGrid);
+        
+        // let newGrid = {...grid};
+        // newGrid[date][time] = !newGrid[date][time];
+        // setGrid(newGrid);
     };
-    const columnDates = Object.keys(grid);
-    let second;
-    if (grid) {
-        const first = Object.keys(grid)[0];
-        if (grid[first]){
-            console.log(grid[first]);
-            second = Object.keys(grid[first]);
-        }
-        if (second) {
-            console.log(second);
-        }
-    }
-    // console.log(grid);
     if (grid) {
         return (
             <div className='grid'>

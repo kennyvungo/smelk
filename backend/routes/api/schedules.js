@@ -147,6 +147,10 @@ router.get('/agg/:id',async(req,res,next) => {
             }
           ])
           return res.json(agg)
+          // const id = req.params.id
+          // aggie = await res.json(agg)
+          // const aggone = await aggie.findById({_id: id});
+          // return res.json(aggone)
     }
     catch(err){
         const error = new Error('Schedule not found');
