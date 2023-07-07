@@ -19,7 +19,7 @@ function NavBar () {
   return (
     <>
     <div className='logo-container'>
-      <span className='logo'> Meet&Greet <FcCalendar /> </span>
+      <span className='logo'> RendezView <FcCalendar /> </span>
     </div>
       {loggedIn ? (
           <div className="links-user">
