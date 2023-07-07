@@ -34,7 +34,7 @@ function Grid({ event }) {
             <div className='grid'>
                 {Object.entries(curschedule.dailySchedule).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
-                        <div className='date-header'>{getDayOfWeek(date)} </div>
+                        <div className='date-header'>{getDayOfWeek(dateConverter(date))} </div>
                         <div className='date-header'>{dateConverter(date)}</div>
                         {Object.entries(timeSlots).map(([time, selected]) => (
                             <div
@@ -68,12 +68,12 @@ const convertTo12HourFormat = (time) => {
     return `${hour}:${minute === 0 ? '00' : '30'} ${amPm}`;
 }
 //helper function to get day of week
+const dateConverter = (str) => {
+    return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
+ }
+
 const getDayOfWeek = (date) => {
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     return days[new Date(date).getDay()];
 }
 
-
-const dateConverter = (str) => {
-    return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
- }
