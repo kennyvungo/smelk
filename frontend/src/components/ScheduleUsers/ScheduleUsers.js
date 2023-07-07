@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { createSchedule, fetchSchedule } from '../../store/schedules';
+import {FiX} from 'react-icons/fi'
 import './ScheduleUsers.css'
 
 const ScheduleUsers = ({event}) => {
@@ -50,12 +51,15 @@ const ScheduleUsers = ({event}) => {
             <h1 className='schedule-users-header-text'>Select your name below</h1>
             <div className="schedule-users-buttons-container">
                 {responses && responses.map(user => (
-                    <div className='user-button-container' key={event["_id"] + user}>
-                        <button className={schedule && schedule.fname === user.fname ? 'selected-button user-button' : 'user-button'}
-                            onClick={() => getSchedule(user.fname, user.lname)}>
-                            {user.fname + " " + user.lname}
+                    <>
+                        <button className='user-button-container' key={event["_id"] + user}>
+                            <div className={schedule && schedule.fname === user.fname ? 'selected-button user-button left-button' : 'user-button left-button'}
+                                onClick={() => getSchedule(user.fname, user.lname)}>
+                                {user.fname + " " + user.lname}
+                            </div>
                         </button>
-                    </div>
+                        <button className='right-button' ><FiX /></button>
+                    </>
                 ))}
             </div>
         </div>
