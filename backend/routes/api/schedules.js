@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Schedule = mongoose.model('Schedule');
+const Event = mongoose.model('Event');
 
 router.post('/', async (req, res, next) => {
     try {
@@ -13,7 +14,7 @@ router.post('/', async (req, res, next) => {
         });
         const update = await Event.updateOne({ _id: req.body.eventId }, { $push: { responses: { fname: req.body.fname, lname: req.body.lname}}})
         const schedule = await newSchedule.save();
-        const event = await Event.findById({ _id: id });
+        const event = await Event.findById({ _id: req.body.eventId });
 
         return res.json({event, schedule});
     }
@@ -41,6 +42,12 @@ router.patch('/:id', async (req, res, next) => {
 router.get('/', async (req, res) => {
     const schedules = await Schedule.find()
     return res.json(schedules)
+})
+
+router.get('/event/:eventId/name/:name', async (req, res) => {
+  const schedule = await Schedule.find({ fname: req.params.name.split("&")[0], lname: req.params.name.split("&")[1], eventId: req.params.eventId })
+  console.log(schedule[0]);
+  return res.json(schedule[0])
 })
 
 router.get('/agg/:id',async(req,res,next) => {

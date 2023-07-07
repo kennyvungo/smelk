@@ -1,13 +1,15 @@
 .schedule-users-container {
     display: flex;
     flex-direction: column;
-    width: 15vw;
+    width: 20vw;
     padding: 20px;
     border: 1px #888688 solid;
     border-radius: 25px;
     /* margin: 20px; */
     background-color: rgba(215, 228, 230, 0.383);
     border: none;
+    height: 80vh;
+    box-sizing: border-box;
 }
 
 .schedule-users-splitter {
@@ -61,3 +63,13 @@ hr {
     font-size: 20px;
     font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
+
+.schedule-users-buttons-container {
+    overflow-y: scroll;
+    background-attachment: scroll;
+}
+
+.selected-button {
+    background-color: lightgreen;
+}
+

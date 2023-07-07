@@ -24,9 +24,9 @@ const receiveUserSchedule = schedule => ({
     schedule
 });
 
-const receiveNewSchedule = SCHEDULE => ({
+const receiveNewSchedule = schedule => ({
     type: RECEIVE_NEW_SCHEDULE,
-    SCHEDULE
+    schedule
 });
 
 const receiveErrors = errors => ({
@@ -55,7 +55,7 @@ export const fetchAggSchedule = id => async dispatch => {
     }
 };
 
-export const createSchedule = data => async dispatch => {
+export const createSchedule = (data) => async (dispatch) => {
     try {
         const res = await jwtFetch('/api/schedules/', {
             method: 'POST',
@@ -64,6 +64,7 @@ export const createSchedule = data => async dispatch => {
         const resData = await res.json();
         dispatch(receiveNewSchedule(resData.schedule));
         dispatch(receiveEvent(resData.event));
+        debugger
         return resData.schedule;
     } catch(err) {
         const resBody = await err.json();
@@ -72,6 +73,19 @@ export const createSchedule = data => async dispatch => {
         }
     }
 };
+
+export const fetchSchedule = (fname,lname, eventId) => async (dispatch) => {
+    try {
+        const res = await jwtFetch(`/api/schedules/event/${eventId}/name/${fname}&${lname}`);
+        const schedule = await res.json();
+        dispatch(receiveUserSchedule(schedule))
+    } catch (err) {
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveErrors(resBody.errors));
+        }
+    }
+}
 
 export const updateSchedule = (data) => async dispatch => {
     const {id} = data;
@@ -105,13 +119,14 @@ export const scheduleErrorsReducer = (state = nullErrors, action) => {
 };
 
 const schedulesReducer = (state = {}, action) => {
+    const newState = {...state}
     switch(action.type) {
         case RECEIVE_SCHEDULES:
             return { ...state, ...action.schedules};
         case RECEIVE_USER_SCHEDULE:
-            return { ...state, ...action.schedule};
+            return { ...state, current: action.schedule };
         case RECEIVE_NEW_SCHEDULE:
-            return { ...state, ...action.schedule};
+            return { ...state, current: action.schedule};
         case RECEIVE_SCHEDULE:
             return { ...state, ...action.schedule};
         default:
