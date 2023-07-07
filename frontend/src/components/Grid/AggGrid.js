@@ -51,7 +51,7 @@ function AggGrid({ event }) {
             return acc;
         }, {});
         setGrid(tempGrid);
-    }, [event,aggie,grid]);
+    }, [event,aggie]);
     const handleTimeSlotClick = (date, time) => {
         let newGrid = {...grid};
         newGrid[date][time] = !newGrid[date][time];
@@ -63,14 +63,14 @@ function AggGrid({ event }) {
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
-                        <div className='date-header'>{date}</div>
                         <div className='date-header'>{getDayOfWeek(date)} </div>
+                        <div className='date-header'>{date}</div>
                         {Object.entries(timeSlots).map(([time, avaarr]) => {
                             if(avaarr){
-                            let ratio = numNonNulls(avaarr.available) / avaarr.available.length
-                            let r = 168 * ratio;
-                            let g = 141 * ratio;
-                            let b = 225 * ratio;
+                            let ratio = 1 - (numNonNulls(avaarr.available) / avaarr.available.length)
+                            let r = (168 * ratio) + 168;
+                            let g = (141 * ratio) + 141;
+                            let b = (225 * ratio) + 225;
                             return(
                             <div
                                 className='agg-cell'

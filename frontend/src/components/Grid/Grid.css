@@ -58,6 +58,7 @@
     justify-content: space-between;
     z-index: 3;
     background-color: white;
+    border-radius: 6px;
 }
 .avails{
     display: flex;
@@ -80,10 +81,11 @@
 .available-wrapper{
     position: absolute;
     display: flex;
-    /* width: 100%; */
+    width: 18vw;
     justify-content: space-between;
     z-index: 3;
     background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .avails{
     display: flex;
@@ -96,4 +98,19 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    border-left: rgb(101, 80, 147) 0.5px solid;
+}
+
+.avails h1, .unavails h1 {
+    background-color: rgb(101, 80, 147);
+    color: white;
+    /* padding: 3px 6px; */
+    width: 100%;
+    box-shadow: #4d145f;
+    text-align: center;
+
+}
+
+.avails, .unavails {
+    width: 9vw;
 }
