@@ -73,13 +73,24 @@
     border-radius: 10%;
 }
 
+.main-page-calendar-header {
+    background-color: rgb(230, 99, 99);
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 5px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
 .event-index-input {
     font-size: 30px;
-    margin-top: 8%;
     line-height: 120%;
     font-weight: 200;
-    margin-left: 4%;
+    margin-left: 50px;
+    margin-right: 50px;
     color: black;
+    background-color: white;
 }
 .clicked-button {
     background-color: rgb(108, 192, 203);

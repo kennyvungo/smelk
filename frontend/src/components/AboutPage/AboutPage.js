@@ -86,7 +86,7 @@ export const AboutPage = () => {
                     </span>
                 </span>
                 <span className='description'>
-                    Meet&Greet is a quick, easy-to-use event scheduling application. 
+                    Meet&Greet is a quick, easy-to-use event scheduling application that uses chatGPT to help you plan your perfect experience. 
                 </span>
             </div>
 
