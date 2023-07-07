@@ -27,8 +27,8 @@ function Grid({ event }) {
         dispatch(fetchAggSchedule(id))
     };
     const curschedule = useSelector(getCurrSchedule)
-    console.log("this da grid",grid)
-    console.log("this da schedule,",curschedule)
+    // console.log("this da grid",grid)
+    // console.log("this da schedule,",curschedule)
     if (curschedule) {
         return (
             <div className='grid-container'>
