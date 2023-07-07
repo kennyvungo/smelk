@@ -47,6 +47,10 @@ const EventForm = ({ eventId} ) => {
     return `${twelveHourFormat}:00 ${period}`;
   });
 
+  const search = element => element === eventStartTime;
+  const indexStart = hours.findIndex(search)
+  const filtered_hours = hours.slice(indexStart + 1)
+
   const handleDatesChange = (dates) => {
     setEventDates(dates); 
   };
@@ -158,7 +162,7 @@ const EventForm = ({ eventId} ) => {
                     <label>
                       <span className='availability-subheader'>Availability end time</span>
                       <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
-                        {hours.map(hour => (
+                        {filtered_hours.map(hour => (
                           <option key={hour} value={hour}>{hour}</option>
                         ))}
                       </select>
