@@ -45,7 +45,7 @@ function EventsShow() {
                     </div>
                 )}
                 <div className='event-show-content-container'>
-                    {event && <ScheduleUsers event={event} />}
+                    {event && <ScheduleUsers />}
                     {event && <Grid event={event}/>}
                     {event && <AggGrid event={event}/>}
                 </div>
