@@ -5,11 +5,11 @@ const AvailableBox = ({avail,unavail,isHovering}) => {
     isHovering ? 
     <div className='available-wrapper'>
         <div className='avails'>
-            <h1>Available</h1>
+          <h1>{`Available (${avail.filter(e => e !== null).length})`}</h1>
             {avail.map(name =>  <ul> {name}</ul>)}
         </div>
         <div className='unavails'>
-            <h1>Unavailable</h1>
+          <h1>{`Unvailable (${unavail.filter(e => e !== null).length})`}</h1>
             {unavail.map(name => <ul> {name}</ul>)}
         </div>
     </div> : null
