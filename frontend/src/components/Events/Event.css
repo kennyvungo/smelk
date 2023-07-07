@@ -226,6 +226,7 @@
 
 .delete-button {
     padding: 3px 10px;
+    padding-top: 6px;
 }
 .delete-button:hover {
     background-color: rgb(161, 161, 161);
