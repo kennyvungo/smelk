@@ -65,7 +65,7 @@ function EventIndex() {
                     </div>
                 )}
                 <div class="main-page-calendar-footer">
-                    <Link to="/event/new" className="event-page-title event-index-create-event">Create New Event</Link>
+                    <Link to="/event/new" className="event-index-create-event">Create New Event</Link>
                 </div>
             </div>
         </>
