@@ -4,16 +4,18 @@ import './NavBar.css';
 import { logout } from '../../store/session.js';
 import { useState } from 'react';
 import { FcCalendar } from 'react-icons/fc';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
   const userId = useSelector(state => state.session.user)
   const dispatch = useDispatch();
   const [showSidebar, setShowSidebar] = useState(false);
-  
+  const history = useHistory();
   const logoutUser = e => {
       e.preventDefault();
       dispatch(logout());
+      history.push('/')
   };
 
   return (
@@ -24,9 +26,9 @@ function NavBar () {
       {loggedIn ? (
           <div className="links-user">
             <div className='links-user-container'>
-              <Link to={`/profile/${userId}`} isOpen={showSidebar} className='profile'>Profile</Link>
+              <Link to={"/events"} isOpen={showSidebar} className='profile'>Profile</Link>
+              <Link className='profile2' to={'/about'}>About</Link>
               <div className='profile2' onClick={logoutUser}>Logout</div>
-              <Link className='profile2' to={'/about'} >About</Link>
             </div>
           </div>
       ) : (

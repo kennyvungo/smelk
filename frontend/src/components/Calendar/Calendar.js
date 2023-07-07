@@ -11,7 +11,6 @@ const Calendar = ({ onDatesChange }) => {
     const [dragEnd, setDragEnd] = useState(null);
     
     useEffect(() => {
-        // console.log("Selected Dates:", selectedDates);
         onDatesChange(selectedDates);
     }, [selectedDates, onDatesChange]);
     
@@ -35,12 +34,6 @@ const Calendar = ({ onDatesChange }) => {
         setCurrentMonth(prevMonth => isBefore(startOfMonth(prevMonth), currentMonth) ? prevMonth : subMonths(prevMonth, 1));
     };
 
-    //not working, buggy
-    // const clearSelection = (e) => {
-    //     e.preventDefault();
-    //     setSelectedDates([]);
-    // };
-
     const startDrag = day => {
         setDragStart(day);
         setDragEnd(day);
@@ -57,7 +50,6 @@ const Calendar = ({ onDatesChange }) => {
         const start = isBefore(dragStart, dragEnd) ? dragStart : dragEnd;
         const end = isAfter(dragEnd, dragStart) ? dragEnd : dragStart;
         
-        // Make sure the start day of the week is less than the end
         const [minDay, maxDay] = startDayOfWeek < endDayOfWeek 
             ? [startDayOfWeek, endDayOfWeek] 
             : [endDayOfWeek, startDayOfWeek];
@@ -171,7 +163,6 @@ const Calendar = ({ onDatesChange }) => {
                 {Days()}
                 {Cells()}
             </div>
-            {/* <button onClick={(e) => clearSelection(e)}>Clear Dates</button> */}
         </>
     );
 }

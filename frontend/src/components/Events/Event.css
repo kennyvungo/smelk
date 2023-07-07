@@ -59,9 +59,14 @@
     font-size: 45px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     /* font-weight: 200px; */
-    margin-top: 8%;
+    margin-top: 4%;
     margin-left: 4%;
     color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.event-index-create-event:hover {
+    text-decoration: underline;
 }
 
 .event-index-container {
@@ -74,14 +79,62 @@
     border-radius: 10%;
 }
 
+.main-page-calendar-header {
+    background-color: rgb(230, 99, 99);
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 40px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.main-page-calendar-footer {
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 15px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 .event-index-input {
     font-size: 30px;
-    margin-top: 8%;
     line-height: 120%;
     font-weight: 200;
-    margin-left: 4%;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: black;
+    background-color: white;
+    /* border-bottom: 5px solid black; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.event-edit-delete-buttons {
+    margin-right: 30px;
+}
+
+.event-index-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title-info {
+    text-decoration: none;
     color: black;
 }
+
+.event-title-info:hover {
+    text-decoration: underline;
+}
+
 .clicked-button {
     background-color: rgb(108, 192, 203);
 }
@@ -139,3 +192,111 @@
 .availability-subheader {
     padding-right: 10px;
 }
+
+.edit-del-button {
+    display: flex;
+    font-size: 20px;
+    gap: 10px;
+}
+
+.edit-button {
+    text-decoration: none;
+    color: black;
+    padding: 3px 10px;
+}
+
+.edit-button:hover {
+    background-color: rgb(161, 161, 161);
+    border-radius: 20px;
+}
+
+.delete-button {
+    padding: 3px 10px;
+}
+.delete-button:hover {
+    background-color: rgb(161, 161, 161);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.copy-button {
+    cursor: pointer;
+    margin-left: 80%;
+    font-size: 16px;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    border-radius: 10%;
+    text-align: center;
+    border-color: none;
+    background-color: transparent;
+    width: 100px;
+}
+
+.copy-message{
+    width: 120px;
+    margin-bottom: .5%;
+    margin-left: 80%;
+}
+
+.ring {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgb(104, 104, 104); 
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    transform: rotate(310deg);
+    z-index: 1;
+}
+
+
+.ring-two {
+    top: 15%;
+    left: 15%;
+}
+
+.ring-three {
+    top: 15%;
+    left: 35%;
+}
+
+.ring-one {
+    top: 15%;
+    left: 55%;
+}
+
+.ring-four {
+    top: 15%;
+    left: 75%;
+}
+
+.circle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 25px; 
+    height: 25px; 
+    background-color: white;
+    border-radius: 50%;
+}
+
+.circle-one {
+    top: 31%; 
+    left: 19.5%; 
+}
+
+.circle-two {
+    top: 31%; 
+    left: 39.5%; 
+}
+
+.circle-three {
+    top: 31%; 
+    left: 59.5%; 
+}
+
+.circle-four {
+    top: 31%; 
+    left: 79.5%; 
+}
+
+

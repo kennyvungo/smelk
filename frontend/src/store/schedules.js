@@ -7,6 +7,7 @@ const RECEIVE_USER_SCHEDULE = "schedules/RECEIVE_USER_SCHEDULE";
 const RECEIVE_NEW_SCHEDULE = "schedules/RECEIVE_NEW_SCHEDULE";
 const RECEIVE_SCHEDULE_ERRORS = "events/RECEIVE_EVENT_ERRORS";
 const CLEAR_EVENT_ERRORS = "events/CLEAR_EVENT_ERRORS";
+const REMOVE_CURRENT_SCHEDULE = "schedules/REMOVE_CURRENT_SCHEDULE";
 
 
 const receiveSchedules = schedules => ({
@@ -24,7 +25,12 @@ const receiveUserSchedule = schedule => ({
     schedule
 });
 
-const receiveNewSchedule = schedule => ({
+
+export const removeCurrentSchedule = () => ({
+    type: REMOVE_CURRENT_SCHEDULE
+})
+
+export const receiveNewSchedule = schedule => ({
     type: RECEIVE_NEW_SCHEDULE,
     schedule
 });
@@ -129,6 +135,8 @@ const schedulesReducer = (state = {}, action) => {
             return { ...state, current: action.schedule};
         case RECEIVE_SCHEDULE:
             return { ...state, ...action.schedule};
+        case REMOVE_CURRENT_SCHEDULE:
+            return {...state,current:{}}
         default:
             return state;
     }

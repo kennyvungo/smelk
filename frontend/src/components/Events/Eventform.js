@@ -2,12 +2,13 @@ import React from 'react'
 import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/events';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { updateEvent } from '../../store/events';
 import Calendar from '../Calendar/Calendar';
 import './Event.css'
 import ChatGPTEvent from './ChatGPTEvent';
 import jwtFetch from '../../store/jwt';
+
 const EventForm = ({ eventId} ) => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -16,7 +17,6 @@ const EventForm = ({ eventId} ) => {
   const event = allEvents?.find(e => e._id === eventId);
   const [eventName, setEventName] = useState(event ? event.name : "");
   const [eventDates, setEventDates] = useState(event ? event.dates : []);
-  console.log(eventDates);
   const [eventStartTime, setEventStartTime] = useState(event ? event.dailyEventStartTime : "12:00 AM");
   const [eventEndTime, setEventEndTime] = useState(event ? event.dailyEventEndTime : "12:00 AM");
   const [setting, setSetting] = useState('')
@@ -28,6 +28,7 @@ const EventForm = ({ eventId} ) => {
   const [eventOne, setEventOne] = useState("")
   const [eventTwo, setEventTwo] = useState("")
   const [eventThree, setEventThree] = useState("")
+
   const generateQuery = async () => {
     const response = await jwtFetch("/api/events/generate", {
         method: "POST",
@@ -39,14 +40,17 @@ const EventForm = ({ eventId} ) => {
     const data = await response.json()
     return data.response.trim();
   }
+
   const hours = Array.from({ length: 24 }, (v, i) => {
     const period = i < 12 || i === 24 ? "AM" : "PM";
     const twelveHourFormat = i === 0 ? 12 : i < 13 ? i : i - 12;
     return `${twelveHourFormat}:00 ${period}`;
   });
+
   const handleDatesChange = (dates) => {
-    setEventDates(dates); // Update the eventDates state with the selected dates from the Calendar component
+    setEventDates(dates); 
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newEvent = {
@@ -56,7 +60,9 @@ const EventForm = ({ eventId} ) => {
       dailyEventStartTime: eventStartTime,
       dailyEventEndTime: eventEndTime,
     };
+
     let savedEvent;
+
     if (eventId) {
       savedEvent = await dispatch(updateEvent(eventId, newEvent));
       if (savedEvent) {
@@ -69,12 +75,9 @@ const EventForm = ({ eventId} ) => {
         history.push("/event/" + savedEvent.event._id);
       }
     }
-    // if (savedEvent) {
-    //   console.log('saved event', savedEvent);
-    //   history.push("/event/" + savedEvent.user._id || eventId);
-    // }
-    // console.log('saved eventv2', savedEvent);
+
   }
+
   const handleChatSubmit = async (e) => {
     e.preventDefault();
     console.log("form submitted")
@@ -90,6 +93,7 @@ const EventForm = ({ eventId} ) => {
       setHidden(false)
     }
   };
+  
   return (
     <div className="create-event-page">
       <span className='login-background event-form-container'>

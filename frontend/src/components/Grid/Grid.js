@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Grid.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrSchedule,updateSchedule,fetchAggSchedule } from '../../store/schedules';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useDispatch } from 'react-redux';
 function Grid({ event }) {
     const dispatch = useDispatch();
     const [grid, setGrid] = useState({});
@@ -27,10 +25,12 @@ function Grid({ event }) {
         dispatch(fetchAggSchedule(id))
     };
     const curschedule = useSelector(getCurrSchedule)
-    console.log("this da grid",grid)
-    console.log("this da schedule,",curschedule)
-    if (curschedule) {
+    // console.log("this da grid",grid)
+    // console.log("this da schedule,",curschedule)
+    if (curschedule.fname) {
         return (
+            <div className='grid-container'>
+                <h1 className='gridheader'>{curschedule.fname}'s Schedule</h1>
             <div className='grid'>
                 {Object.entries(curschedule.dailySchedule).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
@@ -49,9 +49,10 @@ function Grid({ event }) {
                     </div>
                 ))}
             </div>
+        </div>
         );
     } else {
-        <h1>loading...</h1>
+        return null
     }
 }
 export default Grid;
