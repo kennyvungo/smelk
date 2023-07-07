@@ -11,7 +11,7 @@ function MainPage() {
       <>
       <div class='center'>
         <div className='home-background'>
-            <div className='home-page-title'>Meet&Greet</div>
+            <div className='home-page-title'>RendezView</div>
             <div className='home-page-description'>
                 ...make planning easier
             </div>

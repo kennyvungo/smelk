@@ -86,7 +86,7 @@ export const AboutPage = () => {
                     </span>
                 </span>
                 <span className='description'>
-                    Meet&Greet is a quick, easy-to-use event scheduling application. 
+                RendezView is a quick, easy-to-use event scheduling application. 
                 </span>
             </div>
 
