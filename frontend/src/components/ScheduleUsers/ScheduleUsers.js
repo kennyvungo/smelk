@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { createSchedule, fetchSchedule } from '../../store/schedules';
+import { createSchedule, deleteSchedule, fetchAggSchedule, fetchSchedule, removeCurrentSchedule } from '../../store/schedules';
 import { TiUserDelete } from "react-icons/ti";
 import './ScheduleUsers.css'
 
@@ -20,7 +20,9 @@ const ScheduleUsers = () => {
     }
 
     const sendDeleteSchedule = () => {
-        dispatch()
+        // console.log(schedule);
+        dispatch(deleteSchedule(schedule["_id"]))
+        dispatch(fetchAggSchedule(event["_id"]))
     }
     
     const sendCreateSchedule = () => {
@@ -63,8 +65,10 @@ const ScheduleUsers = () => {
                             onClick={() => getSchedule(user.fname, user.lname)}>
                             {user.fname + " " + user.lname}
                         </button>
-                        <button className={schedule && schedule.fname === user.fname ? 'selected-button delete-schedule-button' : 'delete-schedule-button'}>
-                            <TiUserDelete size="2x" />
+                        <button 
+                            onClick={sendDeleteSchedule}
+                            className={schedule && schedule.fname === user.fname ? 'selected-button delete-schedule-button' : 'delete-schedule-button'}>
+                            <TiUserDelete size="4x" />
                         </button>
                     </div>
                 ))}

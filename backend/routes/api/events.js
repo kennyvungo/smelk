@@ -98,7 +98,7 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         const event = await Event.findOneAndDelete({_id: req.params.id})
-        console.log(event.owner);
+        // console.log(event.owner);
         const schedules = await Schedule.deleteMany({ eventId: req.params.id })
         let user = await User.updateOne({ _id: event.owner }, { $pull: { ownedEvents: event._id }})
         user = await User.findById(event.owner)

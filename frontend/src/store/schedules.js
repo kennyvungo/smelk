@@ -70,7 +70,7 @@ export const createSchedule = (data) => async (dispatch) => {
         const resData = await res.json();
         dispatch(receiveNewSchedule(resData.schedule));
         dispatch(receiveEvent(resData.event));
-        debugger
+        // debugger
         return resData.schedule;
     } catch(err) {
         const resBody = await err.json();
@@ -115,8 +115,10 @@ export const deleteSchedule = (scheduleId, isCurrent) => async dispatch => {
         const res = await jwtFetch(`/api/schedules/${scheduleId}`, {
             method: 'DELETE'
         });
-        const schedule = await res.json();
+        const data = await res.json();
+        dispatch(receiveEvent(data.event))
         if (isCurrent) dispatch(removeCurrentSchedule);
+
     } catch (err) {
         const resBody = await err.json();
         if (resBody.statusCode === 400) {

@@ -69,9 +69,6 @@ hr {
     background-attachment: scroll;
 }
 
-.selected-button {
-    background-color: lightgreen;
-}
 
 .user-button, .delete-schedule-button {
     padding: 10px;
@@ -111,5 +108,8 @@ hr {
 }
 
 .user-button:hover {
+    background-color: lightgreen;
+}
+.selected-button {
     background-color: lightgreen;
 }
