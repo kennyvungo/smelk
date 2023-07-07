@@ -165,3 +165,16 @@ router.get('/agg/:id',async(req,res,next) => {
 module.exports = router;
 
 // hi
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const schedule = await Schedule.findOneAndDelete({ _id: req.params.id })
+    return res.send("schedule deleted")
+  }
+  catch (err) {
+    const error = new Error('Event not found');
+    error.statusCode = 404;
+    error.errors = { message: "No event found with that id" };
+    return next(error);
+  }
+})
