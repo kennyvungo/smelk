@@ -54,7 +54,7 @@ function AggGrid({ event }) {
             return acc;
         }, {});
         setGrid(tempGrid);
-    }, [event,aggie,grid]);
+    }, [event,aggie]);
     const handleTimeSlotClick = (date, time) => {
         let newGrid = {...grid};
         newGrid[date][time] = !newGrid[date][time];
