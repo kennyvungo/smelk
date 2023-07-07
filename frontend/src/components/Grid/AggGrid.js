@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {useSelector } from 'react-redux/es/hooks/useSelector';
+import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { fetchAggSchedule,getAggSchedule } from '../../store/schedules';
 import './Grid.css';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import AvailableBox from './Availablebox';
-import AggCell from './AggCell'
+
 //helper function to convert time
 const convertTo12HourFormat = (time) => {
     let hour = Math.floor(time);
@@ -21,8 +20,6 @@ const dateConverter = (str) => {
     return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
  }
 function AggGrid({ event }) {
-    const [isHovering,setIsHovering] = useState(false);
-    const [showBox,setShowBox] = useState(false);
     const [isLoaded,setisLoaded] = useState(false);
     const {id} = useParams();
     const [grid, setGrid] = useState({});
@@ -60,13 +57,6 @@ function AggGrid({ event }) {
         newGrid[date][time] = !newGrid[date][time];
         setGrid(newGrid);
     };
-    const handleMouseOver = () => {
-        setIsHovering(true);
-      };
-    
-      const handleMouseOut = () => {
-        setIsHovering(false);
-      };
 
     if (isLoaded) {
         return (
@@ -82,19 +72,13 @@ function AggGrid({ event }) {
                             let g = 141 * ratio;
                             let b = 225 * ratio;
                             return(
-                            <>
-                            {/* <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
+                            <div
                                 className='agg-cell'
                                 key={time}
                                 style={{backgroundColor: `rgb(${r},${g},${b})`}}
-                                >   
+                            >
                                 {time}
-                            </div> */}
-                            <AggCell time={time} avaarr={avaarr} r={r} g={g} b={b}/>
-                        
-                            </>
-                            )
-    
+                            </div>)
                             }
 
                             })}
