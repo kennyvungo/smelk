@@ -24,7 +24,7 @@ function NavBar () {
       {loggedIn ? (
           <div className="links-user">
             <div className='links-user-container'>
-              <Link to={`/profile/${userId}`} isOpen={showSidebar} className='profile'>Profile</Link>
+              <Link to={"/events"} isOpen={showSidebar} className='profile'>Profile</Link>
               <div className='profile2' onClick={logoutUser}>Logout</div>
               <Link className='profile2' to={'/about'} >About</Link>
             </div>

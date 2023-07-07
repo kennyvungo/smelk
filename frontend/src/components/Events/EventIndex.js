@@ -8,7 +8,7 @@ import './Event.css'
 function EventIndex() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const userEvents = useSelector(state => state.events.user);
+    const userEvents = useSelector(state => Object.values(state.events.user));
 
     useEffect(() => {
         if (user) {
@@ -25,18 +25,23 @@ function EventIndex() {
 
     return (
         <>
-            <div className='event-index-container'>
-                { userEvents.length > 0 ? (
-                <h2 className="event-page-title">Your Upcoming Events!</h2>) : <h2 className="event-page-title">No Upcoming Events</h2> }
-                        {Object.values(userEvents).map(event => (
-                            <div key={event._id} className="event-index-input">
-                                {event.name}
-                                <ul>
+            <div >
+                { userEvents.length > 0 ? 
+                (<div class="main-page-calendar-header">
+                    <h2 className="event-page-title">Your Upcoming Events!</h2> 
+                </div>): 
+                <h2 className="event-page-title">No Upcoming Events</h2> }
+                {userEvents.map(event => (
+                    <div key={event._id} className="event-index-input">
+                        {event.name}
+                        {event.dates[0]}
+                        {event.responses.length > 0 ? event.responses.length : "No responses yet"}
+                        <ul>
                                     <Link to={`/event/edit/${event._id}`}><li> Edit</li></Link>
                                     <li onClick={() => handleDelete(event._id)}> Delete</li>
-                                </ul>
-                            </div>
-                        ))} 
+                        </ul>
+                    </div>
+                ))} 
             </div>
         </>
     );
