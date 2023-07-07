@@ -176,3 +176,29 @@
 .availability-subheader {
     padding-right: 10px;
 }
+
+.edit-del-button {
+    display: flex;
+    font-size: 20px;
+    gap: 10px;
+}
+
+.edit-button {
+    text-decoration: none;
+    color: black;
+    padding: 3px 10px;
+}
+
+.edit-button:hover {
+    background-color: rgb(161, 161, 161);
+    border-radius: 20px;
+}
+
+.delete-button {
+    padding: 3px 10px;
+}
+.delete-button:hover {
+    background-color: rgb(161, 161, 161);
+    border-radius: 20px;
+    cursor: pointer;
+}

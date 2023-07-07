@@ -4,7 +4,6 @@ import { fetchUserEvents,deleteEvent } from '../../store/events';
 import { Link } from 'react-router-dom';
 import './Event.css'
 
-
 function EventIndex() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
@@ -40,8 +39,10 @@ function EventIndex() {
                             {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
                         </div>
                         <ul className="event-edit-delete-buttons">
-                            <Link to={`/event/edit/${event._id}`}><li> Edit</li></Link>
-                            <li onClick={() => handleDelete(event._id)}> Delete</li>
+                            <div className='edit-del-button'>
+                                <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
+                                <li onClick={() => handleDelete(event._id)} className='delete-button'> Delete</li>
+                            </div>
                         </ul>
                     </div>
                 ))}

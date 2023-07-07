@@ -107,3 +107,7 @@
     font-size: 20px;
     margin-top: -12%;
 }
+
+.profile2:hover {
+    cursor: pointer;
+}
