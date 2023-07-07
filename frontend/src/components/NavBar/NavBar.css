@@ -74,14 +74,35 @@
     font-size: 25px;
 }
 
+.link1-auth:hover{
+    color: white;
+}
+
+.link2-auth:hover{
+    color: white;
+}
+
+.about-link:hover {
+    color: white;
+}
+
 .profile {
     text-decoration: none;
     padding-left: 2%;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-    color: black;
+    color: rgb(0, 0, 0);
     font-weight: 250;
     z-index: 999;
     margin-top: -12%;
+    font-size: 30px;
+}
+
+.profile:hover {
+    color: white;
+}
+
+.profile2:hover {
+    color: white;
 }
 
 
@@ -100,11 +121,11 @@
 .profile2 {
     padding-left: 80%;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
-    color: black;
+    color: rgb(0, 0, 0);
     font-weight: 250;
     text-decoration: none;
     z-index: 999;
-    font-size: 20px;
+    font-size: 30px;
     margin-top: -12%;
 }
 

@@ -251,6 +251,7 @@
     justify-content: center;
 }
 
+
 .demo-button {
     font-size: 25px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -262,9 +263,6 @@
     background-color: transparent;
 }
 
-.demo-button:hover {
-    cursor: pointer;
-}
 
 .error-exclamation {
     color: red;

@@ -225,11 +225,13 @@
     text-align: center;
     border-color: none;
     background-color: transparent;
+    width: 100px;
 }
 
 .copy-message{
-    margin-left: 76%;
+    width: 120px;
     margin-bottom: .5%;
+    margin-left: 80%;
 }
 
 .ring {
@@ -292,3 +294,5 @@
     top: 36%; 
     left: 81.5%; 
 }
+
+
