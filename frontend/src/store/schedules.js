@@ -7,6 +7,7 @@ const RECEIVE_USER_SCHEDULE = "schedules/RECEIVE_USER_SCHEDULE";
 const RECEIVE_NEW_SCHEDULE = "schedules/RECEIVE_NEW_SCHEDULE";
 const RECEIVE_SCHEDULE_ERRORS = "events/RECEIVE_EVENT_ERRORS";
 const CLEAR_EVENT_ERRORS = "events/CLEAR_EVENT_ERRORS";
+const REMOVE_CURRENT_SCHEDULE = "schedules/REMOVE_CURRENT_SCHEDULE";
 
 
 const receiveSchedules = schedules => ({
@@ -24,7 +25,12 @@ const receiveUserSchedule = schedule => ({
     schedule
 });
 
-const receiveNewSchedule = schedule => ({
+
+export const removeCurrentSchedule = () => ({
+    type: REMOVE_CURRENT_SCHEDULE
+})
+
+export const receiveNewSchedule = schedule => ({
     type: RECEIVE_NEW_SCHEDULE,
     schedule
 });
@@ -34,14 +40,14 @@ const receiveErrors = errors => ({
     errors
 });
 
+export const getCurrSchedule = (state) => {
+    return state.schedules.current ? state.schedules.current : null
+}
 
 export const getAggSchedule =(eventId) => (state) =>{
     return state.schedules ? Object.values(state.schedules).filter(agg => agg._id === eventId)[0]: null
 }
 
-// export const getPost =(postId) => (state) => {
-//     return state.posts ? state.posts[postId] :null
-// }
 export const fetchAggSchedule = id => async dispatch => {
     try {
         const res = await jwtFetch(`/api/schedules/agg/${id}`);
@@ -88,15 +94,30 @@ export const fetchSchedule = (fname,lname, eventId) => async (dispatch) => {
 }
 
 export const updateSchedule = (data) => async dispatch => {
-    const {id} = data;
+    const {_id} = data;
     try{
-        const res = await jwtFetch(`/api/schedules/${id}`,{
+        const res = await jwtFetch(`/api/schedules/${_id}`,{
             method: 'PATCH',
             body: JSON.stringify(data)
         });
         const schedule = await res.json();
         dispatch(receiveUserSchedule(schedule))
     } catch(err){
+        const resBody = await err.json();
+        if (resBody.statusCode === 400) {
+            return dispatch(receiveErrors(resBody.errors));
+        }
+    }
+};
+
+export const deleteSchedule = (scheduleId, isCurrent) => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/schedules/${scheduleId}`, {
+            method: 'DELETE'
+        });
+        const schedule = await res.json();
+        if (isCurrent) dispatch(removeCurrentSchedule);
+    } catch (err) {
         const resBody = await err.json();
         if (resBody.statusCode === 400) {
             return dispatch(receiveErrors(resBody.errors));
@@ -129,6 +150,8 @@ const schedulesReducer = (state = {}, action) => {
             return { ...state, current: action.schedule};
         case RECEIVE_SCHEDULE:
             return { ...state, ...action.schedule};
+        case REMOVE_CURRENT_SCHEDULE:
+            return {...state,current:{}}
         default:
             return state;
     }

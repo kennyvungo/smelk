@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {useSelector } from 'react-redux/es/hooks/useSelector';
+import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { fetchAggSchedule,getAggSchedule } from '../../store/schedules';
 import './Grid.css';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import AvailableBox from './Availablebox';
-import AggCell from './AggCell'
+import AggCell from './AggCell';
 //helper function to convert time
 const convertTo12HourFormat = (time) => {
     let hour = Math.floor(time);
@@ -21,8 +20,6 @@ const dateConverter = (str) => {
     return str.slice(5,7) + "/" + str.slice(8,10) + "/" + str.slice(0,4);
  }
 function AggGrid({ event }) {
-    const [isHovering,setIsHovering] = useState(false);
-    const [showBox,setShowBox] = useState(false);
     const [isLoaded,setisLoaded] = useState(false);
     const {id} = useParams();
     const [grid, setGrid] = useState({});
@@ -60,16 +57,11 @@ function AggGrid({ event }) {
         newGrid[date][time] = !newGrid[date][time];
         setGrid(newGrid);
     };
-    const handleMouseOver = () => {
-        setIsHovering(true);
-      };
-    
-      const handleMouseOut = () => {
-        setIsHovering(false);
-      };
 
     if (isLoaded) {
         return (
+            <div className='grid-container'>
+                <h1 className='gridheader'>Group Availability</h1>
             <div className='grid'>
                 {Object.entries(grid).map(([date, timeSlots]) => (
                     <div className='grid-row' key={date}>
@@ -77,29 +69,19 @@ function AggGrid({ event }) {
                         <div className='date-header'>{date}</div>
                         {Object.entries(timeSlots).map(([time, avaarr]) => {
                             if(avaarr){
-                            let ratio = 1 - (numNonNulls(avaarr.available) / avaarr.available.length)
-                            let r = (168 * ratio) + 168;
-                            let g = (141 * ratio) + 141;
-                            let b = (225 * ratio) + 225;
-                            return(
-                            <>
-                            {/* <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
-                                className='agg-cell'
-                                key={time}
-                                style={{backgroundColor: `rgb(${r},${g},${b})`}}
-                                >   
-                                {time}
-                            </div> */}
-                            <AggCell time={time} avaarr={avaarr} r={r} g={g} b={b}/>
-                        
-                            </>
-                            )
-    
-                            }
-
+                                let ratio = 1 - (numNonNulls(avaarr.available) / avaarr.available.length)
+                                let r = (168 * ratio) + 168;
+                                let g = (141 * ratio) + 141;
+                                let b = (225 * ratio) + 225;
+                                return(
+                                    <AggCell time={time} avaarr={avaarr} r={r} g={g} b={b} />
+                                    )
+                                }
+                                
                             })}
                     </div>
                 ))}
+            </div>
             </div>
         );
     } else {

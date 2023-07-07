@@ -2,20 +2,23 @@ import React from 'react'
 import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/events';
-import { useHistory } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
+import { updateEvent } from '../../store/events';
 import Calendar from '../Calendar/Calendar';
 import './Event.css'
 import ChatGPTEvent from './ChatGPTEvent';
 import jwtFetch from '../../store/jwt';
 
-const EventForm = () => {
+const EventForm = ({ eventId} ) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(state => state.session.user);
-  const [eventName, setEventName] = useState("");
-  const [eventDates, setEventDates] = useState([]);
-  const [eventStartTime, setEventStartTime] = useState("12:00 AM");
-  const [eventEndTime, setEventEndTime] = useState("12:00 AM");
+  const allEvents = useSelector(state => state.events.user);
+  const event = allEvents?.find(e => e._id === eventId);
+  const [eventName, setEventName] = useState(event ? event.name : "");
+  const [eventDates, setEventDates] = useState(event ? event.dates : []);
+  const [eventStartTime, setEventStartTime] = useState(event ? event.dailyEventStartTime : "12:00 AM");
+  const [eventEndTime, setEventEndTime] = useState(event ? event.dailyEventEndTime : "12:00 AM");
   const [setting, setSetting] = useState('')
   const [energy, setEnergy] = useState('')
   const [people, setPeople] = useState(0)
@@ -34,7 +37,6 @@ const EventForm = () => {
         },
         body: JSON.stringify({ people: people, setting: setting, energy: energy })
     })
-    
     const data = await response.json()
     return data.response.trim();
   }
@@ -46,12 +48,11 @@ const EventForm = () => {
   });
 
   const handleDatesChange = (dates) => {
-    setEventDates(dates); // Update the eventDates state with the selected dates from the Calendar component
+    setEventDates(dates); 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const newEvent = {
       owner: user._id,
       name: eventName,
@@ -60,10 +61,21 @@ const EventForm = () => {
       dailyEventEndTime: eventEndTime,
     };
 
-    const createdEvent = await dispatch(createEvent(newEvent));
-    if (createdEvent) {
-      history.push("/event/" + createdEvent.event._id);
+    let savedEvent;
+
+    if (eventId) {
+      savedEvent = await dispatch(updateEvent(eventId, newEvent));
+      if (savedEvent) {
+        history.push("/event/" + eventId);
+      }
+    } else {
+      savedEvent = await dispatch(createEvent(newEvent));
+      if (savedEvent) {
+        console.log(savedEvent);
+        history.push("/event/" + savedEvent.event._id);
+      }
     }
+
   }
 
   const handleChatSubmit = async (e) => {
@@ -72,7 +84,6 @@ const EventForm = () => {
     console.log(setting)
     console.log(energy)
     console.log(people)
-
     const query = await generateQuery();
     const eventArr = query.split(",");
     setEventOne(eventArr[0]);
@@ -93,22 +104,19 @@ const EventForm = () => {
               <button className={settingButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setSetting("outside");setSettingButton(1)}}>Outside</button>
               <br />
               <br />
-
               <h3 className="chat-subheading">What vibe are you going for?</h3>
               <button className={energyButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setEnergy("active");setEnergyButton(0)}}>Active</button>
               <button className={energyButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setEnergy("chill");setEnergyButton(1)}}>Chill</button>
               <br />
               <br />
-
               <h3 className="chat-subheading">How many people are you thinking?</h3>
-              <input 
+              <input
                   type="text"
                   placeholder="# people"
                   onChange={(e) => setPeople(e.target.value)}
               />
               <br />
               <br />
-
               <button className='demo-button chat-gpt-submit' type="submit">Find Us Something To Do</button>
           </form>
           <h3 className={hidden ? 'chat-subheading hidden' : 'chat-subheading'}>Our suggestions</h3>
@@ -120,26 +128,24 @@ const EventForm = () => {
       </span>
       <span className='event-form-container login-background'>
           <form className='event-form chat-gpt-form' onSubmit={handleSubmit}>
-              <h2 className='event-form-title'>Create Event</h2>
-              
+              <h2 className='event-form-title'>
+                {eventId ? 'Update Event' : 'Create Event'}
+              </h2>
               <div className='event-errors'></div>
-
               <div className='event-form-input'>
                     <label>
                       <span className='availability-subheader'>Event Name</span>
-                      <input 
-                        type="text" 
-                        value={eventName} 
-                        onChange={e => setEventName(e.target.value)} 
+                      <input
+                        type="text"
+                        value={eventName}
+                        onChange={e => setEventName(e.target.value)}
                       />
                     </label>
                     <br/>
-
                     <label>
                       <Calendar onDatesChange={handleDatesChange}/>
                     </label>
                     <br/>
-
                     <label>
                       <span className='availability-subheader'>Availability start time</span>
                       <select value={eventStartTime} onChange={e => setEventStartTime(e.target.value)}>
@@ -149,7 +155,6 @@ const EventForm = () => {
                       </select>
                     </label>
                     <br/>
-                    
                     <label>
                       <span className='availability-subheader'>Availability end time</span>
                       <select value={eventEndTime} onChange={e => setEventEndTime(e.target.value)}>
@@ -159,9 +164,10 @@ const EventForm = () => {
                       </select>
                     </label>
                     <br/>
-                    <button className='demo-button chat-gpt-submit' type="submit">Create Event</button>
+                    <button className='demo-button chat-gpt-submit' type="submit">
+                      {eventId ? 'Update Event' : 'Create Event'}
+                    </button>
               </div>
-
           </form>
       </span>
     </div>

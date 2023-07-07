@@ -262,6 +262,10 @@
     background-color: transparent;
 }
 
+.demo-button:hover {
+    cursor: pointer;
+}
+
 .error-exclamation {
     color: red;
 }

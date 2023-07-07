@@ -1,19 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { createSchedule, fetchSchedule } from '../../store/schedules';
-import {FiX} from 'react-icons/fi'
+import { TiUserDelete } from "react-icons/ti";
 import './ScheduleUsers.css'
 
-const ScheduleUsers = ({event}) => {
+const ScheduleUsers = () => {
     const dispatch = useDispatch();
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const responses = useSelector(state => state.events.current.responses)
+    const event = useSelector(state => state.events.current)
     const schedule = useSelector(state => state.schedules.current)
-    
+    // let responses;
+    // useEffect(() => {
+    //     responses = event.responses
+    // },[event["_id"]])
     
     const getSchedule = (fname, lname) => {
         dispatch(fetchSchedule(fname, lname, event["_id"]))
+    }
+
+    const sendDeleteSchedule = () => {
+        dispatch()
     }
     
     const sendCreateSchedule = () => {
@@ -50,16 +57,16 @@ const ScheduleUsers = ({event}) => {
             </div>
             <h1 className='schedule-users-header-text'>Select your name below</h1>
             <div className="schedule-users-buttons-container">
-                {responses && responses.map(user => (
-                    <>
-                        <button className='user-button-container' key={event["_id"] + user}>
-                            <div className={schedule && schedule.fname === user.fname ? 'selected-button user-button left-button' : 'user-button left-button'}
-                                onClick={() => getSchedule(user.fname, user.lname)}>
-                                {user.fname + " " + user.lname}
-                            </div>
+                {event.responses && event.responses.map(user => ( 
+                    <div className='user-button-container' key={`${event["_id"]}${user.fname}${user.lname}`}>
+                        <button className={schedule && schedule.fname === user.fname ? 'selected-button user-button' : 'user-button'}
+                            onClick={() => getSchedule(user.fname, user.lname)}>
+                            {user.fname + " " + user.lname}
                         </button>
-                        <button className='right-button' ><FiX /></button>
-                    </>
+                        <button className={schedule && schedule.fname === user.fname ? 'selected-button delete-schedule-button' : 'delete-schedule-button'}>
+                            <TiUserDelete size="2x" />
+                        </button>
+                    </div>
                 ))}
             </div>
         </div>
