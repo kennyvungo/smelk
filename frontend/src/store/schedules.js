@@ -74,9 +74,9 @@ export const createSchedule = (data) => async (dispatch) => {
     }
 };
 
-export const fetchSchedule = (fname,lname) => async (dispatch) => {
+export const fetchSchedule = (fname,lname, eventId) => async (dispatch) => {
     try {
-        const res = await jwtFetch(`/api/schedules/${fname}&${lname}`);
+        const res = await jwtFetch(`/api/schedules/event/${eventId}/name/${fname}&${lname}`);
         const schedule = await res.json();
         dispatch(receiveUserSchedule(schedule))
     } catch (err) {
@@ -124,7 +124,7 @@ const schedulesReducer = (state = {}, action) => {
         case RECEIVE_SCHEDULES:
             return { ...state, ...action.schedules};
         case RECEIVE_USER_SCHEDULE:
-            return { ...state, ...action.schedule};
+            return { ...state, current: action.schedule };
         case RECEIVE_NEW_SCHEDULE:
             return { ...state, current: action.schedule};
         case RECEIVE_SCHEDULE:

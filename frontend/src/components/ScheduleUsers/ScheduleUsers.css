@@ -1,7 +1,7 @@
 .schedule-users-container {
     display: flex;
     flex-direction: column;
-    width: 15vw;
+    width: 20vw;
     padding: 20px;
     border: 1px #888688 solid;
     border-radius: 25px;
@@ -68,3 +68,8 @@ hr {
     overflow-y: scroll;
     background-attachment: scroll;
 }
+
+.selected-button {
+    background-color: lightgreen;
+}
+
