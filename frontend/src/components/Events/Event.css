@@ -59,7 +59,7 @@
     font-size: 45px;
     font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
     /* font-weight: 200px; */
-    margin-top: 8%;
+    margin-top: 4%;
     margin-left: 4%;
     color: rgb(0, 0, 0);
 }
@@ -82,6 +82,17 @@
     padding: 5px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+    text-align: center;
+}
+
+.main-page-calendar-footer {
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 15px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-align: center;
 }
 
 .event-index-input {
@@ -92,7 +103,22 @@
     margin-right: 50px;
     color: black;
     background-color: white;
+    border-bottom: 5px solid black;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
+
+.event-edit-delete-buttons {
+    margin-right: 30px;
+}
+
+.event-index-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .clicked-button {
     background-color: rgb(108, 192, 203);
 }
