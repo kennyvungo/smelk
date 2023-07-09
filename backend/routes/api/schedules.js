@@ -170,10 +170,9 @@ router.delete('/:id', async (req, res, next) => {
   try {
     const schedule = await Schedule.findOneAndDelete({ _id: req.params.id })
     
-    console.log(schedule.eventId);
     let event = await Event.updateOne({ _id: schedule.eventId }, { $pull: { responses: { fname: schedule.fname, lname: schedule.lname } } }, 
       { safe: true, multi: false })
-    event = await Event.findById({ _id: req.body.eventId });
+    event = await Event.findById({ _id: schedule.eventId });
 
     return res.json({event})
   }
