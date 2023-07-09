@@ -113,3 +113,11 @@ hr {
 .selected-button {
     background-color: lightgreen;
 }
+
+.name-error {
+    display: flex;
+    align-items: center;
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
