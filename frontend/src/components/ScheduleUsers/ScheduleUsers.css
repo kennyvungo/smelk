@@ -70,12 +70,13 @@ hr {
 }
 
 
-.user-button, .delete-schedule-button {
+.user-button, .delete-schedule-button, .right-user-button, .whole-user-button {
     padding: 10px;
     font-weight: 300;
     background-color: transparent;
     padding: 10px;
     width: 100%;
+
 }
 
 .user-button-container {
@@ -96,7 +97,7 @@ hr {
     font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-.delete-schedule-button {
+.delete-schedule-button, .right-user-button {
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border-left: none;
@@ -107,8 +108,8 @@ hr {
     background-color: rgb(230, 99, 99);
 }
 
-.user-button:hover {
-    background-color: lightgreen;
+.whole-user-button:hover {
+    background-color: rgb(212, 244, 212);
 }
 .selected-button {
     background-color: lightgreen;
@@ -120,4 +121,12 @@ hr {
     color: red;
     font-size: 14px;
     margin-top: 4px;
+}
+
+.whole-user-button {
+    border-radius: 6px;
+    width: 100%;
+    font-size: 20px;
+    text-align: left;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }

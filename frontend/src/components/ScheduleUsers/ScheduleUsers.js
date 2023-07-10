@@ -65,14 +65,14 @@ const ScheduleUsers = () => {
             <div className="schedule-users-buttons-container">
                 {event.responses && event.responses.map(user => ( 
                     <div className='user-button-container' key={`${event["_id"]}${user.fname}${user.lname}`}>
-                        <button className={schedule && schedule.fname === user.fname && schedule.lname === user.lname ? 'selected-button user-button' : 'user-button'}
+                        <button className={schedule && schedule.fname === user.fname && schedule.lname === user.lname ? 'selected-button user-button' : 'whole-user-button'}
                             onClick={() => getSchedule(user.fname, user.lname)}>
                             {user.fname + " " + user.lname}
                         </button>
                         <button 
                             onClick={sendDeleteSchedule}
-                            className={schedule && schedule.fname === user.fname && schedule.lname === user.lname ? 'selected-button delete-schedule-button' : 'delete-schedule-button'}>
-                            <TiUserDelete size="4x" />
+                            className={schedule && schedule.fname === user.fname && schedule.lname === user.lname ? 'selected-button delete-schedule-button' : 'hidden'}>
+                            {schedule && schedule.fname === user.fname && schedule.lname === user.lname ? <TiUserDelete size="4x" /> : <></> }
                         </button>
                     </div>
                 ))}
