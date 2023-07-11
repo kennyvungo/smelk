@@ -5,6 +5,7 @@ import { logout } from '../../store/session.js';
 import { useState } from 'react';
 import { FcCalendar } from 'react-icons/fc';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import logo from "./Images/logo.png";
 
 function NavBar () {
   const loggedIn = useSelector(state => !!state.session.user);
@@ -21,7 +22,7 @@ function NavBar () {
   return (
     <>
     <div className='logo-container'>
-      <span className='logo'> RendezView <FcCalendar /> </span>
+      <img className='picture-logo' src={logo} alt='logo image' />
     </div>
       {loggedIn ? (
           <div className="links-user">

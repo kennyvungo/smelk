@@ -17,6 +17,7 @@
     height: 500px;
     background-color: rgba(215, 228, 230, 0.405);
     border-radius: 10%;
+    margin-top: 6%;
 }
 
 .sign-up-form {
@@ -149,6 +150,11 @@
     text-align: center;
     border-color: none;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    font-weight: 400;
 }
 
 .login-background {
@@ -157,6 +163,7 @@
     background-color: rgba(215, 228, 230, 0.383);
     border-radius: 10%;
     text-align: center;
+    margin-top: 6%;
 }
 
 .login-title {
@@ -244,6 +251,14 @@
     text-align: center;
     border-color: none;
     background-color: transparent;
+}
+
+.login-button {
+    cursor: pointer;
+}
+
+.login-button:hover {
+    font-weight: 400;
 }
 
 .demo-button-container {
