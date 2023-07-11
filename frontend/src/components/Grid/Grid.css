@@ -4,11 +4,17 @@
     margin: 10px 0;
     /* width: 100%; */
     overflow: scroll;
+    /* overflow: visible; */
 }
 .grid-row {
     display: flex;
     flex-direction: column;
 }
+
+.grid-cell:hover, .agg-cell:hover {
+    font-weight: 500;
+} 
+
 .grid-cell {
     border: 0.25px solid #4d145f;
     cursor: pointer;
@@ -58,8 +64,11 @@
     /* width: 100%; */
     justify-content: space-between;
     z-index: 3;
+    /* top: -100px; */
+    /* right: 50px; */
     background-color: white;
     border-radius: 6px;
+    overflow: revert-layer;
 }
 .avails{
     display: flex;
@@ -74,9 +83,10 @@
     align-items: center;
 }
 .avail-container{
-    position: relative;
+    position: absolute;
+    /* top: 50px; */
     background-color: white;
-    z-index: 100;
+    z-index: 1;
 }
 
 .available-wrapper{
