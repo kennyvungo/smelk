@@ -8,8 +8,9 @@
     /* margin: 20px; */
     background-color: rgba(215, 228, 230, 0.383);
     border: none;
-    height: 80vh;
+    height: 97%;
     box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .schedule-users-splitter {
@@ -106,9 +107,11 @@ hr {
 
 .delete-schedule-button:hover {
     background-color: rgb(230, 99, 99);
+    cursor: pointer;
 }
 
 .whole-user-button:hover {
+    cursor: pointer;
     background-color: rgb(212, 244, 212);
 }
 .selected-button {

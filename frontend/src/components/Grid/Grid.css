@@ -1,13 +1,20 @@
 .grid {
     display: flex;
     flex-direction: row;
-    margin: 20px 0;
+    margin: 10px 0;
     /* width: 100%; */
+    overflow: scroll;
+    /* overflow: visible; */
 }
 .grid-row {
     display: flex;
     flex-direction: column;
 }
+
+.grid-cell:hover, .agg-cell:hover {
+    font-weight: 500;
+} 
+
 .grid-cell {
     border: 0.25px solid #4d145f;
     cursor: pointer;
@@ -46,7 +53,7 @@
     height: 4%;
 }
 .avail-container{
-    position: relative;
+    /* position: relative; */
     background-color: white;
     z-index: 100;
 }
@@ -57,36 +64,15 @@
     /* width: 100%; */
     justify-content: space-between;
     z-index: 3;
+    width: 18vw;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* top: -100px; */
+    /* right: 50px; */
     background-color: white;
     border-radius: 6px;
-}
-.avails{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-.unavails{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-.avail-container{
-    position: relative;
-    background-color: white;
-    z-index: 100;
+    overflow: revert-layer;
 }
 
-.available-wrapper{
-    position: absolute;
-    display: flex;
-    width: 18vw;
-    justify-content: space-between;
-    z-index: 3;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
 .avails{
     display: flex;
     flex-direction: column;

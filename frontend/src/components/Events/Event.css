@@ -1,7 +1,7 @@
 .event-show-event-name {
     font-size: 50px !important;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .event-show-container {
@@ -9,11 +9,21 @@
     flex-direction: column;
 }
 
+
+.left-header-div {
+    width: 200px;
+}
+.event-show-header {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .event-show-content-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     /* overflow-y: scroll; */
+    height: 77vh;
 }
 .create-event-page {
     display: flex;
@@ -261,7 +271,7 @@
 }
 
 .copy-container {
-    margin-left: 80%;
+    /* margin-left: 80%; */
     width: 200px;
     height: 100px;
     background-color: rgba(215, 228, 230, 0.383);
