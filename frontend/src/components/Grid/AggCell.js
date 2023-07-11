@@ -3,10 +3,14 @@ import { useState } from 'react';
 import AvailableBox from './Availablebox';
 const AggCell = ({time,avaarr,r,g,b}) => {
 
-    const [isHovering,setIsHovering] = useState(false);
+    const [isHovering,setIsHovering] = useState();
+    const [boxPos,setBoxPos] = useState({top:0,left:0});
  
-    const handleMouseOver = () => {
+    const handleMouseOver = (e) => {
         setIsHovering(true);
+        const elementPos = e.currentTarget.getBoundingClientRect()
+        const boxLeft = elementPos.left - 100;
+        setBoxPos({top: elementPos.top,left:boxLeft})
       };
     
       const handleMouseOut = () => {
@@ -22,7 +26,7 @@ const AggCell = ({time,avaarr,r,g,b}) => {
         {time}
     </div>
     <div className='avail-container'>
-       <AvailableBox avail={avaarr.available} unavail={avaarr.unavailable} isHovering={isHovering}/>
+      <AvailableBox avail={avaarr.available} unavail={avaarr.unavailable} isHovering={isHovering} boxPos={{...boxPos}}/>
    </div>
     </>
   )

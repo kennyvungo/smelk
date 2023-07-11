@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 
-const AvailableBox = ({avail,unavail,isHovering}) => {
+const AvailableBox = ({avail,unavail,isHovering, boxPos}) => {
+  console.log(boxPos)
+  const {top,left} = boxPos;
   return (
     isHovering ? 
-    <div className='available-wrapper'>
+    <div className='available-wrapper' style={{top,left}}>
         <div className='avails'>
           <h1>{`Available (${avail.filter(e => e !== null).length})`}</h1>
             {avail.map(name =>  <ul> {name}</ul>)}
