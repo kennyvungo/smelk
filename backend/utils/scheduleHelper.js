@@ -62,15 +62,13 @@ const createDaySchedule = (startTime, endTime) => {
 };
 
 const updateDaySchedule = (oldDaySchedule, newDaySchedule) => {
+    let newSched = {}
     for (const time of Object.keys(newDaySchedule)) {
-        // console.log(time);
-        // console.log(oldDaySchedule[time]);
         if (oldDaySchedule[time] !== undefined) {
-            newDaySchedule[time] = oldDaySchedule[time];
-            // console.log(newDaySchedule[time]);
+            newSched[time] = oldDaySchedule[time];
         }
     }
-    return newDaySchedule;
+    return newSched;
 };
 
 function updateDailySchedule(oldDailySchedule, dates, newStartTime, newEndTime) {
@@ -78,13 +76,9 @@ function updateDailySchedule(oldDailySchedule, dates, newStartTime, newEndTime) 
 
     let newDailySchedule = {};
     for (const date of dates) {
-        if (oldDailySchedule[date] !== undefined) {
-            console.log("------------");
-            console.log(date);
-            // console.log(oldDailySchedule[date]);
+        const oldSched = {...oldDailySchedule[date]}
+        if (oldSched !== undefined) {
             newDailySchedule[date] = updateDaySchedule(oldDailySchedule[date], newDaySchedule);
-            console.log(newDailySchedule[date]);
-            console.log(newDailySchedule);
         } else {
             newDailySchedule[date] = newDaySchedule;
         }
@@ -93,7 +87,6 @@ function updateDailySchedule(oldDailySchedule, dates, newStartTime, newEndTime) 
 };
 
 function createEmptySchedule(datesArr, startTime, endTime) {
-// const createEmptySchedule = (datesArr, startTime, endTime) => {
     let emptySchedule = {};
 
     for (const date of datesArr) {
@@ -115,17 +108,7 @@ const dailySched = {
         "11:00 AM": false,
         "11:30 AM": true,
         "12:00 PM": true,
-        "12:30 PM": false,
-        "1:00 PM": false,
-        "1:30 PM": true,
-        "2:00 PM": true,
-        "2:30 PM": true,
-        "3:00 PM": true,
-        "3:30 PM": true,
-        "4:00 PM": false,
-        "4:30 PM": false,
-        "5:00 PM": false,
-        "5:30 PM": false
+        "12:30 PM": false
     },
         "2023-06-27": {
             "9:00 AM": true,
@@ -135,17 +118,7 @@ const dailySched = {
             "11:00 AM": true,
             "11:30 AM": false,
             "12:00 PM": true,
-            "12:30 PM": true,
-            "1:00 PM": true,
-            "1:30 PM": false,
-            "2:00 PM": false,
-            "2:30 PM": false,
-            "3:00 PM": false,
-            "3:30 PM": true,
-            "4:00 PM": true,
-            "4:30 PM": true,
-            "5:00 PM": true,
-            "5:30 PM": false
+            "12:30 PM": true
     },
     "2023-06-28": {
         "9:00 AM": false,
@@ -155,17 +128,7 @@ const dailySched = {
                         "11:00 AM": true,
                             "11:30 AM": true,
                                 "12:00 PM": true,
-                                    "12:30 PM": true,
-                                        "1:00 PM": false,
-                                            "1:30 PM": false,
-                                                "2:00 PM": false,
-                                                    "2:30 PM": false,
-                                                        "3:00 PM": false,
-                                                            "3:30 PM": false,
-                                                                "4:00 PM": false,
-                                                                    "4:30 PM": true,
-                                                                        "5:00 PM": true,
-                                                                            "5:30 PM": true
+                                    "12:30 PM": true
     },
         "2023-06-29": {
             "9:00 AM": false,
@@ -175,37 +138,17 @@ const dailySched = {
             "11:00 AM": false,
             "11:30 AM": false,
             "12:00 PM": true,
-            "12:30 PM": true,
-            "1:00 PM": true,
-                "1:30 PM": true,
-                    "2:00 PM": true,
-                        "2:30 PM": true,
-                            "3:00 PM": true,
-                                "3:30 PM": true,
-                                    "4:00 PM": true,
-                                        "4:30 PM": true,
-                                            "5:00 PM": false,
-                                                                            "5:30 PM": false
+            "12:30 PM": true
     },
     "2023-06-30": {
         "9:00 AM": true,
-            "9:30 AM": true,
-                "10:00 AM": true,
-                    "10:30 AM": true,
-                        "11:00 AM": true,
-                            "11:30 AM": true,
-                                "12:00 PM": true,
-                                    "12:30 PM": true,
-                                        "1:00 PM": false,
-                                            "1:30 PM": false,
-                                                "2:00 PM": false,
-                                                    "2:30 PM": false,
-                                                        "3:00 PM": false,
-                                                            "3:30 PM": false,
-                                                                "4:00 PM": false,
-                                                                    "4:30 PM": false,
-                                                                        "5:00 PM": false,
-                                                                            "5:30 PM": false
+        "9:30 AM": true,
+        "10:00 AM": true,
+        "10:30 AM": true,
+        "11:00 AM": true,
+        "11:30 AM": true,
+        "12:00 PM": true,
+        "12:30 PM": true
     }}
 
 
@@ -217,5 +160,5 @@ const dates = [
     "2023-06-30"
 ]
 
-// console.log(updateDailySchedule(dailySched, dates, "9:00 AM", "4:00 PM"))
-updateDailySchedule(dailySched, dates, "9:00 AM", "4:00 PM")
+console.log(updateDailySchedule(dailySched, dates, "9:00 AM", "11:00 AM"))
+// updateDailySchedule(dailySched, dates, "9:00 AM", "4:00 PM")
