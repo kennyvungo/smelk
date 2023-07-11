@@ -4,7 +4,7 @@ Here is the [Live Site Link](https://smelk.onrender.com/), check it out!
 
 # Background
 
-RendezView is an original website application that simplifies plannining events with your friends. By utilizing Open AI to generate event ideas for those that just want to hangout, but are unsure of the activites possible. Or for those that want to find a time to hangout or celebrate an occasion, but everyone has packed schedules. This website is the perfect fit for users to organize an event and compare their different available times. With just a few clicks, a registered user can create an event and start sending a link to their friends. A logged in user will have full CRUD functionality to create, update, or delete an event. A user will also be able have full CRUD functionality on a schedule. 
+RendezView is an original website application that simplifies planning events with your friends. By utilizing Open AI to generate event ideas for those that just want to hangout, but are unsure of the activites possible. Or for those that want to find a time to hangout or celebrate an occasion, but everyone has packed schedules. This website is the perfect fit for users to organize an event and compare their different available times. With just a few clicks, a registered user can create an event and start sending a link to their friends. A logged in user will have full CRUD functionality to create, update, or delete an event. A user will also be able have full CRUD functionality on a schedule. 
 
 # Functionality & MVPs
 RendezView has 7 core features:
