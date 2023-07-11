@@ -47,7 +47,6 @@ router.post('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        console.log(req.params.id)
         const event = await Event.findById(req.params.id)
         return res.json(event);
     }
@@ -67,7 +66,6 @@ router.patch('/:id', async (req, res, next) => {
         // if start or end times change, update schedules
 
         if (req.body.dailyEventStartTime || req.body.dailyEventEndTime || req.body.dates) {
-            // console.log("test");
             const startTime = req.body.dailyEventStartTime === undefined ? originalEvent.dailyEventStartTime :  req.body.dailyEventStartTime;
             const endTime = req.body.dailyEventEndTime === undefined ? originalEvent.dailyEventEndTime :  req.body.dailyEventEndTime;
             const dates = req.body.dates === undefined ? originalEvent.dates :  req.body.dates;
@@ -87,7 +85,6 @@ router.patch('/:id', async (req, res, next) => {
         return res.json(updatedEvent);
     }
     catch (err) {
-        console.log(err);
         const error = new Error('Event not found');
         error.statusCode = 404;
         error.errors = { message: "No event found with that id" };
@@ -98,7 +95,6 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
     try {
         const event = await Event.findOneAndDelete({_id: req.params.id})
-        // console.log(event.owner);
         const schedules = await Schedule.deleteMany({ eventId: req.params.id })
         let user = await User.updateOne({ _id: event.owner }, { $pull: { ownedEvents: event._id }})
         user = await User.findById(event.owner)

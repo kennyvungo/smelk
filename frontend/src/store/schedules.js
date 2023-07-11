@@ -70,7 +70,6 @@ export const createSchedule = (data) => async (dispatch) => {
         const resData = await res.json();
         dispatch(receiveNewSchedule(resData.schedule));
         dispatch(receiveEvent(resData.event));
-        // debugger
         return resData.schedule;
     } catch(err) {
         const resBody = await err.json();

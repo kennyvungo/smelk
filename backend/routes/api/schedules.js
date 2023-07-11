@@ -45,7 +45,6 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/event/:eventId/name/:name', async (req, res) => {
-  console.log(req.params.name);
   const schedule = await Schedule.find({ fname: req.params.name.split("&")[0], lname: req.params.name.split("&")[1], eventId: req.params.eventId })
   return res.json(schedule[0])
 })

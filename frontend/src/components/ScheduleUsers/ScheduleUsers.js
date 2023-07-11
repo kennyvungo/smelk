@@ -18,7 +18,6 @@ const ScheduleUsers = () => {
     }
 
     const sendDeleteSchedule = () => {
-        // console.log(schedule);
         dispatch(deleteSchedule(schedule["_id"]))
         dispatch(fetchAggSchedule(event["_id"]))
     }
@@ -30,7 +29,6 @@ const ScheduleUsers = () => {
             eventId: event["_id"],
             dailySchedule: event.emptySchedule
         };
-        // console.log(schedule);
         dispatch(createSchedule(schedule));
         setFirstName('')
         setLastName('')

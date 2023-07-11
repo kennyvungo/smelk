@@ -29,14 +29,9 @@ const ChatGPTEvent = () => {
 
     const handleChatSubmit = async (e) => {
         e.preventDefault();
-        console.log("form submitted")
-        console.log(setting)
-        console.log(energy)
-        console.log(people)
 
         const query = await generateQuery();
         const eventArr = query.split(",");
-        console.log(eventArr);
         setEventOne(eventArr[0]);
         setEventTwo(eventArr[1]);
         setEventThree(eventArr[2]);

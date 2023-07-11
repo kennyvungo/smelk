@@ -3,10 +3,10 @@ import { isBefore, isAfter, format, startOfWeek, addDays, startOfMonth, endOfMon
 import './Calendar.css';
 import {BiSolidLeftArrowCircle, BiSolidRightArrowCircle} from "react-icons/bi";
 
-const Calendar = ({ onDatesChange }) => {
+const Calendar = ({ eventDates, onDatesChange }) => {
     const today = startOfDay(new Date());
     const [currentMonth, setCurrentMonth] = useState(startOfMonth(new Date()));
-    const [selectedDates, setSelectedDates] = useState([]);
+    const [selectedDates, setSelectedDates] = useState(eventDates);
     const [dragStart, setDragStart] = useState(null);
     const [dragEnd, setDragEnd] = useState(null);
     

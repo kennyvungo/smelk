@@ -75,7 +75,6 @@ const EventForm = ({ eventId} ) => {
     } else {
       savedEvent = await dispatch(createEvent(newEvent));
       if (savedEvent) {
-        console.log(savedEvent);
         history.push("/event/" + savedEvent.event._id);
       }
     }
@@ -86,7 +85,6 @@ const EventForm = ({ eventId} ) => {
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-    console.log("form submitted")
     const query = await generateQuery();
     const eventArr = query.split(",");
     setEventOne(eventArr[0]);
@@ -159,7 +157,7 @@ const EventForm = ({ eventId} ) => {
                     </label>
                     <br/>
                     <label>
-                      <Calendar onDatesChange={handleDatesChange}/>
+                      <Calendar eventDates={eventDates} onDatesChange={handleDatesChange}/>
                     </label>
                     <br/>
                     <label>

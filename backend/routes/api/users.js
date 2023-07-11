@@ -15,7 +15,6 @@ router.get('/current', restoreUser, async (req, res) => {
   }
   if (!req.user) return res.json(null);
   const dbUser = await User.findById({_id: req.user.id})
-  // console.log(dbUser.fname);
   return res.json({
     _id: req.user._id,
     username: req.user.username,
@@ -92,7 +91,6 @@ router.post('/login', async (req, res, next) => {
       err.errors = { username: "Invalid credentials" };
       return next(err);
     }
-    console.log(user);
     return res.json(await loginUser(user));
   })(req, res, next);
 });
