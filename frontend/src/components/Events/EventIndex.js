@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import './Event.css'
 import { removeCurrentSchedule} from '../../store/schedules';
 import {MdAutoDelete} from 'react-icons/md'
+import { AiOutlinePlus } from 'react-icons/ai'
+
+
 function EventIndex() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
@@ -31,7 +34,7 @@ function EventIndex() {
             <div >
                 { userEvents.length > 0 ? 
                 (<div class="main-page-calendar-header">
-                    <h2 className="event-page-title">Your Upcoming Events</h2> 
+                    <h2 className="event-page-title upcoming-events-title">Your Upcoming Events</h2> 
 
                 </div>):
                 (<div class="main-page-calendar-header">
@@ -65,9 +68,14 @@ function EventIndex() {
                         </div>
                     </Link>
                 )}
-                <div class="main-page-calendar-footer">
-                    <Link to="/event/new" className="event-index-create-event">Create New Event</Link>
-                </div>
+                <Link to="/event/new" className="main-page-calendar-footer">
+                    <div class="event-index-create-event">
+                            {/* <div className="plus-sign"> */}
+                                <AiOutlinePlus/> 
+                            {/* </div> */}
+                            Create New Event
+                    </div>
+                </Link>
             </div>
         </>
     );
