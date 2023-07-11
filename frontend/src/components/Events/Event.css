@@ -82,16 +82,17 @@
     margin-left: 50px;
     margin-right: 50px;
     color: black;
-    background-color: white;
     margin-top: 10px;
     padding: 10px;
     text-decoration: none;
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
-.event-index-create-event:hover {
-    text-decoration: underline;
+.upcoming-events-title {
+    color: white;
 }
+
 
 .event-index-container {
     margin-left: 20%;
@@ -116,7 +117,7 @@
 }
 
 .main-page-calendar-footer {
-    background-color: white;
+    background-color: lightgreen;
     margin-left: 50px;
     margin-right: 50px;
     padding: 15px;
@@ -124,6 +125,10 @@
     border-bottom-right-radius: 50px;
     text-align: center;
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .event-index-input {
