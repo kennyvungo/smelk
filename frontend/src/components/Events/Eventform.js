@@ -84,10 +84,7 @@ const EventForm = ({ eventId} ) => {
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-    console.log("form submitted")
-    console.log(setting)
-    console.log(energy)
-    console.log(people)
+
     const query = await generateQuery();
     const eventArr = query.split(",");
     setEventOne(eventArr[0]);
@@ -103,25 +100,38 @@ const EventForm = ({ eventId} ) => {
       <span className='login-background event-form-container'>
         <h2 className='event-form-title'>Need ideas?</h2>
           <form className='event-form chat-gpt-form' onSubmit={handleChatSubmit}>
-              <h3 className="chat-subheading">Choose your setting</h3>
-              <button className={settingButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setSetting("inside");setSettingButton(0)}}>Inside</button>
-              <button className={settingButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setSetting("outside");setSettingButton(1)}}>Outside</button>
+              <h3 className="chat-subheading">What type of setting?</h3>
+              <input
+                  required
+                  type="text"
+                  placeholder="ex. inside or outside?"
+                  onChange={(e) => setSetting(e.target.value)}
+              />
+              {/* <button className={settingButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setSetting("inside");setSettingButton(0)}}>Inside</button>
+              <button className={settingButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setSetting("outside");setSettingButton(1)}}>Outside</button> */}
               <br />
               <br />
               <h3 className="chat-subheading">What vibe are you going for?</h3>
-              <button className={energyButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setEnergy("active");setEnergyButton(0)}}>Active</button>
-              <button className={energyButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setEnergy("chill");setEnergyButton(1)}}>Chill</button>
+              <input
+                  required
+                  type="text"
+                  placeholder="ex. active or chill?"
+                  onChange={(e) => setEnergy(e.target.value)}
+              />
+              {/* <button className={energyButton === 0 ? 'demo-button clicked-button left-button' : 'demo-button left-button'} type="button" onClick={() => {setEnergy("active");setEnergyButton(0)}}>Active</button>
+              <button className={energyButton === 1 ? 'demo-button clicked-button right-button' : 'demo-button right-button'} type="button" onClick={() => {setEnergy("chill");setEnergyButton(1)}}>Chill</button> */}
               <br />
               <br />
               <h3 className="chat-subheading">How many people are you thinking?</h3>
               <input
+                  required
                   type="text"
                   placeholder="# people"
                   onChange={(e) => setPeople(e.target.value)}
               />
               <br />
               <br />
-              <button className='demo-button chat-gpt-submit' type="submit">Find Us Something To Do</button>
+              <button className='demo-button chat-gpt-submit' name="chatSubmit" type="submit">Find Us Something To Do</button>
           </form>
           <h3 className={hidden ? 'chat-subheading hidden' : 'chat-subheading'}>Our suggestions</h3>
           <div className='chat-result-buttons-container'>
