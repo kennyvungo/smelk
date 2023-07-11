@@ -1,3 +1,10 @@
+.main-page-full-calendar {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .event-show-event-name {
     font-size: 50px !important;
     text-align: center;
@@ -106,25 +113,29 @@
 
 .main-page-calendar-header {
     background-color: rgb(230, 99, 99);
-    margin-top: 100px;
     margin-left: 50px;
     margin-right: 50px;
-    padding: 40px;
+    margin-top: 125px;
+    padding: 10px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     text-align: center;
-    position: relative;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
 }
 
 .main-page-calendar-footer {
     background-color: lightgreen;
     margin-left: 50px;
     margin-right: 50px;
-    padding: 15px;
+    width: 100%;
+    padding: 10px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     text-align: center;
     margin-top: 10px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -158,6 +169,11 @@
 .event-title-info {
     text-decoration: none;
     color: black;
+}
+
+.event-positioning {
+    margin-top: 250px;
+    width: 100%;
 }
 
 .event-index-input:hover {
@@ -287,40 +303,36 @@
 
 }
 
-.ring {
+.circles-and-rings {
     position: absolute;
+    z-index: 100;
+    width: 100%;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.rings {
+    display: flex;
+    justify-content: space-around;
+}
+
+.circles {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ring {
     width: 100px;
     height: 100px;
     border: 10px solid rgb(104, 104, 104); 
     border-radius: 50%;
     border-bottom-color: transparent;
-    transform: rotate(310deg);
+    transform: rotate(325deg);
     z-index: 1;
 }
 
-
-.ring-two {
-    top: 15%;
-    left: 15%;
-}
-
-.ring-three {
-    top: 15%;
-    left: 35%;
-}
-
-.ring-one {
-    top: 15%;
-    left: 55%;
-}
-
-.ring-four {
-    top: 15%;
-    left: 75%;
-}
-
 .circle {
-    position: absolute;
     transform: translate(-50%, -50%);
     width: 25px; 
     height: 25px; 
@@ -328,24 +340,5 @@
     border-radius: 50%;
 }
 
-.circle-one {
-    top: 31%; 
-    left: 19.5%; 
-}
-
-.circle-two {
-    top: 31%; 
-    left: 39.5%; 
-}
-
-.circle-three {
-    top: 31%; 
-    left: 59.5%; 
-}
-
-.circle-four {
-    top: 31%; 
-    left: 79.5%; 
-}
 
 

@@ -31,43 +31,49 @@ function EventIndex() {
 
     return (
         <>
-            <div >
-                { userEvents.length > 0 ? 
-                (<div class="main-page-calendar-header">
-                    <h2 className="event-page-title upcoming-events-title">Your Upcoming Events</h2> 
-
-                </div>):
-                (<div class="main-page-calendar-header">
-                    <h2 className="event-page-title">No Upcoming Events</h2> 
-                </div>)}
-                {/* <div class="circle circle-one"></div>
-                <div class="circle circle-two"></div>
-                <div class="circle circle-three"></div>
-                <div class="circle circle-four"></div>
-                <div class="ring ring-one"></div>
-                <div class="ring ring-two"></div>
-                <div class="ring ring-three"></div>
-                <div class="ring ring-four"></div> */}
-
-
-                {userEvents.map(event => 
-                    <Link to={`/event/${event._id}`} className='event-title-info'>
-                        <div key={event._id} className="event-index-input">
-                                <div className="event-index-info">
-                                    <div>
-                                        <Link to={`/event/${event._id}`} className='event-title-info'>{event.name} </Link>
-                                    </div>
-                                    {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
-                                </div>
-                                <ul className="event-edit-delete-buttons">
-                                    <div className='edit-del-button'>
-                                        <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
-                                        <li onClick={() => handleDelete(event._id)} className='delete-button'> <MdAutoDelete/></li>
-                                    </div>
-                                </ul>
+            <div className="main-page-full-calendar">
+                <div>
+                    <div className="circles-and-rings">
+                        <div className="rings">
+                            <div class="ring ring-one"></div>
+                            <div class="ring ring-two"></div>
+                            <div class="ring ring-three"></div>
+                            <div class="ring ring-four"></div>
                         </div>
-                    </Link>
-                )}
+                        <div className="circles">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                            <div class="circle circle-four"></div>
+                        </div>
+                    </div>
+                    <div class="main-page-calendar-header">
+                        { userEvents.length > 0 ?
+                        (<h2 className="event-page-title upcoming-events-title">Your Upcoming Events</h2>) :
+                        (<h2 className="event-page-title upcoming-events-title">No Upcoming Events</h2>)}
+
+                    </div>
+                </div>
+                <div className='event-positioning'>
+                    {userEvents.map(event => 
+                        <Link to={`/event/${event._id}`} className='event-title-info'>
+                            <div key={event._id} className="event-index-input">
+                                    <div className="event-index-info">
+                                        <div>
+                                            <Link to={`/event/${event._id}`} className='event-title-info'>{event.name} </Link>
+                                        </div>
+                                        {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
+                                    </div>
+                                    <ul className="event-edit-delete-buttons">
+                                        <div className='edit-del-button'>
+                                            <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
+                                            <li onClick={() => handleDelete(event._id)} className='delete-button'> <MdAutoDelete/></li>
+                                        </div>
+                                    </ul>
+                            </div>
+                        </Link>
+                    )}
+                </div>
                 <Link to="/event/new" className="main-page-calendar-footer">
                     <div class="event-index-create-event">
                             {/* <div className="plus-sign"> */}
