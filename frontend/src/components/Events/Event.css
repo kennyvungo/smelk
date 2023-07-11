@@ -128,7 +128,7 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 20px;
 }
 
 .event-edit-delete-buttons {
@@ -145,7 +145,11 @@
     color: black;
 }
 
-.event-title-info:hover {
+.event-index-input:hover {
+    background-color: lightgrey;
+}
+
+.event-index-info:hover {
     text-decoration: underline;
 }
 
