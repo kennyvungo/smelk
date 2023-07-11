@@ -77,7 +77,6 @@ function SignupForm () {
                         />
                     </span>
                 </label>
-                <div className="errors">{errors?.username}</div>
                 <label>
                     <span className='signup-username-container'>
                         <span className='signup-username'>Username</span>
