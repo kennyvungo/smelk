@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const { createEmptySchedule } = require('../utils/scheduleHelper');
 
 // const { faker } = require('@faker-js/faker');
+// dotenv node seeders/seeds.js
 
 const users = [];
 
