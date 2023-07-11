@@ -18,7 +18,7 @@ const EventForm = ({ eventId} ) => {
   const [eventName, setEventName] = useState(event ? event.name : "");
   const [eventDates, setEventDates] = useState(event ? event.dates : []);
   const [eventStartTime, setEventStartTime] = useState(event ? event.dailyEventStartTime : "12:00 AM");
-  const [eventEndTime, setEventEndTime] = useState(event ? event.dailyEventEndTime : "12:00 AM");
+  const [eventEndTime, setEventEndTime] = useState(event ? event.dailyEventEndTime : "1:00 AM");
   const [setting, setSetting] = useState('')
   const [energy, setEnergy] = useState('')
   const [people, setPeople] = useState(0)
