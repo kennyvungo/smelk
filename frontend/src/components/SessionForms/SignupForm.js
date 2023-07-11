@@ -56,7 +56,8 @@ function SignupForm () {
         <form className="session-form" onSubmit={handleSubmit}>
             <div className='signup-background'>
                 <h2 className='sign-up-form'>Sign Up</h2>
-                <div className="errors">{errors?.email}</div>
+                <div className="errors">{errors?.username}</div>
+                <div className="errors">{errors?.password}</div>
                 <label>
                     <span className='first-name-container'>
                         <span className='signup-fname'>First Name</span>
@@ -77,7 +78,6 @@ function SignupForm () {
                         />
                     </span>
                 </label>
-                <div className="errors">{errors?.username}</div>
                 <label>
                     <span className='signup-username-container'>
                         <span className='signup-username'>Username</span>
@@ -88,7 +88,6 @@ function SignupForm () {
                         />
                     </span>
                 </label>
-                <div className="errors">{errors?.password}</div>
                 <label>
                     <span className='signup-password-container'>
                         <span className='signup-password'>Password</span>

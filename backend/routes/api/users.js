@@ -54,6 +54,9 @@ router.post('/register', async (req, res, next) => {
     if (user.username === req.body.username) {
       errors.username = "A user has already registered with this username";
     }
+    if (req.body.password.length < 6) {
+      errors.password = "Password is too short. Must be at least 6 characters";
+    }
     err.errors = errors;
     return next(err);
   }

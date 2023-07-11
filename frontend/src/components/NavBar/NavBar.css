@@ -10,6 +10,9 @@
 .logo-container {
     margin-top: 2%;
     cursor: pointer;
+    z-index: 9998;
+    position: relative;
+    width: 30%;
 }
 
 .NavBar {
@@ -147,6 +150,7 @@
 .picture-logo {
     width: 220px;
     height: 110px;
-    margin-left: 4%;
+    margin-left: 6%;
     opacity: 80%;
+    cursor: pointer;
 }
