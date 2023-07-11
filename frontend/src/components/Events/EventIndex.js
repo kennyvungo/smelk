@@ -37,32 +37,33 @@ function EventIndex() {
                 (<div class="main-page-calendar-header">
                     <h2 className="event-page-title">No Upcoming Events</h2> 
                 </div>)}
-                <div class="circle circle-one"></div>
+                {/* <div class="circle circle-one"></div>
                 <div class="circle circle-two"></div>
                 <div class="circle circle-three"></div>
                 <div class="circle circle-four"></div>
                 <div class="ring ring-one"></div>
                 <div class="ring ring-two"></div>
                 <div class="ring ring-three"></div>
-                <div class="ring ring-four"></div>
-                {/* <div class="ring ring-five"></div> */}
+                <div class="ring ring-four"></div> */}
 
 
                 {userEvents.map(event => 
-                    <div key={event._id} className="event-index-input">
-                        <div className="event-index-info">
-                            <div>
-                                <Link to={`/event/${event._id}`} className='event-title-info'>{event.name} </Link>
-                            </div>
-                            {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
+                    <Link to={`/event/${event._id}`} className='event-title-info'>
+                        <div key={event._id} className="event-index-input">
+                                <div className="event-index-info">
+                                    <div>
+                                        <Link to={`/event/${event._id}`} className='event-title-info'>{event.name} </Link>
+                                    </div>
+                                    {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
+                                </div>
+                                <ul className="event-edit-delete-buttons">
+                                    <div className='edit-del-button'>
+                                        <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
+                                        <li onClick={() => handleDelete(event._id)} className='delete-button'> Delete</li>
+                                    </div>
+                                </ul>
                         </div>
-                        <ul className="event-edit-delete-buttons">
-                            <div className='edit-del-button'>
-                                <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
-                                <li onClick={() => handleDelete(event._id)} className='delete-button'> Delete</li>
-                            </div>
-                        </ul>
-                    </div>
+                    </Link>
                 )}
                 <div class="main-page-calendar-footer">
                     <Link to="/event/new" className="event-index-create-event">Create New Event</Link>

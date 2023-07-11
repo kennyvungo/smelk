@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/events';
@@ -6,8 +6,8 @@ import { useHistory} from 'react-router-dom';
 import { updateEvent } from '../../store/events';
 import Calendar from '../Calendar/Calendar';
 import './Event.css'
-import ChatGPTEvent from './ChatGPTEvent';
 import jwtFetch from '../../store/jwt';
+import { debounce } from 'lodash';
 
 const EventForm = ({ eventId} ) => {
   const dispatch = useDispatch();
@@ -82,9 +82,11 @@ const EventForm = ({ eventId} ) => {
 
   }
 
+  const [canClick, setCanClick] = useState(true);
+
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("form submitted")
     const query = await generateQuery();
     const eventArr = query.split(",");
     setEventOne(eventArr[0]);
