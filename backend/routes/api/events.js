@@ -75,6 +75,7 @@ router.patch('/:id', async (req, res, next) => {
             const schedules = await Schedule.find({ eventId: id })
             for (const schedule of schedules) {
                 const updatedSchedule = updateDailySchedule(schedule.dailySchedule, dates, startTime, endTime)
+                // return res.json({schedule, updatedSchedule});
                 const updates = await Schedule.updateOne({ _id: schedule._id }, { $set: { dailySchedule: updatedSchedule }})
             }
         }
@@ -83,6 +84,7 @@ router.patch('/:id', async (req, res, next) => {
         const update = await Event.updateOne({_id: id},{$set: updatedEventDetails});
         const updatedEvent = await Event.findById(id)
         return res.json(updatedEvent);
+        // return res.send('end of update message')
     }
     catch (err) {
         const error = new Error('Event not found');
