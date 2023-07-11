@@ -59,21 +59,21 @@ function SignupForm () {
                 <div className="errors">{errors?.email}</div>
                 <label>
                     <span className='first-name-container'>
-                        <span className='signup-fname'>FirstName</span>
+                        <span className='signup-fname'>First Name</span>
                         <input className='signup-fname-box'type="text"
                         value={fname}
                         onChange={update('fname')}
-                        placeholder="FirstName"
+                        placeholder="First Name"
                         />
                     </span>
                 </label>
                 <label>
                     <span className='last-name-container'>
-                        <span className='signup-lname'>LastName</span>
+                        <span className='signup-lname'>Last Name</span>
                         <input className='signup-lname-box'type="text"
                         value={lname}
                         onChange={update('lname')}
-                        placeholder="LastName"
+                        placeholder="Last Name"
                         />
                     </span>
                 </label>
