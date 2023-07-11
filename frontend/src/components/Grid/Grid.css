@@ -1,8 +1,9 @@
 .grid {
     display: flex;
     flex-direction: row;
-    margin: 20px 0;
+    margin: 10px 0;
     /* width: 100%; */
+    overflow: scroll;
 }
 .grid-row {
     display: flex;

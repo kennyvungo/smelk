@@ -8,8 +8,9 @@
     /* margin: 20px; */
     background-color: rgba(215, 228, 230, 0.383);
     border: none;
-    height: 80vh;
+    height: 97%;
     box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .schedule-users-splitter {

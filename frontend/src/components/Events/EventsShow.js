@@ -32,18 +32,15 @@ function EventsShow() {
 
     return (
         <>  
-            <div className='copy-container'>
-                <div className='copy-message'> Share The Link To Your Event! </div>
-                <button onClick={copy}className="copy-button" >{!copied ? "Copy URL" : "Copied!"}</button>
-            </div>
             <div className='event-show-container'>
-                {/* <h1>Event Details</h1> */}
                 {event && (
                     <div className='event-show-header'>
+                        <div className='left-header-div'></div>
                         <h2 className='event-show-event-name'>{event.name}</h2>
-                        {/* <p>Start Time: {event.dailyEventStartTime}</p>
-                        <p>End Time: {event.dailyEventEndTime}</p>
-                    <p>Dates: {event.dates.map(date => new Date(date).toLocaleDateString()).join(', ')}</p> */}
+                        <div className='copy-container'>
+                            <div className='copy-message'> Share The Link To Your Event! </div>
+                            <button onClick={copy}className="copy-button" >{!copied ? "Copy URL" : "Copied!"}</button>
+                        </div>
                     </div>
                 )}
                 <div className='event-show-content-container'>
