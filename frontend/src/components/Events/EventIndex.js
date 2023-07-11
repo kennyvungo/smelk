@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserEvents,deleteEvent } from '../../store/events';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Event.css'
 import { removeCurrentSchedule} from '../../store/schedules';
 import {MdAutoDelete} from 'react-icons/md'
@@ -32,35 +32,32 @@ function EventIndex() {
     return (
         <>
             <div className="main-page-full-calendar">
-                <div>
-                    <div className="circles-and-rings">
-                        <div className="rings">
-                            <div class="ring ring-one"></div>
-                            <div class="ring ring-two"></div>
-                            <div class="ring ring-three"></div>
-                            <div class="ring ring-four"></div>
-                        </div>
-                        <div className="circles">
-                            <div class="circle circle-one"></div>
-                            <div class="circle circle-two"></div>
-                            <div class="circle circle-three"></div>
-                            <div class="circle circle-four"></div>
-                        </div>
+                <div className="circles-and-rings">
+                    <div className="rings">
+                        <div class="ring ring-one"></div>
+                        <div class="ring ring-two"></div>
+                        <div class="ring ring-three"></div>
+                        <div class="ring ring-four"></div>
                     </div>
-                    <div class="main-page-calendar-header">
-                        { userEvents.length > 0 ?
-                        (<h2 className="event-page-title upcoming-events-title">Your Upcoming Events</h2>) :
-                        (<h2 className="event-page-title upcoming-events-title">No Upcoming Events</h2>)}
-
+                    <div className="circles">
+                        <div class="circle circle-one"></div>
+                        <div class="circle circle-two"></div>
+                        <div class="circle circle-three"></div>
+                        <div class="circle circle-four"></div>
                     </div>
+                </div>
+                <div class="main-page-calendar-header">
+                    { userEvents.length > 0 ?
+                    (<h2 className="event-page-title upcoming-events-title">Your Upcoming Events</h2>) :
+                    (<h2 className="event-page-title upcoming-events-title">No Upcoming Events</h2>)}
                 </div>
                 <div className='event-positioning'>
                     {userEvents.map(event => 
-                        <Link to={`/event/${event._id}`} className='event-title-info'>
+                        <NavLink to={`/event/${event._id}`} className='event-title-info'>
                             <div key={event._id} className="event-index-input">
-                                    <div className="event-index-info">
+                                    <div>
                                         <div>
-                                            <Link to={`/event/${event._id}`} className='event-title-info'>{event.name} </Link>
+                                            <Link to={`/event/${event._id}`}>{event.name} </Link>
                                         </div>
                                         {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
                                     </div>
@@ -71,7 +68,7 @@ function EventIndex() {
                                         </div>
                                     </ul>
                             </div>
-                        </Link>
+                        </NavLink>
                     )}
                 </div>
                 <Link to="/event/new" className="main-page-calendar-footer">
