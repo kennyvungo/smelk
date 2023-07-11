@@ -153,6 +153,7 @@ const EventForm = ({ eventId} ) => {
                         type="text"
                         value={eventName}
                         onChange={e => setEventName(e.target.value)}
+                        required
                       />
                     </label>
                     <br/>
