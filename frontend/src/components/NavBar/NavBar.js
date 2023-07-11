@@ -23,7 +23,9 @@ function NavBar () {
   return (
     <>
     <div className='logo-container'>
-      <img className='picture-logo' src={logo} alt='logo image' />
+        <Link to={loggedIn ? '/events' : '/'}> 
+          <img className='picture-logo' src={logo} alt='logo image' />
+        </Link>
     </div>
       {loggedIn ? (
           <div className="links-user">
