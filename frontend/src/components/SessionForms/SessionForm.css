@@ -153,6 +153,11 @@
     cursor: pointer;
 }
 
+.signup-button:active {
+    transform: scale(0.8);
+    background-color: antiquewhite;
+}
+
 .signup-button:hover {
     font-weight: 400;
 }
@@ -257,6 +262,11 @@
     cursor: pointer;
 }
 
+.login-button:active {
+    transform: scale(0.8);
+    background-color: antiquewhite;
+}
+
 .login-button:hover {
     font-weight: 400;
 }
@@ -276,6 +286,11 @@
     text-align: center;
     border-color: none;
     background-color: transparent;
+}
+
+.demo-button:active {
+    transform: scale(0.8);
+    background-color: antiquewhite;
 }
 
 .demo-button:hover {
