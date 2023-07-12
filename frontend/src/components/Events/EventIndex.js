@@ -55,9 +55,9 @@ function EventIndex() {
                     {userEvents.map(event => 
                         <NavLink to={`/event/${event._id}`} className='event-title-info'>
                             <div key={event._id} className="event-index-input">
-                                    <div>
+                                    <div className="event-index-info">
                                         <div>
-                                            <Link to={`/event/${event._id}`}>{event.name} </Link>
+                                            <Link to={`/event/${event._id}`} className='event-title-info'>{event.name} </Link>
                                         </div>
                                         {event.responses.length > 0 ? `${event.responses.length} responses` : "No responses yet"}
                                     </div>
