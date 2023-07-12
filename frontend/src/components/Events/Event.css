@@ -150,6 +150,7 @@
     line-height: 120%;
     font-weight: 200;
     color: black;
+    background-color: white;
     /* border-bottom: 5px solid black; */
     margin-top: 10px;
     display: flex;
@@ -168,7 +169,6 @@
 
 .event-title-info {
     text-decoration: none;
-    background-color: white;
     color: black;
     display:block;
     width: 100%;
