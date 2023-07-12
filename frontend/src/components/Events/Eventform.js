@@ -28,6 +28,8 @@ const EventForm = ({ eventId} ) => {
   const [eventOne, setEventOne] = useState("")
   const [eventTwo, setEventTwo] = useState("")
   const [eventThree, setEventThree] = useState("")
+  const [dateError,setdateError] = useState(false);
+
 
   const generateQuery = async () => {
     const response = await jwtFetch("/api/events/generate", {
@@ -57,28 +59,33 @@ const EventForm = ({ eventId} ) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newEvent = {
-      owner: user._id,
-      name: eventName,
-      dates: eventDates,
-      dailyEventStartTime: eventStartTime,
-      dailyEventEndTime: eventEndTime,
-    };
-
-    let savedEvent;
-
-    if (eventId) {
-      savedEvent = await dispatch(updateEvent(eventId, newEvent));
-      if (savedEvent) {
-        history.push("/event/" + eventId);
-      }
-    } else {
-      savedEvent = await dispatch(createEvent(newEvent));
-      if (savedEvent) {
-        history.push("/event/" + savedEvent.event._id);
-      }
+    if(eventDates.length === 0){
+      setdateError(true);
     }
-
+    else{
+      const newEvent = {
+        owner: user._id,
+        name: eventName,
+        dates: eventDates,
+        dailyEventStartTime: eventStartTime,
+        dailyEventEndTime: eventEndTime,
+      };
+      
+      let savedEvent;
+      
+      if (eventId) {
+        savedEvent = await dispatch(updateEvent(eventId, newEvent));
+        if (savedEvent) {
+          history.push("/event/" + eventId);
+        }
+      } else {
+        savedEvent = await dispatch(createEvent(newEvent));
+        if (savedEvent) {
+          history.push("/event/" + savedEvent.event._id);
+        }
+      }
+      
+    }
   }
 
   const [canClick, setCanClick] = useState(true);
@@ -145,7 +152,7 @@ const EventForm = ({ eventId} ) => {
               <h2 className='event-form-title'>
                 {eventId ? 'Update Event' : 'Create Event'}
               </h2>
-              <div className='event-errors'></div>
+              {dateError && <div className='errors'>Need to select dates</div>}
               <div className='event-form-input'>
                     <label>
                       <span className='availability-subheader'>Event Name</span>

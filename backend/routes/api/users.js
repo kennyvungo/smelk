@@ -46,17 +46,21 @@ router.post('/register', async (req, res, next) => {
   const user = await User.findOne({
     username: req.body.username 
   });
-  if (user) {
-    const err = new Error("Validation Error");
+  const err = new Error("Validation Error");
+  const errors = {};
+  if (req.body.password.length < 6) {
     err.statusCode = 400;
-    const errors = {};
+    errors.password = "Password is too short. Must be at least 6 characters";
+    err.errors = errors
+  }
+  if (user) {
+    err.statusCode = 400;
     if (user.username === req.body.username) {
       errors.username = "A user has already registered with this username";
     }
-    if (req.body.password.length < 6) {
-      errors.password = "Password is too short. Must be at least 6 characters";
-    }
     err.errors = errors;
+  }
+  if(Object.values(err).length > 0){
     return next(err);
   }
   const newUser = new User({

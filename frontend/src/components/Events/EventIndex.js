@@ -26,7 +26,7 @@ function EventIndex() {
 
     const handleDelete = async (eventId) => {
         await dispatch(deleteEvent(eventId));
-        dispatch(fetchUserEvents(user._id));
+        // await dispatch(fetchUserEvents(user._id));
     };
 
     return (
