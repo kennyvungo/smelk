@@ -105,6 +105,7 @@
 
 .upcoming-events-title {
     color: white;
+    padding-top: 30px;
 }
 
 .event-index-container {
@@ -121,7 +122,7 @@
     background-color: rgb(230, 99, 99);
     margin-left: 50px;
     margin-top: 125px;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0px 50px 0px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     text-align: center;
