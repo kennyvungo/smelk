@@ -25,10 +25,10 @@ const events = [
     new Event ({
         owner: users[0]._id,
         name: "MERN SharkTank",
-        dates: ['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29','2023-06-30'],
+        dates: ['2023-11-26', '2023-11-27', '2023-11-28', '2023-11-29','2023-11-30'],
         dailyEventStartTime: "9:00 AM",
         dailyEventEndTime: "6:00 PM",
-        emptySchedule: createEmptySchedule(['2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29', '2023-06-30'], "9:00 AM","6:00 PM"),
+        emptySchedule: createEmptySchedule(['2023-11-26', '2023-11-27', '2023-11-28', '2023-11-29', '2023-11-30'], "9:00 AM","6:00 PM"),
         responses: [
             {fname: 'Lauren', lname: 'Cary'},
             {fname: 'Demo', lname: 'User'},
@@ -38,10 +38,10 @@ const events = [
     new Event({
         owner: users[0]._id,
         name: "Graduation Shindigs",
-        dates: ['2023-07-14', '2023-07-15', '2023-07-16'],
+        dates: ['2023-12-14', '2023-12-15', '2023-12-16'],
         dailyEventStartTime: "4:00 PM",
         dailyEventEndTime: "10:00 PM",
-        emptySchedule: createEmptySchedule(['2023-07-14', '2023-07-15', '2023-07-16'], "4:00 PM", "10:00 PM"),
+        emptySchedule: createEmptySchedule(['2023-12-14', '2023-12-15', '2023-12-16'], "4:00 PM", "10:00 PM"),
         responses: [
             { fname: 'Kenny', lname: 'Ngo' },
             { fname: 'Demo', lname: 'User' },
@@ -57,7 +57,7 @@ const schedules = [
         lname: "Cary",
         eventId: events[0]._id,
         dailySchedule: {
-            '2023-06-26': {
+            '2023-11-26': {
                 "9:00 AM": true,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -77,7 +77,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-27': {
+            '2023-11-27': {
                 "9:00 AM": true,
                 "9:30 AM": true,
                 "10:00 AM": true,
@@ -97,7 +97,7 @@ const schedules = [
                 "5:00 PM": true,
                 "5:30 PM": false
             }, 
-            '2023-06-28': {
+            '2023-11-28': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -117,7 +117,7 @@ const schedules = [
                 "5:00 PM": true,
                 "5:30 PM": true
             }, 
-            '2023-06-29': {
+            '2023-11-29': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -137,7 +137,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-30': {
+            '2023-11-30': {
                 "9:00 AM": true,
                 "9:30 AM": true,
                 "10:00 AM": true,
@@ -164,7 +164,7 @@ const schedules = [
         lname: "Bansal",
         eventId: events[0]._id,
         dailySchedule: {
-            '2023-06-26': {
+            '2023-11-26': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -184,7 +184,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-27': {
+            '2023-11-27': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -204,7 +204,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-28': {
+            '2023-11-28': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": true,
@@ -224,7 +224,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-29': {
+            '2023-11-29': {
                 "9:00 AM": true,
                 "9:30 AM": true,
                 "10:00 AM": true,
@@ -244,7 +244,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-30': {
+            '2023-11-30': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -271,7 +271,7 @@ const schedules = [
         lname: "User",
         eventId: events[0]._id,
         dailySchedule: {
-            '2023-06-26': {
+            '2023-11-26': {
                 "9:00 AM": true,
                 "9:30 AM": true,
                 "10:00 AM": false,
@@ -291,7 +291,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-27': {
+            '2023-11-27': {
                 "9:00 AM": true,
                 "9:30 AM": true,
                 "10:00 AM": true,
@@ -311,7 +311,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-28': {
+            '2023-11-28': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -331,7 +331,7 @@ const schedules = [
                 "5:00 PM": true,
                 "5:30 PM": true
             },
-            '2023-06-29': {
+            '2023-11-29': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -351,7 +351,7 @@ const schedules = [
                 "5:00 PM": false,
                 "5:30 PM": false
             },
-            '2023-06-30': {
+            '2023-11-30': {
                 "9:00 AM": false,
                 "9:30 AM": false,
                 "10:00 AM": false,
@@ -378,7 +378,7 @@ const schedules = [
         lname: "Ngo",
         eventId: events[1]._id,
         dailySchedule: {
-            '2023-07-14': {
+            '2023-12-14': {
                 "4:00 PM": true,
                 "4:30 PM": true,
                 "5:00 PM": true,
@@ -392,7 +392,7 @@ const schedules = [
                 "9:00 PM": false,
                 "9:30 PM": false
             },
-            '2023-07-15': {
+            '2023-12-15': {
                 "4:00 PM": true,
                 "4:30 PM": true,
                 "5:00 PM": false,
@@ -406,7 +406,7 @@ const schedules = [
                 "9:00 PM": true,
                 "9:30 PM": true
             },
-            '2023-07-16': {
+            '2023-12-16': {
                 "4:00 PM": false,
                 "4:30 PM": false,
                 "5:00 PM": false,
@@ -427,7 +427,7 @@ const schedules = [
         lname: "User",
         eventId: events[1]._id,
         dailySchedule: {
-            '2023-07-14': {
+            '2023-12-14': {
                 "4:00 PM": false,
                 "4:30 PM": false,
                 "5:00 PM": false,
@@ -441,7 +441,7 @@ const schedules = [
                 "9:00 PM": false,
                 "9:30 PM": false
             },
-            '2023-07-15': {
+            '2023-12-15': {
                 "4:00 PM": true,
                 "4:30 PM": true,
                 "5:00 PM": true,
@@ -455,7 +455,7 @@ const schedules = [
                 "9:00 PM": true,
                 "9:30 PM": true
             },
-            '2023-07-16': {
+            '2023-12-16': {
                 "4:00 PM": false,
                 "4:30 PM": true,
                 "5:00 PM": true,
@@ -476,7 +476,7 @@ const schedules = [
         lname: "Tan",
         eventId: events[1]._id,
         dailySchedule: {
-            '2023-07-14': {
+            '2023-12-14': {
                 "4:00 PM": false,
                 "4:30 PM": true,
                 "5:00 PM": true,
@@ -490,7 +490,7 @@ const schedules = [
                 "9:00 PM": true,
                 "9:30 PM": true
             },
-            '2023-07-15': {
+            '2023-12-15': {
                 "4:00 PM": true,
                 "4:30 PM": true,
                 "5:00 PM": false,
@@ -504,7 +504,7 @@ const schedules = [
                 "9:00 PM": true,
                 "9:30 PM": true
             },
-            '2023-07-16': {
+            '2023-12-16': {
                 "4:00 PM": false,
                 "4:30 PM": false,
                 "5:00 PM": false,
@@ -525,7 +525,7 @@ const schedules = [
         lname: "Le",
         eventId: events[1]._id,
         dailySchedule: {
-            '2023-07-14': {
+            '2023-12-14': {
                 "4:00 PM": false,
                 "4:30 PM": true,
                 "5:00 PM": true,
@@ -539,7 +539,7 @@ const schedules = [
                 "9:00 PM": false,
                 "9:30 PM": false
             },
-            '2023-07-15': {
+            '2023-12-15': {
                 "4:00 PM": true,
                 "4:30 PM": true,
                 "5:00 PM": false,
@@ -553,7 +553,7 @@ const schedules = [
                 "9:00 PM": false,
                 "9:30 PM": false
             },
-            '2023-07-16': {
+            '2023-12-16': {
                 "4:00 PM": false,
                 "4:30 PM": false,
                 "5:00 PM": false,

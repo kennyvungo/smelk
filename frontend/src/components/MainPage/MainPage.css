@@ -72,10 +72,13 @@ body  {
     justify-content: space-around;
 }
 
-.fadeinout1 {
-    animation: fadeinout 10s infinite 0s;
+.main-page-img {
     width: 300px;
     height: 300px;
+}
+
+.fadeinout1 {
+    animation: fadeinout 10s infinite 0s;
     opacity: 0; 
 }
 
@@ -114,3 +117,19 @@ body  {
         opacity: 0;
     }
 } 
+
+
+.instructions-text {
+    font-family: "SF Pro Text",
+        "Myriad Set Pro",
+        "SF Pro Icons",
+        "Apple Legacy Chevron",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        sans-serif;
+    font-weight: 250;
+    padding: 10px 0 0 10px;
+    font-size: 20px;
+    text-align: center;
+}

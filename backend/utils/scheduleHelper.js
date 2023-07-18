@@ -160,5 +160,5 @@ const dates = [
     "2023-06-30"
 ]
 
-console.log(updateDailySchedule(dailySched, dates, "9:00 AM", "11:00 AM"))
+// console.log(updateDailySchedule(dailySched, dates, "9:00 AM", "11:00 AM"))
 // updateDailySchedule(dailySched, dates, "9:00 AM", "4:00 PM")

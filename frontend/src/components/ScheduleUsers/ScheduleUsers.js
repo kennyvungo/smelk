@@ -70,7 +70,7 @@ const ScheduleUsers = () => {
                         <button 
                             onClick={sendDeleteSchedule}
                             className={schedule && schedule.fname === user.fname && schedule.lname === user.lname ? 'selected-button delete-schedule-button' : 'hidden'}>
-                            {schedule && schedule.fname === user.fname && schedule.lname === user.lname ? <TiUserDelete size="4x" /> : <></> }
+                            {schedule && schedule.fname === user.fname && schedule.lname === user.lname ? <TiUserDelete /> : <></> }
                         </button>
                     </div>
                 ))}

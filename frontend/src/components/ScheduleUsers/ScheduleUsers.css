@@ -103,6 +103,7 @@ hr {
     border-bottom-right-radius: 6px;
     border-left: none;
     width: 20%;
+    font-size: 20px;
 }
 
 .delete-schedule-button:hover {
