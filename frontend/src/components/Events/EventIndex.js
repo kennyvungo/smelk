@@ -26,7 +26,7 @@ function EventIndex() {
 
     const handleDelete = async (eventId) => {
         await dispatch(deleteEvent(eventId));
-        // await dispatch(fetchUserEvents(user._id));
+        await dispatch(fetchUserEvents(user._id));
     };
 
     return (
@@ -64,7 +64,11 @@ function EventIndex() {
                                     <ul className="event-edit-delete-buttons">
                                         <div className='edit-del-button'>
                                             <Link to={`/event/edit/${event._id}`} className='edit-button'><li> Edit</li></Link>
-                                            <li onClick={() => handleDelete(event._id)} className='delete-button'> <MdAutoDelete/></li>
+                                            <Link to={`/events`}>
+                                                <li onClick={() => handleDelete(event._id)} className='delete-button'> 
+                                                    <MdAutoDelete/>
+                                                </li>
+                                            </Link>
                                         </div>
                                     </ul>
                             </div>
