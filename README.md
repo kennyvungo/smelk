@@ -29,6 +29,23 @@ RendezView comes with seven core features:
      - Suggestions are based on event details and will name the event upon selection
   ![image](https://github.com/kennyvungo/smelk/assets/128562494/d5997205-5945-4f65-a13e-31eb45bc5188)
 
+  4a. ChatGPT code
+  - When button is submitted a POST request is sent to our API endpoint along with three variables: people, setting, and energy
+  ``` javascript
+       const generateQuery = async () => {
+        const response = await jwtFetch("/api/events/generate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ people: people, setting: setting, energy: energy })
+        })
+        
+        const data = await response.json()
+        return data.response.trim();
+    }
+  ```
+
   5. CRUD Functionality for Schedules
      - All users can create, read, update, and delete schedules
      - Users can create their own schedule for an event after entering their first and last name
@@ -42,6 +59,90 @@ RendezView comes with seven core features:
 
   ![image](https://github.com/kennyvungo/smelk/assets/128562494/3453458c-b148-40d5-9123-706b46b8cdd1)
 
+  6a. Aggregate Schedule Code
+   - The aggregate schedule query was built with some help through the MongoDB pipeline.
+   - The query would first group all of the documents by date and create an array
+   - From this array it would then further group it by time and filter in the names into unavailble and available depending on true or false
+   - Finally it would coalesce everything together again to just return one document
+  ```javascript
+    const agg = await Schedule.aggregate([
+            {
+              '$addFields': {
+                'dateArray': {
+                  '$objectToArray': '$dailySchedule'
+                }
+              }
+            }, {
+              '$unwind': {
+                'path': '$dateArray'
+              }
+            }, {
+              '$addFields': {
+                'timeArray': {
+                  '$objectToArray': '$dateArray.v'
+                }
+              }
+            }, {
+              '$unwind': {
+                'path': '$timeArray'
+              }
+            }, {
+              '$group': {
+                '_id': {
+                  'event': '$eventId', 
+                  'date': '$dateArray.k', 
+                  'time': '$timeArray.k'
+                }, 
+                'available': {
+                  '$push': {
+                    '$cond': [
+                      {
+                        '$eq': [
+                          '$timeArray.v', true
+                        ]
+                      }, '$fname', null
+                    ]
+                  }
+                }, 
+                'unavailable': {
+                  '$push': {
+                    '$cond': [
+                      {
+                        '$eq': [
+                          '$timeArray.v', false
+                        ]
+                      }, '$fname', null
+                    ]
+                  }
+                }
+              }
+            }, {
+              '$group': {
+                '_id': {
+                  'event': '$_id.event', 
+                  'date': '$_id.date'
+                }, 
+                'count': {
+                  '$sum': 1
+                }, 
+                'times': {
+                  '$push': {
+                    'k': '$_id.time', 
+                    'v': {
+                      'available': '$available', 
+                      'unavailable': '$unavailable'
+                    }
+                  }
+                }
+              }
+            }, {
+              '$project': {
+                'times': {
+                  '$arrayToObject': '$times'
+                }
+              }
+            }
+  ```
   7. Production ReadMe
 
 # Technologies, Libraries, APIs
